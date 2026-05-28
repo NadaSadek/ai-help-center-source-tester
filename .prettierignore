@@ -1,0 +1,6 @@
+node_modules
+dist
+coverage
+data/embeddings.json
+data/question-embeddings.json
+data/eval-results.json
