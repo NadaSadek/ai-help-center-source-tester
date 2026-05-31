@@ -1,0 +1,50 @@
+[
+  {
+    "chunkId": "billing-period-access__chunk_001",
+    "docId": "billing-period-access",
+    "title": "Access after cancellation",
+    "category": "billing",
+    "sourcePath": "data/docs/billing/billing-period-access.md",
+    "text": "Title: Access after cancellation\n\nCategory: billing\n\nContent:\n# Access after cancellation\n\nWhen a paid ExampleOps plan is cancelled, access usually continues until the end of the current billing period.\n\nThis means your team may still be able to use paid features after cancellation. This is expected behavior and does not mean the cancellation failed. The exact access end date is shown on the billing settings page.\n\nAt the end of the billing period, the workspace moves to the free plan. Features that are not included in the free plan may stop working. Existing data remains in the workspace, but some actions may be limited until the plan is upgraded again.\n\nAccess after cancellation is different from a failed payment restriction. A cancelled plan stays active until the scheduled end date. A failed payment may restrict access earlier if the invoice remains unpaid after retry attempts."
+  },
+  {
+    "chunkId": "billing-permissions__chunk_001",
+    "docId": "billing-permissions",
+    "title": "Billing permissions",
+    "category": "billing",
+    "sourcePath": "data/docs/billing/billing-permissions.md",
+    "text": "Title: Billing permissions\n\nCategory: billing\n\nContent:\n# Billing permissions\n\nBilling settings are only available to workspace owners and users with billing admin permissions.\n\nUsers with billing permissions can view invoices, update payment methods, change plans and cancel subscriptions. Regular members cannot manage billing settings unless their role is changed.\n\nIf the previous billing admin left the company, a workspace owner can assign billing permissions to another user. If no active owner is available, contact ExampleOps support for account recovery steps.\n\nBilling permissions are separate from general workspace access. A user may be able to use the workspace but not manage billing. A user may also be a billing admin without being responsible for every workspace setting.\n\nIf your team is locked out after a payment issue, billing permissions alone may not fix the problem. Check failed payment, workspace access and entitlement sync information."
+  },
+  {
+    "chunkId": "cancel-plan__chunk_001",
+    "docId": "cancel-plan",
+    "title": "Cancel your plan",
+    "category": "billing",
+    "sourcePath": "data/docs/billing/cancel-plan.md",
+    "text": "Title: Cancel your plan\n\nCategory: billing\n\nContent:\n# Cancel your plan\n\nWorkspace owners can cancel an ExampleOps subscription from the billing settings page.\n\nWhen you cancel a paid plan, the cancellation is scheduled for the end of the current billing period. Your workspace can usually continue using paid features until that date. The workspace is not deleted when the plan is cancelled.\n\nAfter the billing period ends, the workspace moves to the free plan. Some paid features may become unavailable, including advanced exports, higher usage limits, premium integrations and some admin controls.\n\nCancelling a plan does not automatically issue a refund. Refund eligibility depends on the refund policy and the timing of the cancellation.\n\nOnly users with billing permissions can cancel a plan. If you cannot see the cancellation option, ask a workspace owner or billing admin to check your role."
+  },
+  {
+    "chunkId": "download-invoices__chunk_001",
+    "docId": "download-invoices",
+    "title": "Download invoices",
+    "category": "billing",
+    "sourcePath": "data/docs/billing/download-invoices.md",
+    "text": "Title: Download invoices\n\nCategory: billing\n\nContent:\n# Download invoices\n\nWorkspace owners and billing admins can download invoices from the billing settings page.\n\nEach invoice includes the billing period, amount charged, payment status, tax details and the payment method used. Paid invoices can be downloaded as PDF files.\n\nIf an invoice is marked as open or unpaid, the payment may still be processing or may have failed. Check the failed payment article for steps related to payment collection.\n\nInvoice access depends on your workspace role. If you cannot see invoices, ask a workspace owner or billing admin to update your permissions.\n\nDownloading an invoice does not change plan access, payment status or workspace permissions. If your team cannot access the workspace after payment, the issue may be related to workspace access or entitlement sync rather than the invoice itself."
+  },
+  {
+    "chunkId": "failed-payment__chunk_001",
+    "docId": "failed-payment",
+    "title": "Failed payment",
+    "category": "billing",
+    "sourcePath": "data/docs/billing/failed-payment.md",
+    "text": "Title: Failed payment\n\nCategory: billing\n\nContent:\n# Failed payment\n\nIf a payment fails, ExampleOps will show a billing warning to workspace owners and billing admins.\n\nCommon reasons for failed payments include expired cards, insufficient funds, bank declines, authentication requirements and payment method restrictions.\n\nExampleOps may retry the payment automatically. During the retry period, your workspace may continue to have access to paid features. If the invoice remains unpaid, access to some paid features may be restricted.\n\nA failed payment is not the same as cancelling a plan. Cancellation is requested by a user and usually takes effect at the end of the billing period. Failed payment restrictions happen when an invoice cannot be collected.\n\nIf your invoice is marked as paid but your team still cannot access the workspace, check workspace access and entitlement sync information. The issue may not be a payment failure."
+  },
+  {
+    "chunkId": "refund-policy__chunk_001",
+    "docId": "refund-policy",
+    "title": "Refund policy",
+    "category": "billing",
+    "sourcePath": "data/docs/billing/refund-policy.md",
+    "text": "Title: Refund policy\n\nCategory: billing\n\nContent:\n# Refund policy\n\nCancelling an ExampleOps plan does not automatically create a refund.\n\nRefunds are reviewed based on the type of charge, the timing of the request and whether the paid plan was used during the billing period. Monthly subscriptions are usually not refunded after the billing period has started.\n\nIf you believe a charge was made in error, contact support with your workspace name, invoice number and the reason for the refund request.\n\nRefund requests are separate from cancellation requests. Cancelling prevents future renewal charges, while a refund request asks ExampleOps to review a past charge.\n\nIf your team still has access after cancelling, that does not always mean a refund is owed. Access usually continues until the end of the paid billing period."
+  }
+]
