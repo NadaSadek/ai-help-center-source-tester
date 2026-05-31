@@ -3,7 +3,6 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-
 DOCS_DIR = Path("data/docs")
 OUTPUT_PATH = Path("data/chunks.json")
 REQUIRED_FRONTMATTER_FIELDS = ["id", "title", "category"]

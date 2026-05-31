@@ -8,35 +8,35 @@
         "docId": "billing-period-access",
         "chunkId": "billing-period-access__chunk_001",
         "title": "Access after cancellation",
-        "score": 0.156,
+        "score": 0.168,
         "rank": 1
       },
       {
         "docId": "cancel-plan",
         "chunkId": "cancel-plan__chunk_001",
         "title": "Cancel your plan",
-        "score": 0.127,
+        "score": 0.122,
         "rank": 2
+      },
+      {
+        "docId": "entitlement-sync",
+        "chunkId": "entitlement-sync__chunk_001",
+        "title": "Entitlement sync after billing changes",
+        "score": 0.113,
+        "rank": 3
+      },
+      {
+        "docId": "workspace-access",
+        "chunkId": "workspace-access__chunk_001",
+        "title": "Troubleshoot workspace access",
+        "score": 0.056,
+        "rank": 4
       },
       {
         "docId": "billing-permissions",
         "chunkId": "billing-permissions__chunk_001",
         "title": "Billing permissions",
-        "score": 0.052,
-        "rank": 3
-      },
-      {
-        "docId": "failed-payment",
-        "chunkId": "failed-payment__chunk_001",
-        "title": "Failed payment",
-        "score": 0.034,
-        "rank": 4
-      },
-      {
-        "docId": "refund-policy",
-        "chunkId": "refund-policy__chunk_001",
-        "title": "Refund policy",
-        "score": 0.032,
+        "score": 0.054,
         "rank": 5
       }
     ]
@@ -50,35 +50,35 @@
         "docId": "cancel-plan",
         "chunkId": "cancel-plan__chunk_001",
         "title": "Cancel your plan",
-        "score": 0.605,
+        "score": 0.631,
         "rank": 1
       },
       {
         "docId": "refund-policy",
         "chunkId": "refund-policy__chunk_001",
         "title": "Refund policy",
-        "score": 0.408,
+        "score": 0.421,
         "rank": 2
       },
       {
         "docId": "billing-period-access",
         "chunkId": "billing-period-access__chunk_001",
         "title": "Access after cancellation",
-        "score": 0.114,
+        "score": 0.104,
         "rank": 3
       },
       {
         "docId": "billing-permissions",
         "chunkId": "billing-permissions__chunk_001",
         "title": "Billing permissions",
-        "score": 0.048,
+        "score": 0.06,
         "rank": 4
       },
       {
         "docId": "failed-payment",
         "chunkId": "failed-payment__chunk_001",
         "title": "Failed payment",
-        "score": 0.022,
+        "score": 0.021,
         "rank": 5
       }
     ]
@@ -92,35 +92,35 @@
         "docId": "failed-payment",
         "chunkId": "failed-payment__chunk_001",
         "title": "Failed payment",
-        "score": 0.598,
+        "score": 0.55,
         "rank": 1
       },
       {
         "docId": "download-invoices",
         "chunkId": "download-invoices__chunk_001",
         "title": "Download invoices",
-        "score": 0.449,
+        "score": 0.394,
         "rank": 2
+      },
+      {
+        "docId": "change-admin-role",
+        "chunkId": "change-admin-role__chunk_001",
+        "title": "Change workspace admin role",
+        "score": 0.297,
+        "rank": 3
+      },
+      {
+        "docId": "workspace-access",
+        "chunkId": "workspace-access__chunk_001",
+        "title": "Troubleshoot workspace access",
+        "score": 0.253,
+        "rank": 4
       },
       {
         "docId": "billing-period-access",
         "chunkId": "billing-period-access__chunk_001",
         "title": "Access after cancellation",
-        "score": 0.25,
-        "rank": 3
-      },
-      {
-        "docId": "billing-permissions",
-        "chunkId": "billing-permissions__chunk_001",
-        "title": "Billing permissions",
-        "score": 0.245,
-        "rank": 4
-      },
-      {
-        "docId": "cancel-plan",
-        "chunkId": "cancel-plan__chunk_001",
-        "title": "Cancel your plan",
-        "score": 0.11,
+        "score": 0.237,
         "rank": 5
       }
     ]
@@ -134,35 +134,35 @@
         "docId": "download-invoices",
         "chunkId": "download-invoices__chunk_001",
         "title": "Download invoices",
-        "score": 0.383,
+        "score": 0.286,
         "rank": 1
+      },
+      {
+        "docId": "invite-team-members",
+        "chunkId": "invite-team-members__chunk_001",
+        "title": "Invite team members",
+        "score": 0.267,
+        "rank": 2
       },
       {
         "docId": "failed-payment",
         "chunkId": "failed-payment__chunk_001",
         "title": "Failed payment",
-        "score": 0.361,
-        "rank": 2
-      },
-      {
-        "docId": "billing-period-access",
-        "chunkId": "billing-period-access__chunk_001",
-        "title": "Access after cancellation",
-        "score": 0.296,
+        "score": 0.259,
         "rank": 3
       },
       {
-        "docId": "cancel-plan",
-        "chunkId": "cancel-plan__chunk_001",
-        "title": "Cancel your plan",
-        "score": 0.163,
+        "docId": "entitlement-sync",
+        "chunkId": "entitlement-sync__chunk_001",
+        "title": "Entitlement sync after billing changes",
+        "score": 0.2,
         "rank": 4
       },
       {
-        "docId": "refund-policy",
-        "chunkId": "refund-policy__chunk_001",
-        "title": "Refund policy",
-        "score": 0.159,
+        "docId": "workspace-access",
+        "chunkId": "workspace-access__chunk_001",
+        "title": "Troubleshoot workspace access",
+        "score": 0.186,
         "rank": 5
       }
     ]
@@ -176,35 +176,35 @@
         "docId": "download-invoices",
         "chunkId": "download-invoices__chunk_001",
         "title": "Download invoices",
-        "score": 0.368,
+        "score": 0.422,
         "rank": 1
       },
       {
         "docId": "failed-payment",
         "chunkId": "failed-payment__chunk_001",
         "title": "Failed payment",
-        "score": 0.073,
+        "score": 0.081,
         "rank": 2
       },
       {
         "docId": "billing-period-access",
         "chunkId": "billing-period-access__chunk_001",
         "title": "Access after cancellation",
-        "score": 0.025,
+        "score": 0.026,
         "rank": 3
+      },
+      {
+        "docId": "entitlement-sync",
+        "chunkId": "entitlement-sync__chunk_001",
+        "title": "Entitlement sync after billing changes",
+        "score": 0.024,
+        "rank": 4
       },
       {
         "docId": "refund-policy",
         "chunkId": "refund-policy__chunk_001",
         "title": "Refund policy",
         "score": 0.023,
-        "rank": 4
-      },
-      {
-        "docId": "cancel-plan",
-        "chunkId": "cancel-plan__chunk_001",
-        "title": "Cancel your plan",
-        "score": 0.0,
         "rank": 5
       }
     ]
@@ -218,35 +218,35 @@
         "docId": "download-invoices",
         "chunkId": "download-invoices__chunk_001",
         "title": "Download invoices",
-        "score": 0.309,
+        "score": 0.296,
         "rank": 1
       },
       {
         "docId": "billing-permissions",
         "chunkId": "billing-permissions__chunk_001",
         "title": "Billing permissions",
-        "score": 0.241,
+        "score": 0.248,
         "rank": 2
       },
       {
-        "docId": "billing-period-access",
-        "chunkId": "billing-period-access__chunk_001",
-        "title": "Access after cancellation",
-        "score": 0.144,
+        "docId": "entitlement-sync",
+        "chunkId": "entitlement-sync__chunk_001",
+        "title": "Entitlement sync after billing changes",
+        "score": 0.174,
         "rank": 3
       },
       {
-        "docId": "cancel-plan",
-        "chunkId": "cancel-plan__chunk_001",
-        "title": "Cancel your plan",
-        "score": 0.13,
+        "docId": "change-admin-role",
+        "chunkId": "change-admin-role__chunk_001",
+        "title": "Change workspace admin role",
+        "score": 0.163,
         "rank": 4
       },
       {
-        "docId": "failed-payment",
-        "chunkId": "failed-payment__chunk_001",
-        "title": "Failed payment",
-        "score": 0.051,
+        "docId": "workspace-access",
+        "chunkId": "workspace-access__chunk_001",
+        "title": "Troubleshoot workspace access",
+        "score": 0.145,
         "rank": 5
       }
     ]
@@ -260,35 +260,35 @@
         "docId": "billing-permissions",
         "chunkId": "billing-permissions__chunk_001",
         "title": "Billing permissions",
-        "score": 0.332,
+        "score": 0.323,
         "rank": 1
+      },
+      {
+        "docId": "change-admin-role",
+        "chunkId": "change-admin-role__chunk_001",
+        "title": "Change workspace admin role",
+        "score": 0.306,
+        "rank": 2
       },
       {
         "docId": "download-invoices",
         "chunkId": "download-invoices__chunk_001",
         "title": "Download invoices",
-        "score": 0.247,
-        "rank": 2
+        "score": 0.22,
+        "rank": 3
       },
       {
         "docId": "failed-payment",
         "chunkId": "failed-payment__chunk_001",
         "title": "Failed payment",
-        "score": 0.216,
-        "rank": 3
-      },
-      {
-        "docId": "cancel-plan",
-        "chunkId": "cancel-plan__chunk_001",
-        "title": "Cancel your plan",
-        "score": 0.109,
+        "score": 0.174,
         "rank": 4
       },
       {
-        "docId": "billing-period-access",
-        "chunkId": "billing-period-access__chunk_001",
-        "title": "Access after cancellation",
-        "score": 0.079,
+        "docId": "workspace-access",
+        "chunkId": "workspace-access__chunk_001",
+        "title": "Troubleshoot workspace access",
+        "score": 0.105,
         "rank": 5
       }
     ]
@@ -302,34 +302,34 @@
         "docId": "billing-period-access",
         "chunkId": "billing-period-access__chunk_001",
         "title": "Access after cancellation",
-        "score": 0.115,
+        "score": 0.125,
         "rank": 1
       },
       {
         "docId": "download-invoices",
         "chunkId": "download-invoices__chunk_001",
         "title": "Download invoices",
-        "score": 0.076,
+        "score": 0.086,
         "rank": 2
       },
       {
         "docId": "cancel-plan",
         "chunkId": "cancel-plan__chunk_001",
         "title": "Cancel your plan",
-        "score": 0.055,
+        "score": 0.061,
         "rank": 3
       },
       {
-        "docId": "refund-policy",
-        "chunkId": "refund-policy__chunk_001",
-        "title": "Refund policy",
+        "docId": "workspace-access",
+        "chunkId": "workspace-access__chunk_001",
+        "title": "Troubleshoot workspace access",
         "score": 0.0,
         "rank": 4
       },
       {
-        "docId": "failed-payment",
-        "chunkId": "failed-payment__chunk_001",
-        "title": "Failed payment",
+        "docId": "invite-team-members",
+        "chunkId": "invite-team-members__chunk_001",
+        "title": "Invite team members",
         "score": 0.0,
         "rank": 5
       }
@@ -344,35 +344,35 @@
         "docId": "failed-payment",
         "chunkId": "failed-payment__chunk_001",
         "title": "Failed payment",
-        "score": 0.468,
+        "score": 0.418,
         "rank": 1
       },
       {
         "docId": "billing-period-access",
         "chunkId": "billing-period-access__chunk_001",
         "title": "Access after cancellation",
-        "score": 0.282,
+        "score": 0.259,
         "rank": 2
       },
       {
         "docId": "download-invoices",
         "chunkId": "download-invoices__chunk_001",
         "title": "Download invoices",
-        "score": 0.279,
+        "score": 0.225,
         "rank": 3
       },
       {
         "docId": "cancel-plan",
         "chunkId": "cancel-plan__chunk_001",
         "title": "Cancel your plan",
-        "score": 0.205,
+        "score": 0.21,
         "rank": 4
       },
       {
         "docId": "refund-policy",
         "chunkId": "refund-policy__chunk_001",
         "title": "Refund policy",
-        "score": 0.161,
+        "score": 0.182,
         "rank": 5
       }
     ]
@@ -383,38 +383,38 @@
     "strategy": "tfidf",
     "results": [
       {
-        "docId": "cancel-plan",
-        "chunkId": "cancel-plan__chunk_001",
-        "title": "Cancel your plan",
-        "score": 0.214,
-        "rank": 1
-      },
-      {
         "docId": "failed-payment",
         "chunkId": "failed-payment__chunk_001",
         "title": "Failed payment",
-        "score": 0.213,
-        "rank": 2
+        "score": 0.208,
+        "rank": 1
       },
       {
         "docId": "refund-policy",
         "chunkId": "refund-policy__chunk_001",
         "title": "Refund policy",
-        "score": 0.175,
+        "score": 0.203,
+        "rank": 2
+      },
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 0.195,
         "rank": 3
       },
       {
         "docId": "billing-period-access",
         "chunkId": "billing-period-access__chunk_001",
         "title": "Access after cancellation",
-        "score": 0.148,
+        "score": 0.115,
         "rank": 4
       },
       {
-        "docId": "download-invoices",
-        "chunkId": "download-invoices__chunk_001",
-        "title": "Download invoices",
-        "score": 0.023,
+        "docId": "entitlement-sync",
+        "chunkId": "entitlement-sync__chunk_001",
+        "title": "Entitlement sync after billing changes",
+        "score": 0.075,
         "rank": 5
       }
     ]

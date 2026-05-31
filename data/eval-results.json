@@ -10,9 +10,9 @@
     "retrievedDocIds": [
       "billing-period-access",
       "cancel-plan",
-      "billing-permissions",
-      "failed-payment",
-      "refund-policy"
+      "entitlement-sync",
+      "workspace-access",
+      "billing-permissions"
     ],
     "metrics": {
       "hitAt1": true,
@@ -59,15 +59,15 @@
     "retrievedDocIds": [
       "failed-payment",
       "download-invoices",
-      "billing-period-access",
-      "billing-permissions",
-      "cancel-plan"
+      "change-admin-role",
+      "workspace-access",
+      "billing-period-access"
     ],
     "metrics": {
       "hitAt1": true,
       "hitAt3": true,
       "hitAt5": true,
-      "recallAt3": 1.0,
+      "recallAt3": 0.5,
       "recallAt5": 1.0,
       "reciprocalRank": 1.0
     }
@@ -78,22 +78,23 @@
     "strategy": "tfidf",
     "expectedDocIds": [
       "failed-payment",
-      "download-invoices"
+      "workspace-access",
+      "entitlement-sync"
     ],
     "retrievedDocIds": [
       "download-invoices",
+      "invite-team-members",
       "failed-payment",
-      "billing-period-access",
-      "cancel-plan",
-      "refund-policy"
+      "entitlement-sync",
+      "workspace-access"
     ],
     "metrics": {
-      "hitAt1": true,
+      "hitAt1": false,
       "hitAt3": true,
       "hitAt5": true,
-      "recallAt3": 1.0,
+      "recallAt3": 0.3333333333333333,
       "recallAt5": 1.0,
-      "reciprocalRank": 1.0
+      "reciprocalRank": 0.3333333333333333
     }
   },
   {
@@ -107,8 +108,8 @@
       "download-invoices",
       "failed-payment",
       "billing-period-access",
-      "refund-policy",
-      "cancel-plan"
+      "entitlement-sync",
+      "refund-policy"
     ],
     "metrics": {
       "hitAt1": true,
@@ -130,9 +131,9 @@
     "retrievedDocIds": [
       "download-invoices",
       "billing-permissions",
-      "billing-period-access",
-      "cancel-plan",
-      "failed-payment"
+      "entitlement-sync",
+      "change-admin-role",
+      "workspace-access"
     ],
     "metrics": {
       "hitAt1": true,
@@ -152,10 +153,10 @@
     ],
     "retrievedDocIds": [
       "billing-permissions",
+      "change-admin-role",
       "download-invoices",
       "failed-payment",
-      "cancel-plan",
-      "billing-period-access"
+      "workspace-access"
     ],
     "metrics": {
       "hitAt1": true,
@@ -178,8 +179,8 @@
       "billing-period-access",
       "download-invoices",
       "cancel-plan",
-      "refund-policy",
-      "failed-payment"
+      "workspace-access",
+      "invite-team-members"
     ],
     "metrics": {
       "hitAt1": true,
@@ -223,19 +224,19 @@
       "cancel-plan"
     ],
     "retrievedDocIds": [
-      "cancel-plan",
       "failed-payment",
       "refund-policy",
+      "cancel-plan",
       "billing-period-access",
-      "download-invoices"
+      "entitlement-sync"
     ],
     "metrics": {
-      "hitAt1": true,
+      "hitAt1": false,
       "hitAt3": true,
       "hitAt5": true,
       "recallAt3": 0.5,
       "recallAt5": 1.0,
-      "reciprocalRank": 1.0
+      "reciprocalRank": 0.3333333333333333
     }
   }
 ]

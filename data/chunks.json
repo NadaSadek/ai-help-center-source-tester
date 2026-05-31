@@ -46,5 +46,37 @@
     "category": "billing",
     "sourcePath": "data/docs/billing/refund-policy.md",
     "text": "Title: Refund policy\n\nCategory: billing\n\nContent:\n# Refund policy\n\nCancelling an ExampleOps plan does not automatically create a refund.\n\nRefunds are reviewed based on the type of charge, the timing of the request and whether the paid plan was used during the billing period. Monthly subscriptions are usually not refunded after the billing period has started.\n\nIf you believe a charge was made in error, contact support with your workspace name, invoice number and the reason for the refund request.\n\nRefund requests are separate from cancellation requests. Cancelling prevents future renewal charges, while a refund request asks ExampleOps to review a past charge.\n\nIf your team still has access after cancelling, that does not always mean a refund is owed. Access usually continues until the end of the paid billing period."
+  },
+  {
+    "chunkId": "change-admin-role__chunk_001",
+    "docId": "change-admin-role",
+    "title": "Change workspace admin role",
+    "category": "workspace",
+    "sourcePath": "data/docs/workspace/change-admin-role.md",
+    "text": "Title: Change workspace admin role\n\nCategory: workspace\n\nContent:\n# Change workspace admin role\n\nWorkspace owners can promote members to admin roles from the member management page.\n\nAdmins can manage workspace membership, invitations and some workspace settings, but billing permissions may still be separate depending on the assigned role.\n\nIf an admin left the company, a workspace owner should assign a replacement admin to maintain access and workspace management continuity.\n\nIf nobody can manage the workspace because the previous admin or owner is unavailable, contact ExampleOps support for recovery steps.\n\nChanging a workspace admin role does not automatically resolve billing sync or payment-related access issues. If access changed after a billing event, review failed payment and entitlement sync information as well."
+  },
+  {
+    "chunkId": "entitlement-sync__chunk_001",
+    "docId": "entitlement-sync",
+    "title": "Entitlement sync after billing changes",
+    "category": "workspace",
+    "sourcePath": "data/docs/workspace/entitlement-sync.md",
+    "text": "Title: Entitlement sync after billing changes\n\nCategory: workspace\n\nContent:\n# Entitlement sync after billing changes\n\nExampleOps uses entitlement sync to apply billing and plan changes to workspace access and feature availability.\n\nWhen a payment succeeds, fails or a subscription changes, billing status and workspace entitlements may take a short time to sync. During this period, a workspace may show a paid invoice while some users still cannot access paid features or expected limits.\n\nIf a workspace remains out of sync after a billing update, a workspace owner should confirm the latest billing status, wait for the sync window to complete and then contact support if access is still incorrect.\n\nEntitlement sync issues are different from invitation or role problems. If only one user cannot access the workspace, review workspace membership and role configuration first.\n\nIf the whole workspace is affected after a payment or subscription change, entitlement sync is a more likely cause than individual user access settings."
+  },
+  {
+    "chunkId": "invite-team-members__chunk_001",
+    "docId": "invite-team-members",
+    "title": "Invite team members",
+    "category": "workspace",
+    "sourcePath": "data/docs/workspace/invite-team-members.md",
+    "text": "Title: Invite team members\n\nCategory: workspace\n\nContent:\n# Invite team members\n\nWorkspace owners and admins can invite new team members from the workspace settings page.\n\nEach invite is tied to an email address. To avoid access problems, make sure the invited user signs in with the same email address that received the invitation.\n\nIf a user says they cannot access the workspace, confirm whether they accepted the invite, used the correct email address and joined the intended workspace.\n\nInviting a team member does not automatically grant billing permissions. Billing settings, invoices and payment methods are still limited to workspace owners and billing admins.\n\nIf the user was invited successfully but paid features are still unavailable after a billing change, review entitlement sync information."
+  },
+  {
+    "chunkId": "workspace-access__chunk_001",
+    "docId": "workspace-access",
+    "title": "Troubleshoot workspace access",
+    "category": "workspace",
+    "sourcePath": "data/docs/workspace/workspace-access.md",
+    "text": "Title: Troubleshoot workspace access\n\nCategory: workspace\n\nContent:\n# Troubleshoot workspace access\n\nIf a user cannot access an ExampleOps workspace, first confirm that they were invited to the correct workspace and accepted the invitation with the expected email address.\n\nWorkspace access issues can happen when a user was removed from the workspace, accepted an invite with the wrong email address, signed in through the wrong authentication method or does not have the required role.\n\nIf only some users are affected, ask a workspace owner or admin to review the member list and confirm the affected users still appear as active members.\n\nIf the workspace recently changed plan status or had a payment issue, access to some features may depend on entitlement sync. In those cases, review entitlement sync information in addition to billing status.\n\nWorkspace access is different from billing permissions. A user may be able to use the workspace but still be unable to manage billing, invoices or payment methods."
   }
 ]

@@ -26,7 +26,7 @@
   {
     "id": "q004",
     "question": "The invoice says paid but my team still can't access the workspace.",
-    "expectedDocIds": ["failed-payment", "download-invoices"],
+    "expectedDocIds":["failed-payment", "workspace-access", "entitlement-sync"],
     "category": "billing",
     "difficulty": "hard",
     "notes": "Tests payment/access ambiguity. Later this should also include workspace-access and entitlement-sync once those docs exist."
