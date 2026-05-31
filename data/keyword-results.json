@@ -3,30 +3,420 @@
     "questionId": "q001",
     "question": "I cancelled my subscription. Why can I still use ExampleOps until next month?",
     "strategy": "tfidf",
-    "docId": "billing-period-access",
-    "chunkId": "billing-period-access__chunk_001",
-    "title": "Access after cancellation",
-    "score": 0.156,
-    "rank": 1
+    "results": [
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 0.156,
+        "rank": 1
+      },
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 0.127,
+        "rank": 2
+      },
+      {
+        "docId": "billing-permissions",
+        "chunkId": "billing-permissions__chunk_001",
+        "title": "Billing permissions",
+        "score": 0.052,
+        "rank": 3
+      },
+      {
+        "docId": "failed-payment",
+        "chunkId": "failed-payment__chunk_001",
+        "title": "Failed payment",
+        "score": 0.034,
+        "rank": 4
+      },
+      {
+        "docId": "refund-policy",
+        "chunkId": "refund-policy__chunk_001",
+        "title": "Refund policy",
+        "score": 0.032,
+        "rank": 5
+      }
+    ]
   },
   {
-    "questionId": "q001",
-    "question": "I cancelled my subscription. Why can I still use ExampleOps until next month?",
+    "questionId": "q002",
+    "question": "If I cancel my plan today, will I get a refund for the rest of the month?",
     "strategy": "tfidf",
-    "docId": "cancel-plan",
-    "chunkId": "cancel-plan__chunk_001",
-    "title": "Cancel your plan",
-    "score": 0.127,
-    "rank": 2
+    "results": [
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 0.605,
+        "rank": 1
+      },
+      {
+        "docId": "refund-policy",
+        "chunkId": "refund-policy__chunk_001",
+        "title": "Refund policy",
+        "score": 0.408,
+        "rank": 2
+      },
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 0.114,
+        "rank": 3
+      },
+      {
+        "docId": "billing-permissions",
+        "chunkId": "billing-permissions__chunk_001",
+        "title": "Billing permissions",
+        "score": 0.048,
+        "rank": 4
+      },
+      {
+        "docId": "failed-payment",
+        "chunkId": "failed-payment__chunk_001",
+        "title": "Failed payment",
+        "score": 0.022,
+        "rank": 5
+      }
+    ]
   },
   {
-    "questionId": "q001",
-    "question": "I cancelled my subscription. Why can I still use ExampleOps until next month?",
+    "questionId": "q003",
+    "question": "Our card payment failed. What happens to our workspace now?",
     "strategy": "tfidf",
-    "docId": "billing-permissions",
-    "chunkId": "billing-permissions__chunk_001",
-    "title": "Billing permissions",
-    "score": 0.052,
-    "rank": 3
+    "results": [
+      {
+        "docId": "failed-payment",
+        "chunkId": "failed-payment__chunk_001",
+        "title": "Failed payment",
+        "score": 0.598,
+        "rank": 1
+      },
+      {
+        "docId": "download-invoices",
+        "chunkId": "download-invoices__chunk_001",
+        "title": "Download invoices",
+        "score": 0.449,
+        "rank": 2
+      },
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 0.25,
+        "rank": 3
+      },
+      {
+        "docId": "billing-permissions",
+        "chunkId": "billing-permissions__chunk_001",
+        "title": "Billing permissions",
+        "score": 0.245,
+        "rank": 4
+      },
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 0.11,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q004",
+    "question": "The invoice says paid but my team still can't access the workspace.",
+    "strategy": "tfidf",
+    "results": [
+      {
+        "docId": "download-invoices",
+        "chunkId": "download-invoices__chunk_001",
+        "title": "Download invoices",
+        "score": 0.383,
+        "rank": 1
+      },
+      {
+        "docId": "failed-payment",
+        "chunkId": "failed-payment__chunk_001",
+        "title": "Failed payment",
+        "score": 0.361,
+        "rank": 2
+      },
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 0.296,
+        "rank": 3
+      },
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 0.163,
+        "rank": 4
+      },
+      {
+        "docId": "refund-policy",
+        "chunkId": "refund-policy__chunk_001",
+        "title": "Refund policy",
+        "score": 0.159,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q005",
+    "question": "Where can I download a PDF copy of our last invoice?",
+    "strategy": "tfidf",
+    "results": [
+      {
+        "docId": "download-invoices",
+        "chunkId": "download-invoices__chunk_001",
+        "title": "Download invoices",
+        "score": 0.368,
+        "rank": 1
+      },
+      {
+        "docId": "failed-payment",
+        "chunkId": "failed-payment__chunk_001",
+        "title": "Failed payment",
+        "score": 0.073,
+        "rank": 2
+      },
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 0.025,
+        "rank": 3
+      },
+      {
+        "docId": "refund-policy",
+        "chunkId": "refund-policy__chunk_001",
+        "title": "Refund policy",
+        "score": 0.023,
+        "rank": 4
+      },
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 0.0,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q006",
+    "question": "I can't see the billing settings or invoices. Do I need a different role?",
+    "strategy": "tfidf",
+    "results": [
+      {
+        "docId": "download-invoices",
+        "chunkId": "download-invoices__chunk_001",
+        "title": "Download invoices",
+        "score": 0.309,
+        "rank": 1
+      },
+      {
+        "docId": "billing-permissions",
+        "chunkId": "billing-permissions__chunk_001",
+        "title": "Billing permissions",
+        "score": 0.241,
+        "rank": 2
+      },
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 0.144,
+        "rank": 3
+      },
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 0.13,
+        "rank": 4
+      },
+      {
+        "docId": "failed-payment",
+        "chunkId": "failed-payment__chunk_001",
+        "title": "Failed payment",
+        "score": 0.051,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q007",
+    "question": "The old billing admin left the company and nobody can update the payment method.",
+    "strategy": "tfidf",
+    "results": [
+      {
+        "docId": "billing-permissions",
+        "chunkId": "billing-permissions__chunk_001",
+        "title": "Billing permissions",
+        "score": 0.332,
+        "rank": 1
+      },
+      {
+        "docId": "download-invoices",
+        "chunkId": "download-invoices__chunk_001",
+        "title": "Download invoices",
+        "score": 0.247,
+        "rank": 2
+      },
+      {
+        "docId": "failed-payment",
+        "chunkId": "failed-payment__chunk_001",
+        "title": "Failed payment",
+        "score": 0.216,
+        "rank": 3
+      },
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 0.109,
+        "rank": 4
+      },
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 0.079,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q008",
+    "question": "I cancelled but I am worried we will be charged again next month.",
+    "strategy": "tfidf",
+    "results": [
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 0.115,
+        "rank": 1
+      },
+      {
+        "docId": "download-invoices",
+        "chunkId": "download-invoices__chunk_001",
+        "title": "Download invoices",
+        "score": 0.076,
+        "rank": 2
+      },
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 0.055,
+        "rank": 3
+      },
+      {
+        "docId": "refund-policy",
+        "chunkId": "refund-policy__chunk_001",
+        "title": "Refund policy",
+        "score": 0.0,
+        "rank": 4
+      },
+      {
+        "docId": "failed-payment",
+        "chunkId": "failed-payment__chunk_001",
+        "title": "Failed payment",
+        "score": 0.0,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q009",
+    "question": "Is a failed payment the same thing as cancelling my plan?",
+    "strategy": "tfidf",
+    "results": [
+      {
+        "docId": "failed-payment",
+        "chunkId": "failed-payment__chunk_001",
+        "title": "Failed payment",
+        "score": 0.468,
+        "rank": 1
+      },
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 0.282,
+        "rank": 2
+      },
+      {
+        "docId": "download-invoices",
+        "chunkId": "download-invoices__chunk_001",
+        "title": "Download invoices",
+        "score": 0.279,
+        "rank": 3
+      },
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 0.205,
+        "rank": 4
+      },
+      {
+        "docId": "refund-policy",
+        "chunkId": "refund-policy__chunk_001",
+        "title": "Refund policy",
+        "score": 0.161,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q010",
+    "question": "Why do I still have paid features after cancelling?",
+    "strategy": "tfidf",
+    "results": [
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 0.214,
+        "rank": 1
+      },
+      {
+        "docId": "failed-payment",
+        "chunkId": "failed-payment__chunk_001",
+        "title": "Failed payment",
+        "score": 0.213,
+        "rank": 2
+      },
+      {
+        "docId": "refund-policy",
+        "chunkId": "refund-policy__chunk_001",
+        "title": "Refund policy",
+        "score": 0.175,
+        "rank": 3
+      },
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 0.148,
+        "rank": 4
+      },
+      {
+        "docId": "download-invoices",
+        "chunkId": "download-invoices__chunk_001",
+        "title": "Download invoices",
+        "score": 0.023,
+        "rank": 5
+      }
+    ]
   }
 ]

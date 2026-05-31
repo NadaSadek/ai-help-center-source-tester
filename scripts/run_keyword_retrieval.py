@@ -2,15 +2,49 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import TypedDict
 
+from scipy.sparse import spmatrix
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-from scipy.sparse import spmatrix
 
 CHUNKS_PATH = Path("data/chunks.json")
 QUESTIONS_PATH = Path("data/test-questions.json")
 OUTPUT_PATH = Path("data/keyword-results.json")
 TOP_K = 5
+
+
+class Chunk(TypedDict):
+    chunkId: str
+    docId: str
+    title: str
+    category: str
+    sourcePath: str
+    text: str
+
+
+class TestQuestion(TypedDict):
+    id: str
+    question: str
+    expectedDocIds: list[str]
+    category: str
+    difficulty: str
+    notes: str
+
+
+class RetrievalResult(TypedDict):
+    rank: int
+    docId: str
+    chunkId: str
+    title: str
+    score: float
+
+
+class QuestionRetrievalResult(TypedDict):
+    questionId: str
+    question: str
+    strategy: str
+    results: list[RetrievalResult]
 
 
 def load_json(path: Path):
@@ -19,28 +53,32 @@ def load_json(path: Path):
 
 
 def get_top_results(
-    question: str,
-    chunks: list[dict[str, str]],
+    question_obj: TestQuestion,
+    chunks: list[Chunk],
     vectorizer: TfidfVectorizer,
     chunk_vectors: spmatrix,
     top_k: int,
-) -> list[dict[str, str | int | float]]:
+) -> QuestionRetrievalResult:
+    question = question_obj["question"]
     question_vector: spmatrix = vectorizer.transform([question])
     similarities = cosine_similarity(question_vector, chunk_vectors)[0]
-    ranked_indices: list[int] = similarities.argsort()[::-1][:top_k]
-    results: list[dict[str, str | int | float]] = []
-   
-    # ranked_indices stores indexes of the original chunks list ordered by similarity score (rank). 
-    # `rank` is the position (index) in ranked_indices which tells us which the order of chunks after cosine similarity
-    # `chunk_index` is the value that's stored in ranked_indices to indicate which chunk has higher score
+    ranked_indices: list[int] = similarities.argsort()[::-1][:top_k].tolist()
+    results: list[RetrievalResult] = []
+
+    # ranked_indices stores indexes of the original chunks list
+    # ordered by similarity score (rank).
+    # `rank` is the position (index) in ranked_indices which tells us
+    # which the order of chunks after cosine similarity
+    # `chunk_index` is the value that's stored in ranked_indices
+    # to indicate which chunk has higher score
+    # ranked_indices stores chunk indexes ordered by similarity score.
+    # rank is the position (index) in ranked_indices
+    # chunk_index is the position of the chunk.
     for rank, chunk_index in enumerate(ranked_indices, start=1):
         chunk = chunks[chunk_index]
         score = similarities[chunk_index]
         results.append(
             {
-                "questionId": "q001",
-                "question": question,
-                "strategy": "tfidf",
                 "docId": chunk["docId"],
                 "chunkId": chunk["chunkId"],
                 "title": chunk["title"],
@@ -49,21 +87,29 @@ def get_top_results(
             }
         )
 
-    return results
+    return {
+        "questionId": question_obj["id"],
+        "question": question,
+        "strategy": "tfidf",
+        "results": results,
+    }
 
 
 def main() -> None:
-    chunks: list[dict[str, str]] = load_json(CHUNKS_PATH)
+    chunks: list[Chunk] = load_json(CHUNKS_PATH)
     chunk_texts = [chunk["text"] for chunk in chunks]
-    # questions: list[dict[str, str]] = load_json(QUESTIONS_PATH)
     vectorizer = TfidfVectorizer(stop_words="english")
     chunk_vectors: spmatrix = vectorizer.fit_transform(chunk_texts)
-    question = (
-        "I cancelled my subscription. Why can I still use ExampleOps until next month?"
-    )
-    results = get_top_results(question, chunks, vectorizer, chunk_vectors, 3)
+
+    questions: list[TestQuestion] = load_json(QUESTIONS_PATH)
+
+    all_questions_results = [
+        get_top_results(question_obj, chunks, vectorizer, chunk_vectors, TOP_K)
+        for question_obj in questions
+    ]
+
     OUTPUT_PATH.write_text(
-        json.dumps(results, indent=2, ensure_ascii=False),
+        json.dumps(all_questions_results, indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
 
