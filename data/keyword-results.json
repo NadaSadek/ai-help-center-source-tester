@@ -1,0 +1,32 @@
+[
+  {
+    "questionId": "q001",
+    "question": "I cancelled my subscription. Why can I still use ExampleOps until next month?",
+    "strategy": "tfidf",
+    "docId": "billing-period-access",
+    "chunkId": "billing-period-access__chunk_001",
+    "title": "Access after cancellation",
+    "score": 0.156,
+    "rank": 1
+  },
+  {
+    "questionId": "q001",
+    "question": "I cancelled my subscription. Why can I still use ExampleOps until next month?",
+    "strategy": "tfidf",
+    "docId": "cancel-plan",
+    "chunkId": "cancel-plan__chunk_001",
+    "title": "Cancel your plan",
+    "score": 0.127,
+    "rank": 2
+  },
+  {
+    "questionId": "q001",
+    "question": "I cancelled my subscription. Why can I still use ExampleOps until next month?",
+    "strategy": "tfidf",
+    "docId": "billing-permissions",
+    "chunkId": "billing-permissions__chunk_001",
+    "title": "Billing permissions",
+    "score": 0.052,
+    "rank": 3
+  }
+]
