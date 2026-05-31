@@ -59,7 +59,7 @@ These are the ambiguity patterns the dataset should test.
 - account/change-email.md
 - account/delete-account.md
 
-### Workspace [To be added]
+### Workspace
 
 - workspace/invite-team-members.md
 - workspace/change-admin-role.md
