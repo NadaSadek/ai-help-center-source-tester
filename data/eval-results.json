@@ -1,381 +1,764 @@
-{
-  "strategy": "tfidf",
-  "summary": {
-    "meanHitAt1": 0.875,
-    "meanHitAt3": 1.0,
-    "meanHitAt5": 1.0,
-    "meanRecallAt3": 0.78125,
-    "meanRecallAt5": 0.9270833333333334,
-    "mrr": 0.9270833333333334
+[
+  {
+    "strategy": "tfidf",
+    "summary": {
+      "meanHitAt1": 0.875,
+      "meanHitAt3": 1.0,
+      "meanHitAt5": 1.0,
+      "meanRecallAt3": 0.78125,
+      "meanRecallAt5": 0.9270833333333334,
+      "mrr": 0.9270833333333334
+    },
+    "questions": [
+      {
+        "questionId": "q001",
+        "question": "I cancelled my subscription. Why can I still use ExampleOps until next month?",
+        "expectedDocIds": [
+          "billing-period-access",
+          "cancel-plan"
+        ],
+        "retrievedDocIds": [
+          "billing-period-access",
+          "cancel-plan",
+          "entitlement-sync",
+          "downgrade-plan",
+          "upgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q002",
+        "question": "If I cancel my plan today, will I get a refund for the rest of the month?",
+        "expectedDocIds": [
+          "refund-policy",
+          "cancel-plan",
+          "billing-period-access"
+        ],
+        "retrievedDocIds": [
+          "cancel-plan",
+          "refund-policy",
+          "downgrade-plan",
+          "plan-limits",
+          "upgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q003",
+        "question": "Our card payment failed. What happens to our workspace now?",
+        "expectedDocIds": [
+          "failed-payment",
+          "billing-period-access"
+        ],
+        "retrievedDocIds": [
+          "failed-payment",
+          "download-invoices",
+          "change-admin-role",
+          "billing-period-access",
+          "billing-permissions"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.5,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q004",
+        "question": "The invoice says paid but my team still can't access the workspace.",
+        "expectedDocIds": [
+          "failed-payment",
+          "workspace-access",
+          "entitlement-sync"
+        ],
+        "retrievedDocIds": [
+          "download-invoices",
+          "invite-team-members",
+          "failed-payment",
+          "entitlement-sync",
+          "billing-period-access"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.3333333333333333,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 0.3333333333333333
+        }
+      },
+      {
+        "questionId": "q005",
+        "question": "Where can I download a PDF copy of our last invoice?",
+        "expectedDocIds": [
+          "download-invoices"
+        ],
+        "retrievedDocIds": [
+          "download-invoices",
+          "failed-payment",
+          "export-permissions",
+          "export-filtered-results",
+          "upgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q006",
+        "question": "I can't see the billing settings or invoices. Do I need a different role?",
+        "expectedDocIds": [
+          "billing-permissions",
+          "download-invoices"
+        ],
+        "retrievedDocIds": [
+          "download-invoices",
+          "billing-permissions",
+          "change-admin-role",
+          "export-dashboard-data",
+          "entitlement-sync"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q007",
+        "question": "The old billing admin left the company and nobody can update the payment method.",
+        "expectedDocIds": [
+          "billing-permissions"
+        ],
+        "retrievedDocIds": [
+          "billing-permissions",
+          "change-admin-role",
+          "download-invoices",
+          "failed-payment",
+          "workspace-access"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q008",
+        "question": "I cancelled but I am worried we will be charged again next month.",
+        "expectedDocIds": [
+          "cancel-plan",
+          "billing-period-access"
+        ],
+        "retrievedDocIds": [
+          "billing-period-access",
+          "download-invoices",
+          "cancel-plan",
+          "workspace-access",
+          "invite-team-members"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q009",
+        "question": "Is a failed payment the same thing as cancelling my plan?",
+        "expectedDocIds": [
+          "failed-payment",
+          "cancel-plan"
+        ],
+        "retrievedDocIds": [
+          "failed-payment",
+          "download-invoices",
+          "billing-period-access",
+          "downgrade-plan",
+          "refund-policy"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.5,
+          "recallAt5": 0.5,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q010",
+        "question": "Why do I still have paid features after cancelling?",
+        "expectedDocIds": [
+          "billing-period-access",
+          "cancel-plan"
+        ],
+        "retrievedDocIds": [
+          "refund-policy",
+          "cancel-plan",
+          "failed-payment",
+          "downgrade-plan",
+          "billing-period-access"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.5,
+          "recallAt5": 1.0,
+          "reciprocalRank": 0.5
+        }
+      },
+      {
+        "questionId": "q011",
+        "question": "Why can't I add more projects to our workspace?",
+        "expectedDocIds": [
+          "plan-limits",
+          "upgrade-plan"
+        ],
+        "retrievedDocIds": [
+          "plan-limits",
+          "upgrade-plan",
+          "workspace-access",
+          "change-admin-role",
+          "entitlement-sync"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q012",
+        "question": "If we downgrade our plan, will we lose access to paid features immediately?",
+        "expectedDocIds": [
+          "downgrade-plan",
+          "billing-period-access"
+        ],
+        "retrievedDocIds": [
+          "downgrade-plan",
+          "billing-period-access",
+          "cancel-plan",
+          "failed-payment",
+          "upgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q013",
+        "question": "Can I export only the rows that match my current filters?",
+        "expectedDocIds": [
+          "export-filtered-results",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-filtered-results",
+          "export-permissions",
+          "export-dashboard-data",
+          "plan-limits",
+          "downgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q014",
+        "question": "My teammate can view the dashboard but cannot download the report.",
+        "expectedDocIds": [
+          "export-permissions",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-dashboard-data",
+          "export-permissions",
+          "export-filtered-results",
+          "download-invoices",
+          "billing-permissions"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q015",
+        "question": "Do we need to upgrade to increase our project and export limits?",
+        "expectedDocIds": [
+          "upgrade-plan",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "upgrade-plan",
+          "export-permissions",
+          "export-dashboard-data",
+          "export-filtered-results",
+          "plan-limits"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.5,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q016",
+        "question": "I can manage invoices but I don't see the export button.",
+        "expectedDocIds": [
+          "export-permissions",
+          "billing-permissions"
+        ],
+        "retrievedDocIds": [
+          "export-permissions",
+          "export-dashboard-data",
+          "export-filtered-results",
+          "download-invoices",
+          "billing-permissions"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.5,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      }
+    ]
   },
-  "questions": [
-    {
-      "questionId": "q001",
-      "question": "I cancelled my subscription. Why can I still use ExampleOps until next month?",
-      "expectedDocIds": [
-        "billing-period-access",
-        "cancel-plan"
-      ],
-      "retrievedDocIds": [
-        "billing-period-access",
-        "cancel-plan",
-        "entitlement-sync",
-        "downgrade-plan",
-        "upgrade-plan"
-      ],
-      "metrics": {
-        "hitAt1": true,
-        "hitAt3": true,
-        "hitAt5": true,
-        "recallAt3": 1.0,
-        "recallAt5": 1.0,
-        "reciprocalRank": 1.0
-      }
+  {
+    "strategy": "embedding",
+    "summary": {
+      "meanHitAt1": 0.8125,
+      "meanHitAt3": 1.0,
+      "meanHitAt5": 1.0,
+      "meanRecallAt3": 0.875,
+      "meanRecallAt5": 0.9479166666666666,
+      "mrr": 0.8958333333333334
     },
-    {
-      "questionId": "q002",
-      "question": "If I cancel my plan today, will I get a refund for the rest of the month?",
-      "expectedDocIds": [
-        "refund-policy",
-        "cancel-plan",
-        "billing-period-access"
-      ],
-      "retrievedDocIds": [
-        "cancel-plan",
-        "refund-policy",
-        "downgrade-plan",
-        "plan-limits",
-        "upgrade-plan"
-      ],
-      "metrics": {
-        "hitAt1": true,
-        "hitAt3": true,
-        "hitAt5": true,
-        "recallAt3": 0.6666666666666666,
-        "recallAt5": 0.6666666666666666,
-        "reciprocalRank": 1.0
+    "questions": [
+      {
+        "questionId": "q001",
+        "question": "I cancelled my subscription. Why can I still use ExampleOps until next month?",
+        "expectedDocIds": [
+          "billing-period-access",
+          "cancel-plan"
+        ],
+        "retrievedDocIds": [
+          "billing-period-access",
+          "cancel-plan",
+          "refund-policy",
+          "downgrade-plan",
+          "failed-payment"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q002",
+        "question": "If I cancel my plan today, will I get a refund for the rest of the month?",
+        "expectedDocIds": [
+          "refund-policy",
+          "cancel-plan",
+          "billing-period-access"
+        ],
+        "retrievedDocIds": [
+          "cancel-plan",
+          "downgrade-plan",
+          "refund-policy",
+          "billing-period-access",
+          "failed-payment"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q003",
+        "question": "Our card payment failed. What happens to our workspace now?",
+        "expectedDocIds": [
+          "failed-payment",
+          "billing-period-access"
+        ],
+        "retrievedDocIds": [
+          "failed-payment",
+          "workspace-access",
+          "billing-period-access",
+          "billing-permissions",
+          "entitlement-sync"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q004",
+        "question": "The invoice says paid but my team still can't access the workspace.",
+        "expectedDocIds": [
+          "failed-payment",
+          "workspace-access",
+          "entitlement-sync"
+        ],
+        "retrievedDocIds": [
+          "invite-team-members",
+          "download-invoices",
+          "failed-payment",
+          "workspace-access",
+          "billing-permissions"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.3333333333333333,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 0.3333333333333333
+        }
+      },
+      {
+        "questionId": "q005",
+        "question": "Where can I download a PDF copy of our last invoice?",
+        "expectedDocIds": [
+          "download-invoices"
+        ],
+        "retrievedDocIds": [
+          "download-invoices",
+          "failed-payment",
+          "refund-policy",
+          "export-dashboard-data",
+          "export-permissions"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q006",
+        "question": "I can't see the billing settings or invoices. Do I need a different role?",
+        "expectedDocIds": [
+          "billing-permissions",
+          "download-invoices"
+        ],
+        "retrievedDocIds": [
+          "download-invoices",
+          "billing-permissions",
+          "change-admin-role",
+          "invite-team-members",
+          "entitlement-sync"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q007",
+        "question": "The old billing admin left the company and nobody can update the payment method.",
+        "expectedDocIds": [
+          "billing-permissions"
+        ],
+        "retrievedDocIds": [
+          "change-admin-role",
+          "billing-permissions",
+          "billing-period-access",
+          "failed-payment",
+          "download-invoices"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 0.5
+        }
+      },
+      {
+        "questionId": "q008",
+        "question": "I cancelled but I am worried we will be charged again next month.",
+        "expectedDocIds": [
+          "cancel-plan",
+          "billing-period-access"
+        ],
+        "retrievedDocIds": [
+          "cancel-plan",
+          "billing-period-access",
+          "refund-policy",
+          "downgrade-plan",
+          "failed-payment"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q009",
+        "question": "Is a failed payment the same thing as cancelling my plan?",
+        "expectedDocIds": [
+          "failed-payment",
+          "cancel-plan"
+        ],
+        "retrievedDocIds": [
+          "billing-period-access",
+          "failed-payment",
+          "cancel-plan",
+          "downgrade-plan",
+          "refund-policy"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 0.5
+        }
+      },
+      {
+        "questionId": "q010",
+        "question": "Why do I still have paid features after cancelling?",
+        "expectedDocIds": [
+          "billing-period-access",
+          "cancel-plan"
+        ],
+        "retrievedDocIds": [
+          "billing-period-access",
+          "cancel-plan",
+          "failed-payment",
+          "downgrade-plan",
+          "refund-policy"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q011",
+        "question": "Why can't I add more projects to our workspace?",
+        "expectedDocIds": [
+          "plan-limits",
+          "upgrade-plan"
+        ],
+        "retrievedDocIds": [
+          "plan-limits",
+          "upgrade-plan",
+          "workspace-access",
+          "invite-team-members",
+          "failed-payment"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q012",
+        "question": "If we downgrade our plan, will we lose access to paid features immediately?",
+        "expectedDocIds": [
+          "downgrade-plan",
+          "billing-period-access"
+        ],
+        "retrievedDocIds": [
+          "downgrade-plan",
+          "cancel-plan",
+          "upgrade-plan",
+          "billing-period-access",
+          "plan-limits"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.5,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q013",
+        "question": "Can I export only the rows that match my current filters?",
+        "expectedDocIds": [
+          "export-filtered-results",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-filtered-results",
+          "export-dashboard-data",
+          "export-permissions",
+          "downgrade-plan",
+          "change-admin-role"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q014",
+        "question": "My teammate can view the dashboard but cannot download the report.",
+        "expectedDocIds": [
+          "export-permissions",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-permissions",
+          "export-dashboard-data",
+          "download-invoices",
+          "export-filtered-results",
+          "invite-team-members"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q015",
+        "question": "Do we need to upgrade to increase our project and export limits?",
+        "expectedDocIds": [
+          "upgrade-plan",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "plan-limits",
+          "upgrade-plan",
+          "export-filtered-results",
+          "export-dashboard-data",
+          "export-permissions"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q016",
+        "question": "I can manage invoices but I don't see the export button.",
+        "expectedDocIds": [
+          "export-permissions",
+          "billing-permissions"
+        ],
+        "retrievedDocIds": [
+          "export-permissions",
+          "export-dashboard-data",
+          "export-filtered-results",
+          "download-invoices",
+          "invite-team-members"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.5,
+          "recallAt5": 0.5,
+          "reciprocalRank": 1.0
+        }
       }
-    },
-    {
-      "questionId": "q003",
-      "question": "Our card payment failed. What happens to our workspace now?",
-      "expectedDocIds": [
-        "failed-payment",
-        "billing-period-access"
-      ],
-      "retrievedDocIds": [
-        "failed-payment",
-        "download-invoices",
-        "change-admin-role",
-        "billing-period-access",
-        "billing-permissions"
-      ],
-      "metrics": {
-        "hitAt1": true,
-        "hitAt3": true,
-        "hitAt5": true,
-        "recallAt3": 0.5,
-        "recallAt5": 1.0,
-        "reciprocalRank": 1.0
-      }
-    },
-    {
-      "questionId": "q004",
-      "question": "The invoice says paid but my team still can't access the workspace.",
-      "expectedDocIds": [
-        "failed-payment",
-        "workspace-access",
-        "entitlement-sync"
-      ],
-      "retrievedDocIds": [
-        "download-invoices",
-        "invite-team-members",
-        "failed-payment",
-        "entitlement-sync",
-        "billing-period-access"
-      ],
-      "metrics": {
-        "hitAt1": false,
-        "hitAt3": true,
-        "hitAt5": true,
-        "recallAt3": 0.3333333333333333,
-        "recallAt5": 0.6666666666666666,
-        "reciprocalRank": 0.3333333333333333
-      }
-    },
-    {
-      "questionId": "q005",
-      "question": "Where can I download a PDF copy of our last invoice?",
-      "expectedDocIds": [
-        "download-invoices"
-      ],
-      "retrievedDocIds": [
-        "download-invoices",
-        "failed-payment",
-        "export-permissions",
-        "export-filtered-results",
-        "upgrade-plan"
-      ],
-      "metrics": {
-        "hitAt1": true,
-        "hitAt3": true,
-        "hitAt5": true,
-        "recallAt3": 1.0,
-        "recallAt5": 1.0,
-        "reciprocalRank": 1.0
-      }
-    },
-    {
-      "questionId": "q006",
-      "question": "I can't see the billing settings or invoices. Do I need a different role?",
-      "expectedDocIds": [
-        "billing-permissions",
-        "download-invoices"
-      ],
-      "retrievedDocIds": [
-        "download-invoices",
-        "billing-permissions",
-        "change-admin-role",
-        "export-dashboard-data",
-        "entitlement-sync"
-      ],
-      "metrics": {
-        "hitAt1": true,
-        "hitAt3": true,
-        "hitAt5": true,
-        "recallAt3": 1.0,
-        "recallAt5": 1.0,
-        "reciprocalRank": 1.0
-      }
-    },
-    {
-      "questionId": "q007",
-      "question": "The old billing admin left the company and nobody can update the payment method.",
-      "expectedDocIds": [
-        "billing-permissions"
-      ],
-      "retrievedDocIds": [
-        "billing-permissions",
-        "change-admin-role",
-        "download-invoices",
-        "failed-payment",
-        "workspace-access"
-      ],
-      "metrics": {
-        "hitAt1": true,
-        "hitAt3": true,
-        "hitAt5": true,
-        "recallAt3": 1.0,
-        "recallAt5": 1.0,
-        "reciprocalRank": 1.0
-      }
-    },
-    {
-      "questionId": "q008",
-      "question": "I cancelled but I am worried we will be charged again next month.",
-      "expectedDocIds": [
-        "cancel-plan",
-        "billing-period-access"
-      ],
-      "retrievedDocIds": [
-        "billing-period-access",
-        "download-invoices",
-        "cancel-plan",
-        "workspace-access",
-        "invite-team-members"
-      ],
-      "metrics": {
-        "hitAt1": true,
-        "hitAt3": true,
-        "hitAt5": true,
-        "recallAt3": 1.0,
-        "recallAt5": 1.0,
-        "reciprocalRank": 1.0
-      }
-    },
-    {
-      "questionId": "q009",
-      "question": "Is a failed payment the same thing as cancelling my plan?",
-      "expectedDocIds": [
-        "failed-payment",
-        "cancel-plan"
-      ],
-      "retrievedDocIds": [
-        "failed-payment",
-        "download-invoices",
-        "billing-period-access",
-        "downgrade-plan",
-        "refund-policy"
-      ],
-      "metrics": {
-        "hitAt1": true,
-        "hitAt3": true,
-        "hitAt5": true,
-        "recallAt3": 0.5,
-        "recallAt5": 0.5,
-        "reciprocalRank": 1.0
-      }
-    },
-    {
-      "questionId": "q010",
-      "question": "Why do I still have paid features after cancelling?",
-      "expectedDocIds": [
-        "billing-period-access",
-        "cancel-plan"
-      ],
-      "retrievedDocIds": [
-        "refund-policy",
-        "cancel-plan",
-        "failed-payment",
-        "downgrade-plan",
-        "billing-period-access"
-      ],
-      "metrics": {
-        "hitAt1": false,
-        "hitAt3": true,
-        "hitAt5": true,
-        "recallAt3": 0.5,
-        "recallAt5": 1.0,
-        "reciprocalRank": 0.5
-      }
-    },
-    {
-      "questionId": "q011",
-      "question": "Why can't I add more projects to our workspace?",
-      "expectedDocIds": [
-        "plan-limits",
-        "upgrade-plan"
-      ],
-      "retrievedDocIds": [
-        "plan-limits",
-        "upgrade-plan",
-        "workspace-access",
-        "change-admin-role",
-        "entitlement-sync"
-      ],
-      "metrics": {
-        "hitAt1": true,
-        "hitAt3": true,
-        "hitAt5": true,
-        "recallAt3": 1.0,
-        "recallAt5": 1.0,
-        "reciprocalRank": 1.0
-      }
-    },
-    {
-      "questionId": "q012",
-      "question": "If we downgrade our plan, will we lose access to paid features immediately?",
-      "expectedDocIds": [
-        "downgrade-plan",
-        "billing-period-access"
-      ],
-      "retrievedDocIds": [
-        "downgrade-plan",
-        "billing-period-access",
-        "cancel-plan",
-        "failed-payment",
-        "upgrade-plan"
-      ],
-      "metrics": {
-        "hitAt1": true,
-        "hitAt3": true,
-        "hitAt5": true,
-        "recallAt3": 1.0,
-        "recallAt5": 1.0,
-        "reciprocalRank": 1.0
-      }
-    },
-    {
-      "questionId": "q013",
-      "question": "Can I export only the rows that match my current filters?",
-      "expectedDocIds": [
-        "export-filtered-results",
-        "export-dashboard-data"
-      ],
-      "retrievedDocIds": [
-        "export-filtered-results",
-        "export-permissions",
-        "export-dashboard-data",
-        "plan-limits",
-        "downgrade-plan"
-      ],
-      "metrics": {
-        "hitAt1": true,
-        "hitAt3": true,
-        "hitAt5": true,
-        "recallAt3": 1.0,
-        "recallAt5": 1.0,
-        "reciprocalRank": 1.0
-      }
-    },
-    {
-      "questionId": "q014",
-      "question": "My teammate can view the dashboard but cannot download the report.",
-      "expectedDocIds": [
-        "export-permissions",
-        "export-dashboard-data"
-      ],
-      "retrievedDocIds": [
-        "export-dashboard-data",
-        "export-permissions",
-        "export-filtered-results",
-        "download-invoices",
-        "billing-permissions"
-      ],
-      "metrics": {
-        "hitAt1": true,
-        "hitAt3": true,
-        "hitAt5": true,
-        "recallAt3": 1.0,
-        "recallAt5": 1.0,
-        "reciprocalRank": 1.0
-      }
-    },
-    {
-      "questionId": "q015",
-      "question": "Do we need to upgrade to increase our project and export limits?",
-      "expectedDocIds": [
-        "upgrade-plan",
-        "plan-limits"
-      ],
-      "retrievedDocIds": [
-        "upgrade-plan",
-        "export-permissions",
-        "export-dashboard-data",
-        "export-filtered-results",
-        "plan-limits"
-      ],
-      "metrics": {
-        "hitAt1": true,
-        "hitAt3": true,
-        "hitAt5": true,
-        "recallAt3": 0.5,
-        "recallAt5": 1.0,
-        "reciprocalRank": 1.0
-      }
-    },
-    {
-      "questionId": "q016",
-      "question": "I can manage invoices but I don't see the export button.",
-      "expectedDocIds": [
-        "export-permissions",
-        "billing-permissions"
-      ],
-      "retrievedDocIds": [
-        "export-permissions",
-        "export-dashboard-data",
-        "export-filtered-results",
-        "download-invoices",
-        "billing-permissions"
-      ],
-      "metrics": {
-        "hitAt1": true,
-        "hitAt3": true,
-        "hitAt5": true,
-        "recallAt3": 0.5,
-        "recallAt5": 1.0,
-        "reciprocalRank": 1.0
-      }
-    }
-  ]
-}
+    ]
+  }
+]

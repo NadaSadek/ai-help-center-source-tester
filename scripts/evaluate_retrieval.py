@@ -5,7 +5,8 @@ from pathlib import Path
 from typing import TypedDict
 
 QUESTIONS_PATH = Path("data/test-questions.json")
-RETRIEVAL_RESULTS_PATH = Path("data/keyword-results.json")
+KEYWORD_RETRIEVAL_RESULTS_PATH = Path("data/keyword-results.json")
+EMBEDDING_RETRIEVAL_RESULTS_PATH = Path("data/embedding-results.json")
 OUTPUT_PATH = Path("data/eval-results.json")
 
 
@@ -153,9 +154,11 @@ def calculate_summary_metrics(metrics_list: list[RetrievalMetrics]) -> MetricsSu
     }
 
 
-def main() -> None:
-    questions: list[TestQuestion] = load_json(QUESTIONS_PATH)
-    retrieval_results: list[QuestionRetrievalResult] = load_json(RETRIEVAL_RESULTS_PATH)
+def evaluate_strategy(
+    questions: list[TestQuestion],
+    retrieval_results: list[QuestionRetrievalResult],
+    strategy_type: str,
+) -> QuestionsEvaluation:
     retrieval_by_question_id = {item["questionId"]: item for item in retrieval_results}
 
     all_questions_evaluations_result: list[QuestionEvaluation] = []
@@ -170,11 +173,29 @@ def main() -> None:
         for question_evaluation_result in all_questions_evaluations_result
     ]
 
-    final_eval_result: QuestionsEvaluation = {
-        "strategy": "tfidf",
+    eval_result_by_strategy: QuestionsEvaluation = {
+        "strategy": strategy_type,
         "summary": calculate_summary_metrics(metrics_list),
         "questions": all_questions_evaluations_result,
     }
+    return eval_result_by_strategy
+
+
+def main() -> None:
+    questions: list[TestQuestion] = load_json(QUESTIONS_PATH)
+    embedding_retrieval_results: list[QuestionRetrievalResult] = load_json(
+        EMBEDDING_RETRIEVAL_RESULTS_PATH
+    )
+    keyword_retrieval_results: list[QuestionRetrievalResult] = load_json(
+        KEYWORD_RETRIEVAL_RESULTS_PATH
+    )
+
+    final_eval_result = [
+        evaluate_strategy(questions, keyword_retrieval_results, "tfidf"),
+        evaluate_strategy(
+            questions, embedding_retrieval_results, "embedding"
+        ),
+    ]
     OUTPUT_PATH.write_text(
         json.dumps(final_eval_result, indent=2, ensure_ascii=False),
         encoding="utf-8",
