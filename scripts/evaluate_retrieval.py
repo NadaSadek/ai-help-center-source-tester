@@ -11,6 +11,7 @@ RETRIEVAL_RESULT_SOURCES = [
     ("tfidf", Path("data/keyword-results.json")),
     ("embedding-minilm", Path("data/embedding-results-minilm.json")),
     ("embedding-mpnet", Path("data/embedding-results-mpnet.json")),
+    ("hybrid-tfidf50-mpnet50", Path("data/hybrid-results-tfidf50-mpnet50.json")),
 ]
 
 

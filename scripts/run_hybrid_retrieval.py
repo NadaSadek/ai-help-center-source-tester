@@ -13,9 +13,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 CHUNKS_PATH = Path("data/chunks.json")
 QUESTIONS_PATH = Path("data/test-questions.json")
-OUTPUT_PATH = Path("data/hybrid-results.json")
+OUTPUT_PATH = Path("data/hybrid-results-tfidf50-mpnet50.json")
 EMBEDDING_MODEL_NAME = "sentence-transformers/all-mpnet-base-v2"
-STRATEGY_NAME = "hybrid-tfidf-mpnet"
+STRATEGY_NAME = "hybrid-tfidf50-mpnet50"
 KEYWORD_WEIGHT = 0.5
 EMBEDDING_WEIGHT = 0.5
 TOP_K = 5
