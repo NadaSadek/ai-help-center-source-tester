@@ -65,15 +65,6 @@ def get_top_results(
     ranked_indices: list[int] = similarities.argsort()[::-1][:top_k].tolist()
     results: list[RetrievalResult] = []
 
-    # ranked_indices stores indexes of the original chunks list
-    # ordered by similarity score (rank).
-    # `rank` is the position (index) in ranked_indices which tells us
-    # which the order of chunks after cosine similarity
-    # `chunk_index` is the value that's stored in ranked_indices
-    # to indicate which chunk has higher score
-    # ranked_indices stores chunk indexes ordered by similarity score.
-    # rank is the position (index) in ranked_indices
-    # chunk_index is the position of the chunk.
     for rank, chunk_index in enumerate(ranked_indices, start=1):
         chunk = chunks[chunk_index]
         score = similarities[chunk_index]
