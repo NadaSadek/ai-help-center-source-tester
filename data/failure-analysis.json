@@ -4,13 +4,27 @@
     "failureType": "exact_term_overweighted",
     "failureNote": "TF-IDF ranked download-invoices first because the question contains invoice and paid, but the user intent is workspace access after payment.",
     "suggestedFix": "Improve workspace-access and entitlement-sync docs with phrases like paid invoice but still locked out, paid but no access and team cannot access workspace after payment.",
-    "affectedMetric": "hitAt1"
+    "affectedMetrics": ["hitAt1", "recallAt3", "reciprocalRank"]
   },
   {
     "questionId": "q010",
     "failureType": "generic_billing_language_outranked_specific_access_rule",
     "failureNote": "TF-IDF ranked failed-payment and refund-policy above billing-period-access because the query mentions paid features and cancelling, while the intended source is end-of-period access after cancellation.",
     "suggestedFix": "Add clearer cancellation/access wording to billing-period-access and test whether embedding or hybrid retrieval ranks it higher.",
-    "affectedMetric": "hitAt1"
+    "affectedMetrics": ["hitAt1", "reciprocalRank"]
+  },
+  {
+    "questionId": "q015",
+    "failureType": "competing_domain_terms",
+    "failureNote": "TF-IDF ranked upgrade-plan first, but export-related docs outranked plan-limits because the question mentions export limits. The retriever matched the export wording before fully covering the plan-limit intent.",
+    "suggestedFix": "Improve plan-limits with wording like project and export limits, increase project limits, export limit reached and upgrade for higher limits. Compare whether embedding or hybrid retrieval improves coverage.",
+    "affectedMetrics": ["recallAt3"]
+  },
+  {
+    "questionId": "q016",
+    "failureType": "permission_scope_confusion",
+    "failureNote": "TF-IDF correctly ranked export-permissions first, but billing-permissions appeared only at rank 5. The query includes both invoice management and missing export button, but export wording dominated the top results.",
+    "suggestedFix": "Clarify in export-permissions and billing-permissions that billing access and export access are separate permission scopes. Test whether hybrid retrieval improves early source coverage.",
+    "affectedMetrics": ["recallAt3"]
   }
 ]
