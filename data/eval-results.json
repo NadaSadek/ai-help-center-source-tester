@@ -1,12 +1,12 @@
 {
   "strategy": "tfidf",
   "summary": {
-    "meanHitAt1": 0.8,
+    "meanHitAt1": 0.875,
     "meanHitAt3": 1.0,
     "meanHitAt5": 1.0,
-    "meanRecallAt3": 0.7833333333333333,
-    "meanRecallAt5": 1.0,
-    "mrr": 0.8666666666666666
+    "meanRecallAt3": 0.78125,
+    "meanRecallAt5": 0.9270833333333334,
+    "mrr": 0.9270833333333334
   },
   "questions": [
     {
@@ -20,8 +20,8 @@
         "billing-period-access",
         "cancel-plan",
         "entitlement-sync",
-        "workspace-access",
-        "billing-permissions"
+        "downgrade-plan",
+        "upgrade-plan"
       ],
       "metrics": {
         "hitAt1": true,
@@ -43,16 +43,16 @@
       "retrievedDocIds": [
         "cancel-plan",
         "refund-policy",
-        "billing-period-access",
-        "billing-permissions",
-        "failed-payment"
+        "downgrade-plan",
+        "plan-limits",
+        "upgrade-plan"
       ],
       "metrics": {
         "hitAt1": true,
         "hitAt3": true,
         "hitAt5": true,
-        "recallAt3": 1.0,
-        "recallAt5": 1.0,
+        "recallAt3": 0.6666666666666666,
+        "recallAt5": 0.6666666666666666,
         "reciprocalRank": 1.0
       }
     },
@@ -67,8 +67,8 @@
         "failed-payment",
         "download-invoices",
         "change-admin-role",
-        "workspace-access",
-        "billing-period-access"
+        "billing-period-access",
+        "billing-permissions"
       ],
       "metrics": {
         "hitAt1": true,
@@ -92,14 +92,14 @@
         "invite-team-members",
         "failed-payment",
         "entitlement-sync",
-        "workspace-access"
+        "billing-period-access"
       ],
       "metrics": {
         "hitAt1": false,
         "hitAt3": true,
         "hitAt5": true,
         "recallAt3": 0.3333333333333333,
-        "recallAt5": 1.0,
+        "recallAt5": 0.6666666666666666,
         "reciprocalRank": 0.3333333333333333
       }
     },
@@ -112,9 +112,9 @@
       "retrievedDocIds": [
         "download-invoices",
         "failed-payment",
-        "billing-period-access",
-        "entitlement-sync",
-        "refund-policy"
+        "export-permissions",
+        "export-filtered-results",
+        "upgrade-plan"
       ],
       "metrics": {
         "hitAt1": true,
@@ -135,9 +135,9 @@
       "retrievedDocIds": [
         "download-invoices",
         "billing-permissions",
-        "entitlement-sync",
         "change-admin-role",
-        "workspace-access"
+        "export-dashboard-data",
+        "entitlement-sync"
       ],
       "metrics": {
         "hitAt1": true,
@@ -202,9 +202,9 @@
       ],
       "retrievedDocIds": [
         "failed-payment",
-        "billing-period-access",
         "download-invoices",
-        "cancel-plan",
+        "billing-period-access",
+        "downgrade-plan",
         "refund-policy"
       ],
       "metrics": {
@@ -212,7 +212,7 @@
         "hitAt3": true,
         "hitAt5": true,
         "recallAt3": 0.5,
-        "recallAt5": 1.0,
+        "recallAt5": 0.5,
         "reciprocalRank": 1.0
       }
     },
@@ -224,11 +224,11 @@
         "cancel-plan"
       ],
       "retrievedDocIds": [
-        "failed-payment",
         "refund-policy",
         "cancel-plan",
-        "billing-period-access",
-        "entitlement-sync"
+        "failed-payment",
+        "downgrade-plan",
+        "billing-period-access"
       ],
       "metrics": {
         "hitAt1": false,
@@ -236,7 +236,145 @@
         "hitAt5": true,
         "recallAt3": 0.5,
         "recallAt5": 1.0,
-        "reciprocalRank": 0.3333333333333333
+        "reciprocalRank": 0.5
+      }
+    },
+    {
+      "questionId": "q011",
+      "question": "Why can't I add more projects to our workspace?",
+      "expectedDocIds": [
+        "plan-limits",
+        "upgrade-plan"
+      ],
+      "retrievedDocIds": [
+        "plan-limits",
+        "upgrade-plan",
+        "workspace-access",
+        "change-admin-role",
+        "entitlement-sync"
+      ],
+      "metrics": {
+        "hitAt1": true,
+        "hitAt3": true,
+        "hitAt5": true,
+        "recallAt3": 1.0,
+        "recallAt5": 1.0,
+        "reciprocalRank": 1.0
+      }
+    },
+    {
+      "questionId": "q012",
+      "question": "If we downgrade our plan, will we lose access to paid features immediately?",
+      "expectedDocIds": [
+        "downgrade-plan",
+        "billing-period-access"
+      ],
+      "retrievedDocIds": [
+        "downgrade-plan",
+        "billing-period-access",
+        "cancel-plan",
+        "failed-payment",
+        "upgrade-plan"
+      ],
+      "metrics": {
+        "hitAt1": true,
+        "hitAt3": true,
+        "hitAt5": true,
+        "recallAt3": 1.0,
+        "recallAt5": 1.0,
+        "reciprocalRank": 1.0
+      }
+    },
+    {
+      "questionId": "q013",
+      "question": "Can I export only the rows that match my current filters?",
+      "expectedDocIds": [
+        "export-filtered-results",
+        "export-dashboard-data"
+      ],
+      "retrievedDocIds": [
+        "export-filtered-results",
+        "export-permissions",
+        "export-dashboard-data",
+        "plan-limits",
+        "downgrade-plan"
+      ],
+      "metrics": {
+        "hitAt1": true,
+        "hitAt3": true,
+        "hitAt5": true,
+        "recallAt3": 1.0,
+        "recallAt5": 1.0,
+        "reciprocalRank": 1.0
+      }
+    },
+    {
+      "questionId": "q014",
+      "question": "My teammate can view the dashboard but cannot download the report.",
+      "expectedDocIds": [
+        "export-permissions",
+        "export-dashboard-data"
+      ],
+      "retrievedDocIds": [
+        "export-dashboard-data",
+        "export-permissions",
+        "export-filtered-results",
+        "download-invoices",
+        "billing-permissions"
+      ],
+      "metrics": {
+        "hitAt1": true,
+        "hitAt3": true,
+        "hitAt5": true,
+        "recallAt3": 1.0,
+        "recallAt5": 1.0,
+        "reciprocalRank": 1.0
+      }
+    },
+    {
+      "questionId": "q015",
+      "question": "Do we need to upgrade to increase our project and export limits?",
+      "expectedDocIds": [
+        "upgrade-plan",
+        "plan-limits"
+      ],
+      "retrievedDocIds": [
+        "upgrade-plan",
+        "export-permissions",
+        "export-dashboard-data",
+        "export-filtered-results",
+        "plan-limits"
+      ],
+      "metrics": {
+        "hitAt1": true,
+        "hitAt3": true,
+        "hitAt5": true,
+        "recallAt3": 0.5,
+        "recallAt5": 1.0,
+        "reciprocalRank": 1.0
+      }
+    },
+    {
+      "questionId": "q016",
+      "question": "I can manage invoices but I don't see the export button.",
+      "expectedDocIds": [
+        "export-permissions",
+        "billing-permissions"
+      ],
+      "retrievedDocIds": [
+        "export-permissions",
+        "export-dashboard-data",
+        "export-filtered-results",
+        "download-invoices",
+        "billing-permissions"
+      ],
+      "metrics": {
+        "hitAt1": true,
+        "hitAt3": true,
+        "hitAt5": true,
+        "recallAt3": 0.5,
+        "recallAt5": 1.0,
+        "reciprocalRank": 1.0
       }
     }
   ]

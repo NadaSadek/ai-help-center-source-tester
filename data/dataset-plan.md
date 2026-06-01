@@ -66,13 +66,13 @@ These are the ambiguity patterns the dataset should test.
 - workspace/workspace-access.md
 - workspace/entitlement-sync.md
 
-### Plans [To be added]
+### Plans
 
 - plans/plan-limits.md
 - plans/upgrade-plan.md
 - plans/downgrade-plan.md
 
-### Exports [To be added]
+### Exports
 
 - exports/export-dashboard-data.md
 - exports/export-filtered-results.md

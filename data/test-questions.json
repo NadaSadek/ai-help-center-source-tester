@@ -26,7 +26,7 @@
   {
     "id": "q004",
     "question": "The invoice says paid but my team still can't access the workspace.",
-    "expectedDocIds":["failed-payment", "workspace-access", "entitlement-sync"],
+    "expectedDocIds": ["failed-payment", "workspace-access", "entitlement-sync"],
     "category": "billing",
     "difficulty": "hard",
     "notes": "Tests payment/access ambiguity. Later this should also include workspace-access and entitlement-sync once those docs exist."
@@ -78,5 +78,53 @@
     "category": "billing",
     "difficulty": "medium",
     "notes": "Semantic version of the cancellation/access question with fewer exact title terms."
+  },
+  {
+    "id": "q011",
+    "question": "Why can't I add more projects to our workspace?",
+    "expectedDocIds": ["plan-limits", "upgrade-plan"],
+    "category": "plans",
+    "difficulty": "medium",
+    "notes": "Tests whether retrieval connects resource creation failure with plan limits and possible upgrade path."
+  },
+  {
+    "id": "q012",
+    "question": "If we downgrade our plan, will we lose access to paid features immediately?",
+    "expectedDocIds": ["downgrade-plan", "billing-period-access"],
+    "category": "plans",
+    "difficulty": "medium",
+    "notes": "Tests downgrade timing and end-of-period access overlap."
+  },
+  {
+    "id": "q013",
+    "question": "Can I export only the rows that match my current filters?",
+    "expectedDocIds": ["export-filtered-results", "export-dashboard-data"],
+    "category": "exports",
+    "difficulty": "medium",
+    "notes": "Tests semantic match for filtered exports and dashboard export distinction."
+  },
+  {
+    "id": "q014",
+    "question": "My teammate can view the dashboard but cannot download the report.",
+    "expectedDocIds": ["export-permissions", "export-dashboard-data"],
+    "category": "exports",
+    "difficulty": "medium",
+    "notes": "Tests whether retrieval connects download/export access with export permissions rather than general workspace access."
+  },
+  {
+    "id": "q015",
+    "question": "Do we need to upgrade to increase our project and export limits?",
+    "expectedDocIds": ["upgrade-plan", "plan-limits"],
+    "category": "plans",
+    "difficulty": "easy",
+    "notes": "Tests exact plan limits and upgrade wording."
+  },
+  {
+    "id": "q016",
+    "question": "I can manage invoices but I don't see the export button.",
+    "expectedDocIds": ["export-permissions", "billing-permissions"],
+    "category": "exports",
+    "difficulty": "hard",
+    "notes": "Tests export permissions versus billing permissions ambiguity."
   }
 ]

@@ -8,35 +8,35 @@
         "docId": "billing-period-access",
         "chunkId": "billing-period-access__chunk_001",
         "title": "Access after cancellation",
-        "score": 0.168,
+        "score": 0.184,
         "rank": 1
       },
       {
         "docId": "cancel-plan",
         "chunkId": "cancel-plan__chunk_001",
         "title": "Cancel your plan",
-        "score": 0.122,
+        "score": 0.121,
         "rank": 2
       },
       {
         "docId": "entitlement-sync",
         "chunkId": "entitlement-sync__chunk_001",
         "title": "Entitlement sync after billing changes",
-        "score": 0.113,
+        "score": 0.081,
         "rank": 3
       },
       {
-        "docId": "workspace-access",
-        "chunkId": "workspace-access__chunk_001",
-        "title": "Troubleshoot workspace access",
-        "score": 0.056,
+        "docId": "downgrade-plan",
+        "chunkId": "downgrade-plan__chunk_001",
+        "title": "Downgrade your plan",
+        "score": 0.077,
         "rank": 4
       },
       {
-        "docId": "billing-permissions",
-        "chunkId": "billing-permissions__chunk_001",
-        "title": "Billing permissions",
-        "score": 0.054,
+        "docId": "upgrade-plan",
+        "chunkId": "upgrade-plan__chunk_001",
+        "title": "Upgrade your plan",
+        "score": 0.055,
         "rank": 5
       }
     ]
@@ -50,35 +50,35 @@
         "docId": "cancel-plan",
         "chunkId": "cancel-plan__chunk_001",
         "title": "Cancel your plan",
-        "score": 0.631,
+        "score": 0.635,
         "rank": 1
       },
       {
         "docId": "refund-policy",
         "chunkId": "refund-policy__chunk_001",
         "title": "Refund policy",
-        "score": 0.421,
+        "score": 0.382,
         "rank": 2
       },
       {
-        "docId": "billing-period-access",
-        "chunkId": "billing-period-access__chunk_001",
-        "title": "Access after cancellation",
-        "score": 0.104,
+        "docId": "downgrade-plan",
+        "chunkId": "downgrade-plan__chunk_001",
+        "title": "Downgrade your plan",
+        "score": 0.233,
         "rank": 3
       },
       {
-        "docId": "billing-permissions",
-        "chunkId": "billing-permissions__chunk_001",
-        "title": "Billing permissions",
-        "score": 0.06,
+        "docId": "plan-limits",
+        "chunkId": "plan-limits__chunk_001",
+        "title": "Plan limits",
+        "score": 0.126,
         "rank": 4
       },
       {
-        "docId": "failed-payment",
-        "chunkId": "failed-payment__chunk_001",
-        "title": "Failed payment",
-        "score": 0.021,
+        "docId": "upgrade-plan",
+        "chunkId": "upgrade-plan__chunk_001",
+        "title": "Upgrade your plan",
+        "score": 0.09,
         "rank": 5
       }
     ]
@@ -92,35 +92,35 @@
         "docId": "failed-payment",
         "chunkId": "failed-payment__chunk_001",
         "title": "Failed payment",
-        "score": 0.55,
+        "score": 0.588,
         "rank": 1
       },
       {
         "docId": "download-invoices",
         "chunkId": "download-invoices__chunk_001",
         "title": "Download invoices",
-        "score": 0.394,
+        "score": 0.421,
         "rank": 2
       },
       {
         "docId": "change-admin-role",
         "chunkId": "change-admin-role__chunk_001",
         "title": "Change workspace admin role",
-        "score": 0.297,
+        "score": 0.269,
         "rank": 3
-      },
-      {
-        "docId": "workspace-access",
-        "chunkId": "workspace-access__chunk_001",
-        "title": "Troubleshoot workspace access",
-        "score": 0.253,
-        "rank": 4
       },
       {
         "docId": "billing-period-access",
         "chunkId": "billing-period-access__chunk_001",
         "title": "Access after cancellation",
-        "score": 0.237,
+        "score": 0.268,
+        "rank": 4
+      },
+      {
+        "docId": "billing-permissions",
+        "chunkId": "billing-permissions__chunk_001",
+        "title": "Billing permissions",
+        "score": 0.238,
         "rank": 5
       }
     ]
@@ -134,35 +134,35 @@
         "docId": "download-invoices",
         "chunkId": "download-invoices__chunk_001",
         "title": "Download invoices",
-        "score": 0.286,
+        "score": 0.289,
         "rank": 1
       },
       {
         "docId": "invite-team-members",
         "chunkId": "invite-team-members__chunk_001",
         "title": "Invite team members",
-        "score": 0.267,
+        "score": 0.264,
         "rank": 2
       },
       {
         "docId": "failed-payment",
         "chunkId": "failed-payment__chunk_001",
         "title": "Failed payment",
-        "score": 0.259,
+        "score": 0.246,
         "rank": 3
       },
       {
         "docId": "entitlement-sync",
         "chunkId": "entitlement-sync__chunk_001",
         "title": "Entitlement sync after billing changes",
-        "score": 0.2,
+        "score": 0.191,
         "rank": 4
       },
       {
-        "docId": "workspace-access",
-        "chunkId": "workspace-access__chunk_001",
-        "title": "Troubleshoot workspace access",
-        "score": 0.186,
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 0.185,
         "rank": 5
       }
     ]
@@ -176,35 +176,35 @@
         "docId": "download-invoices",
         "chunkId": "download-invoices__chunk_001",
         "title": "Download invoices",
-        "score": 0.422,
+        "score": 0.383,
         "rank": 1
       },
       {
         "docId": "failed-payment",
         "chunkId": "failed-payment__chunk_001",
         "title": "Failed payment",
-        "score": 0.081,
+        "score": 0.089,
         "rank": 2
       },
       {
-        "docId": "billing-period-access",
-        "chunkId": "billing-period-access__chunk_001",
-        "title": "Access after cancellation",
-        "score": 0.026,
+        "docId": "export-permissions",
+        "chunkId": "export-permissions__chunk_001",
+        "title": "Export permissions",
+        "score": 0.08,
         "rank": 3
       },
       {
-        "docId": "entitlement-sync",
-        "chunkId": "entitlement-sync__chunk_001",
-        "title": "Entitlement sync after billing changes",
-        "score": 0.024,
+        "docId": "export-filtered-results",
+        "chunkId": "export-filtered-results__chunk_001",
+        "title": "Export filtered results",
+        "score": 0.039,
         "rank": 4
       },
       {
-        "docId": "refund-policy",
-        "chunkId": "refund-policy__chunk_001",
-        "title": "Refund policy",
-        "score": 0.023,
+        "docId": "upgrade-plan",
+        "chunkId": "upgrade-plan__chunk_001",
+        "title": "Upgrade your plan",
+        "score": 0.033,
         "rank": 5
       }
     ]
@@ -218,35 +218,35 @@
         "docId": "download-invoices",
         "chunkId": "download-invoices__chunk_001",
         "title": "Download invoices",
-        "score": 0.296,
+        "score": 0.23,
         "rank": 1
       },
       {
         "docId": "billing-permissions",
         "chunkId": "billing-permissions__chunk_001",
         "title": "Billing permissions",
-        "score": 0.248,
+        "score": 0.199,
         "rank": 2
-      },
-      {
-        "docId": "entitlement-sync",
-        "chunkId": "entitlement-sync__chunk_001",
-        "title": "Entitlement sync after billing changes",
-        "score": 0.174,
-        "rank": 3
       },
       {
         "docId": "change-admin-role",
         "chunkId": "change-admin-role__chunk_001",
         "title": "Change workspace admin role",
-        "score": 0.163,
+        "score": 0.142,
+        "rank": 3
+      },
+      {
+        "docId": "export-dashboard-data",
+        "chunkId": "export-dashboard-data__chunk_001",
+        "title": "Export dashboard data",
+        "score": 0.136,
         "rank": 4
       },
       {
-        "docId": "workspace-access",
-        "chunkId": "workspace-access__chunk_001",
-        "title": "Troubleshoot workspace access",
-        "score": 0.145,
+        "docId": "entitlement-sync",
+        "chunkId": "entitlement-sync__chunk_001",
+        "title": "Entitlement sync after billing changes",
+        "score": 0.135,
         "rank": 5
       }
     ]
@@ -260,35 +260,35 @@
         "docId": "billing-permissions",
         "chunkId": "billing-permissions__chunk_001",
         "title": "Billing permissions",
-        "score": 0.323,
+        "score": 0.344,
         "rank": 1
       },
       {
         "docId": "change-admin-role",
         "chunkId": "change-admin-role__chunk_001",
         "title": "Change workspace admin role",
-        "score": 0.306,
+        "score": 0.328,
         "rank": 2
       },
       {
         "docId": "download-invoices",
         "chunkId": "download-invoices__chunk_001",
         "title": "Download invoices",
-        "score": 0.22,
+        "score": 0.24,
         "rank": 3
       },
       {
         "docId": "failed-payment",
         "chunkId": "failed-payment__chunk_001",
         "title": "Failed payment",
-        "score": 0.174,
+        "score": 0.183,
         "rank": 4
       },
       {
         "docId": "workspace-access",
         "chunkId": "workspace-access__chunk_001",
         "title": "Troubleshoot workspace access",
-        "score": 0.105,
+        "score": 0.113,
         "rank": 5
       }
     ]
@@ -302,21 +302,21 @@
         "docId": "billing-period-access",
         "chunkId": "billing-period-access__chunk_001",
         "title": "Access after cancellation",
-        "score": 0.125,
+        "score": 0.137,
         "rank": 1
       },
       {
         "docId": "download-invoices",
         "chunkId": "download-invoices__chunk_001",
         "title": "Download invoices",
-        "score": 0.086,
+        "score": 0.087,
         "rank": 2
       },
       {
         "docId": "cancel-plan",
         "chunkId": "cancel-plan__chunk_001",
         "title": "Cancel your plan",
-        "score": 0.061,
+        "score": 0.067,
         "rank": 3
       },
       {
@@ -344,35 +344,35 @@
         "docId": "failed-payment",
         "chunkId": "failed-payment__chunk_001",
         "title": "Failed payment",
-        "score": 0.418,
+        "score": 0.472,
         "rank": 1
-      },
-      {
-        "docId": "billing-period-access",
-        "chunkId": "billing-period-access__chunk_001",
-        "title": "Access after cancellation",
-        "score": 0.259,
-        "rank": 2
       },
       {
         "docId": "download-invoices",
         "chunkId": "download-invoices__chunk_001",
         "title": "Download invoices",
-        "score": 0.225,
+        "score": 0.269,
+        "rank": 2
+      },
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 0.258,
         "rank": 3
       },
       {
-        "docId": "cancel-plan",
-        "chunkId": "cancel-plan__chunk_001",
-        "title": "Cancel your plan",
-        "score": 0.21,
+        "docId": "downgrade-plan",
+        "chunkId": "downgrade-plan__chunk_001",
+        "title": "Downgrade your plan",
+        "score": 0.179,
         "rank": 4
       },
       {
         "docId": "refund-policy",
         "chunkId": "refund-policy__chunk_001",
         "title": "Refund policy",
-        "score": 0.182,
+        "score": 0.162,
         "rank": 5
       }
     ]
@@ -383,38 +383,290 @@
     "strategy": "tfidf",
     "results": [
       {
-        "docId": "failed-payment",
-        "chunkId": "failed-payment__chunk_001",
-        "title": "Failed payment",
-        "score": 0.208,
-        "rank": 1
-      },
-      {
         "docId": "refund-policy",
         "chunkId": "refund-policy__chunk_001",
         "title": "Refund policy",
-        "score": 0.203,
-        "rank": 2
+        "score": 0.201,
+        "rank": 1
       },
       {
         "docId": "cancel-plan",
         "chunkId": "cancel-plan__chunk_001",
         "title": "Cancel your plan",
+        "score": 0.199,
+        "rank": 2
+      },
+      {
+        "docId": "failed-payment",
+        "chunkId": "failed-payment__chunk_001",
+        "title": "Failed payment",
         "score": 0.195,
         "rank": 3
+      },
+      {
+        "docId": "downgrade-plan",
+        "chunkId": "downgrade-plan__chunk_001",
+        "title": "Downgrade your plan",
+        "score": 0.168,
+        "rank": 4
       },
       {
         "docId": "billing-period-access",
         "chunkId": "billing-period-access__chunk_001",
         "title": "Access after cancellation",
-        "score": 0.115,
+        "score": 0.116,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q011",
+    "question": "Why can't I add more projects to our workspace?",
+    "strategy": "tfidf",
+    "results": [
+      {
+        "docId": "plan-limits",
+        "chunkId": "plan-limits__chunk_001",
+        "title": "Plan limits",
+        "score": 0.229,
+        "rank": 1
+      },
+      {
+        "docId": "upgrade-plan",
+        "chunkId": "upgrade-plan__chunk_001",
+        "title": "Upgrade your plan",
+        "score": 0.124,
+        "rank": 2
+      },
+      {
+        "docId": "workspace-access",
+        "chunkId": "workspace-access__chunk_001",
+        "title": "Troubleshoot workspace access",
+        "score": 0.105,
+        "rank": 3
+      },
+      {
+        "docId": "change-admin-role",
+        "chunkId": "change-admin-role__chunk_001",
+        "title": "Change workspace admin role",
+        "score": 0.097,
         "rank": 4
       },
       {
         "docId": "entitlement-sync",
         "chunkId": "entitlement-sync__chunk_001",
         "title": "Entitlement sync after billing changes",
-        "score": 0.075,
+        "score": 0.079,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q012",
+    "question": "If we downgrade our plan, will we lose access to paid features immediately?",
+    "strategy": "tfidf",
+    "results": [
+      {
+        "docId": "downgrade-plan",
+        "chunkId": "downgrade-plan__chunk_001",
+        "title": "Downgrade your plan",
+        "score": 0.618,
+        "rank": 1
+      },
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 0.238,
+        "rank": 2
+      },
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 0.192,
+        "rank": 3
+      },
+      {
+        "docId": "failed-payment",
+        "chunkId": "failed-payment__chunk_001",
+        "title": "Failed payment",
+        "score": 0.17,
+        "rank": 4
+      },
+      {
+        "docId": "upgrade-plan",
+        "chunkId": "upgrade-plan__chunk_001",
+        "title": "Upgrade your plan",
+        "score": 0.16,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q013",
+    "question": "Can I export only the rows that match my current filters?",
+    "strategy": "tfidf",
+    "results": [
+      {
+        "docId": "export-filtered-results",
+        "chunkId": "export-filtered-results__chunk_001",
+        "title": "Export filtered results",
+        "score": 0.431,
+        "rank": 1
+      },
+      {
+        "docId": "export-permissions",
+        "chunkId": "export-permissions__chunk_001",
+        "title": "Export permissions",
+        "score": 0.326,
+        "rank": 2
+      },
+      {
+        "docId": "export-dashboard-data",
+        "chunkId": "export-dashboard-data__chunk_001",
+        "title": "Export dashboard data",
+        "score": 0.317,
+        "rank": 3
+      },
+      {
+        "docId": "plan-limits",
+        "chunkId": "plan-limits__chunk_001",
+        "title": "Plan limits",
+        "score": 0.053,
+        "rank": 4
+      },
+      {
+        "docId": "downgrade-plan",
+        "chunkId": "downgrade-plan__chunk_001",
+        "title": "Downgrade your plan",
+        "score": 0.051,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q014",
+    "question": "My teammate can view the dashboard but cannot download the report.",
+    "strategy": "tfidf",
+    "results": [
+      {
+        "docId": "export-dashboard-data",
+        "chunkId": "export-dashboard-data__chunk_001",
+        "title": "Export dashboard data",
+        "score": 0.266,
+        "rank": 1
+      },
+      {
+        "docId": "export-permissions",
+        "chunkId": "export-permissions__chunk_001",
+        "title": "Export permissions",
+        "score": 0.217,
+        "rank": 2
+      },
+      {
+        "docId": "export-filtered-results",
+        "chunkId": "export-filtered-results__chunk_001",
+        "title": "Export filtered results",
+        "score": 0.136,
+        "rank": 3
+      },
+      {
+        "docId": "download-invoices",
+        "chunkId": "download-invoices__chunk_001",
+        "title": "Download invoices",
+        "score": 0.132,
+        "rank": 4
+      },
+      {
+        "docId": "billing-permissions",
+        "chunkId": "billing-permissions__chunk_001",
+        "title": "Billing permissions",
+        "score": 0.054,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q015",
+    "question": "Do we need to upgrade to increase our project and export limits?",
+    "strategy": "tfidf",
+    "results": [
+      {
+        "docId": "upgrade-plan",
+        "chunkId": "upgrade-plan__chunk_001",
+        "title": "Upgrade your plan",
+        "score": 0.372,
+        "rank": 1
+      },
+      {
+        "docId": "export-permissions",
+        "chunkId": "export-permissions__chunk_001",
+        "title": "Export permissions",
+        "score": 0.335,
+        "rank": 2
+      },
+      {
+        "docId": "export-dashboard-data",
+        "chunkId": "export-dashboard-data__chunk_001",
+        "title": "Export dashboard data",
+        "score": 0.284,
+        "rank": 3
+      },
+      {
+        "docId": "export-filtered-results",
+        "chunkId": "export-filtered-results__chunk_001",
+        "title": "Export filtered results",
+        "score": 0.261,
+        "rank": 4
+      },
+      {
+        "docId": "plan-limits",
+        "chunkId": "plan-limits__chunk_001",
+        "title": "Plan limits",
+        "score": 0.118,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q016",
+    "question": "I can manage invoices but I don't see the export button.",
+    "strategy": "tfidf",
+    "results": [
+      {
+        "docId": "export-permissions",
+        "chunkId": "export-permissions__chunk_001",
+        "title": "Export permissions",
+        "score": 0.5,
+        "rank": 1
+      },
+      {
+        "docId": "export-dashboard-data",
+        "chunkId": "export-dashboard-data__chunk_001",
+        "title": "Export dashboard data",
+        "score": 0.312,
+        "rank": 2
+      },
+      {
+        "docId": "export-filtered-results",
+        "chunkId": "export-filtered-results__chunk_001",
+        "title": "Export filtered results",
+        "score": 0.243,
+        "rank": 3
+      },
+      {
+        "docId": "download-invoices",
+        "chunkId": "download-invoices__chunk_001",
+        "title": "Download invoices",
+        "score": 0.133,
+        "rank": 4
+      },
+      {
+        "docId": "billing-permissions",
+        "chunkId": "billing-permissions__chunk_001",
+        "title": "Billing permissions",
+        "score": 0.1,
         "rank": 5
       }
     ]

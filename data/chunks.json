@@ -48,6 +48,54 @@
     "text": "Title: Refund policy\n\nCategory: billing\n\nContent:\n# Refund policy\n\nCancelling an ExampleOps plan does not automatically create a refund.\n\nRefunds are reviewed based on the type of charge, the timing of the request and whether the paid plan was used during the billing period. Monthly subscriptions are usually not refunded after the billing period has started.\n\nIf you believe a charge was made in error, contact support with your workspace name, invoice number and the reason for the refund request.\n\nRefund requests are separate from cancellation requests. Cancelling prevents future renewal charges, while a refund request asks ExampleOps to review a past charge.\n\nIf your team still has access after cancelling, that does not always mean a refund is owed. Access usually continues until the end of the paid billing period."
   },
   {
+    "chunkId": "export-dashboard-data__chunk_001",
+    "docId": "export-dashboard-data",
+    "title": "Export dashboard data",
+    "category": "exports",
+    "sourcePath": "data/docs/exports/export-dashboard-data.md",
+    "text": "Title: Export dashboard data\n\nCategory: exports\n\nContent:\n# Export dashboard data\n\nExampleOps allows users with export permissions to export dashboard data as a CSV file.\n\nExports include the data visible from the selected dashboard, based on the current workspace and report configuration. Large exports may take longer to generate.\n\nDashboard exports are different from invoices. Billing invoices are downloaded from billing settings, while dashboard data exports are created from reporting pages.\n\nSome plans include export limits. If the export option is unavailable, check your plan limits and export permissions.\n\nIf you need to export only the rows matching active filters, use filtered exports instead of exporting the full dashboard data."
+  },
+  {
+    "chunkId": "export-filtered-results__chunk_001",
+    "docId": "export-filtered-results",
+    "title": "Export filtered results",
+    "category": "exports",
+    "sourcePath": "data/docs/exports/export-filtered-results.md",
+    "text": "Title: Export filtered results\n\nCategory: exports\n\nContent:\n# Export filtered results\n\nFiltered exports allow users to download only the rows that match the filters currently applied to a dashboard or report.\n\nBefore exporting, apply the filters you want to use. ExampleOps will generate a CSV file based on the filtered result set rather than the full dashboard.\n\nFiltered exports are useful when you need a subset of customers, workflows, tickets or activity records.\n\nIf the export includes more rows than expected, check whether the filters were applied before starting the export.\n\nFiltered exports require export permissions and may be affected by plan limits. If you cannot export filtered results, review export permissions and plan limits."
+  },
+  {
+    "chunkId": "export-permissions__chunk_001",
+    "docId": "export-permissions",
+    "title": "Export permissions",
+    "category": "exports",
+    "sourcePath": "data/docs/exports/export-permissions.md",
+    "text": "Title: Export permissions\n\nCategory: exports\n\nContent:\n# Export permissions\n\nExport permissions control which users can download dashboard and report data from ExampleOps.\n\nWorkspace owners and admins can grant export access from the member settings page. Some roles can view dashboards but cannot export data.\n\nIf a user cannot see the export button, confirm their workspace role and export permission settings.\n\nExport permissions are separate from billing permissions. A user may be allowed to manage invoices but not export customer or report data. A user may also be able to use the workspace but not download data.\n\nIf export permissions look correct but the export is still unavailable, check plan limits and browser troubleshooting information."
+  },
+  {
+    "chunkId": "downgrade-plan__chunk_001",
+    "docId": "downgrade-plan",
+    "title": "Downgrade your plan",
+    "category": "plans",
+    "sourcePath": "data/docs/plans/downgrade-plan.md",
+    "text": "Title: Downgrade your plan\n\nCategory: plans\n\nContent:\n# Downgrade your plan\n\nWorkspace owners and billing admins can downgrade an ExampleOps plan from the plan settings page.\n\nA downgrade is usually scheduled for the end of the current billing period. Until then, the workspace may continue to use the current paid features and limits.\n\nAfter the downgrade takes effect, features and limits from the higher plan may no longer be available. Existing data remains in the workspace, but some actions may be limited until the plan is upgraded again.\n\nDowngrading a plan is different from cancelling a subscription. Cancellation moves the workspace to the free plan at the end of the billing period. Downgrading moves the workspace to a lower paid plan.\n\nDowngrading does not automatically create a refund. Refund requests are reviewed separately."
+  },
+  {
+    "chunkId": "plan-limits__chunk_001",
+    "docId": "plan-limits",
+    "title": "Plan limits",
+    "category": "plans",
+    "sourcePath": "data/docs/plans/plan-limits.md",
+    "text": "Title: Plan limits\n\nCategory: plans\n\nContent:\n# Plan limits\n\nEach ExampleOps plan includes limits for workspaces, projects, team members, exports, integrations and automation runs.\n\nIf your team cannot add more projects, invite more members or create additional workflows, you may have reached a plan limit. The current limit and usage count are shown on the plan settings page.\n\nPlan limits are different from billing access issues. A workspace can have an active paid plan and still be blocked from creating more resources if the current plan limit has been reached.\n\nUpgrading increases available limits for future usage. Downgrading may reduce limits at the end of the billing period.\n\nIf a feature is unavailable after a payment or subscription change, review entitlement sync information as well as the plan limits page."
+  },
+  {
+    "chunkId": "upgrade-plan__chunk_001",
+    "docId": "upgrade-plan",
+    "title": "Upgrade your plan",
+    "category": "plans",
+    "sourcePath": "data/docs/plans/upgrade-plan.md",
+    "text": "Title: Upgrade your plan\n\nCategory: plans\n\nContent:\n# Upgrade your plan\n\nWorkspace owners and billing admins can upgrade an ExampleOps plan from the plan settings page.\n\nUpgrading can increase limits for projects, team members, exports, integrations and automation runs. Some advanced features are only available on higher plans.\n\nWhen a plan is upgraded, the billing change is applied to the workspace and entitlements may take a short time to sync. If the invoice is paid but new limits are not available yet, review entitlement sync information.\n\nOnly users with billing permissions can upgrade a plan. Regular workspace members cannot change subscription level.\n\nIf your team needs more capacity because you reached a limit, upgrading may be the correct action. If you cannot access an existing workspace, review workspace access instead."
+  },
+  {
     "chunkId": "change-admin-role__chunk_001",
     "docId": "change-admin-role",
     "title": "Change workspace admin role",
