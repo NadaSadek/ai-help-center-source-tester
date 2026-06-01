@@ -42,13 +42,27 @@ class RetrievalMetrics(TypedDict):
     reciprocalRank: float
 
 
+class MetricsSummary(TypedDict):
+    meanHitAt1: float
+    meanHitAt3: float
+    meanHitAt5: float
+    meanRecallAt3: float
+    meanRecallAt5: float
+    mrr: float
+
+
 class QuestionEvaluation(TypedDict):
     questionId: str
     question: str
-    strategy: str
     expectedDocIds: list[str]
     retrievedDocIds: list[str]
     metrics: RetrievalMetrics
+
+
+class QuestionsEvaluation(TypedDict):
+    strategy: str
+    questions: list[QuestionEvaluation]
+    summary: MetricsSummary
 
 
 def load_json(path: Path):
@@ -99,7 +113,6 @@ def evaluate_question(
     return {
         "questionId": question["id"],
         "question": question["question"],
-        "strategy": retrieval_results["strategy"],
         "expectedDocIds": expected_doc_ids,
         "retrievedDocIds": retrieved_doc_ids,
         "metrics": {
@@ -125,6 +138,21 @@ def evaluate_question(
     }
 
 
+def calculate_mean(values: list[float]) -> float:
+    return sum(values) / len(values)
+
+
+def calculate_summary_metrics(metrics_list: list[RetrievalMetrics]) -> MetricsSummary:
+    return {
+        "meanHitAt1": calculate_mean([int(item["hitAt1"]) for item in metrics_list]),
+        "meanHitAt3": calculate_mean([int(item["hitAt3"]) for item in metrics_list]),
+        "meanHitAt5": calculate_mean([int(item["hitAt5"]) for item in metrics_list]),
+        "meanRecallAt3": calculate_mean([item["recallAt3"] for item in metrics_list]),
+        "meanRecallAt5": calculate_mean([item["recallAt5"] for item in metrics_list]),
+        "mrr": calculate_mean([item["reciprocalRank"] for item in metrics_list]),
+    }
+
+
 def main() -> None:
     questions: list[TestQuestion] = load_json(QUESTIONS_PATH)
     retrieval_results: list[QuestionRetrievalResult] = load_json(RETRIEVAL_RESULTS_PATH)
@@ -137,8 +165,18 @@ def main() -> None:
             evaluate_question(retrieval_result, question)
         )
 
+    metrics_list = [
+        question_evaluation_result["metrics"]
+        for question_evaluation_result in all_questions_evaluations_result
+    ]
+
+    final_eval_result: QuestionsEvaluation = {
+        "strategy": "tfidf",
+        "summary": calculate_summary_metrics(metrics_list),
+        "questions": all_questions_evaluations_result,
+    }
     OUTPUT_PATH.write_text(
-        json.dumps(all_questions_evaluations_result, indent=2, ensure_ascii=False),
+        json.dumps(final_eval_result, indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
 
