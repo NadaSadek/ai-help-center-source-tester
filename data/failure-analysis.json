@@ -18,6 +18,11 @@
         "strategy": "embedding-mpnet",
         "finding": "MPNet retrieved cancel-plan, refund-policy and billing-period-access in the top 3.",
         "affectedMetrics": []
+      },
+      {
+        "strategy": "hybrid-tfidf50-mpnet50",
+        "finding": "The 50/50 hybrid retrieved cancel-plan and refund-policy in the top 2 but pushed billing-period-access to rank 4. It improved top-5 coverage compared with TF-IDF but still missed full source coverage in the top 3.",
+        "affectedMetrics": ["recallAt3"]
       }
     ],
     "retrievalNote": "Questions with multiple valid sources can look successful by Hit@1 while still missing supporting coverage. Recall@k is needed to catch this."
@@ -41,6 +46,11 @@
         "strategy": "embedding-mpnet",
         "finding": "MPNet ranked failed-payment first but missed billing-period-access in the top 5.",
         "affectedMetrics": ["recallAt3", "recallAt5"]
+      },
+      {
+        "strategy": "hybrid-tfidf50-mpnet50",
+        "finding": "The 50/50 hybrid ranked failed-payment first but pushed billing-period-access to rank 4. It recovered the supporting source in the top 5, unlike MPNet, but still missed full source coverage in the top 3.",
+        "affectedMetrics": ["recallAt3"]
       }
     ],
     "retrievalNote": "A strategy can retrieve the primary source correctly while still missing an important supporting source. This is a source coverage issue not a complete retrieval failure."
@@ -64,6 +74,11 @@
         "strategy": "embedding-mpnet",
         "finding": "MPNet improved the result by ranking workspace-access first and entitlement-sync in the top 3 but it still missed failed-payment in the top 5.",
         "affectedMetrics": ["recallAt3", "recallAt5"]
+      },
+      {
+        "strategy": "hybrid-tfidf50-mpnet50",
+        "finding": "The 50/50 hybrid retrieved all expected docs in the top 5, but ranked download-invoices and invite-team-members above the expected sources. TF-IDF signals pulled the result toward literal invoice/team wording and hurt early ranking.",
+        "affectedMetrics": ["hitAt1", "recallAt3", "reciprocalRank"]
       }
     ],
     "retrievalNote": "Multi-intent billing/access questions are difficult because different retrieval methods prioritize different parts of the query. This is a strong candidate for hybrid retrieval comparison."
@@ -72,7 +87,6 @@
     "questionId": "q007",
     "failureType": "semantic_role_confusion",
     "failureNote": "The question mentions an old billing admin leaving the company but the real task is updating the payment method, which belongs to billing permissions. Semantic retrieval can over-focus on the admin-left-company part.",
-    "affectedMetrics": ["hitAt1", "reciprocalRank"],
     "strategyFindings": [
       {
         "strategy": "tfidf",
@@ -93,29 +107,6 @@
     "retrievalNote": "Semantic retrieval can over-focus on role/admin wording when the actual intent is billing permission. Stronger embedding models may handle this better but the result still depends on source wording."
   },
   {
-    "questionId": "q010",
-    "failureType": "generic_billing_language_outranked_specific_access_rule",
-    "failureNote": "The question asks why paid features remain available after cancellation. The expected sources are cancellation and end-of-period access but keyword retrieval can be distracted by generic billing/refund/payment wording.",
-    "strategyFindings": [
-      {
-        "strategy": "tfidf",
-        "finding": "TF-IDF ranked refund-policy first, then cancel-plan, and only found billing-period-access at rank 5. It matched billing-like words but missed the access-after-cancellation rule.",
-        "affectedMetrics": ["hitAt1", "recallAt3", "reciprocalRank"]
-      },
-      {
-        "strategy": "embedding-minilm",
-        "finding": "MiniLM fixed the case by ranking billing-period-access first and cancel-plan second.",
-        "affectedMetrics": []
-      },
-      {
-        "strategy": "embedding-mpnet",
-        "finding": "MPNet also fixed the case, ranking cancel-plan first and billing-period-access second.",
-        "affectedMetrics": []
-      }
-    ],
-    "retrievalNote": "Embedding retrieval can improve semantic matching when the query describes a product rule indirectly such as continued access after cancellation."
-  },
-  {
     "questionId": "q009",
     "failureType": "semantic_overmatch_wrong_primary",
     "failureNote": "The question asks whether failed payment and cancellation are the same thing. The expected docs are failed-payment and cancel-plan but some strategies over-rank adjacent billing/access docs.",
@@ -134,9 +125,42 @@
         "strategy": "embedding-mpnet",
         "finding": "MPNet retrieved failed-payment and cancel-plan at ranks 1 and 2.",
         "affectedMetrics": []
+      },
+      {
+        "strategy": "hybrid-tfidf50-mpnet50",
+        "finding": "The 50/50 hybrid ranked failed-payment first and retrieved cancel-plan in the top 3, fixing the source coverage issue seen in TF-IDF and the wrong-primary issue seen in MiniLM.",
+        "affectedMetrics": []
       }
     ],
     "retrievalNote": "Comparison-style questions need both contrasted sources. Semantic retrieval may surface a related access doc first, while keyword retrieval may retrieve one side of the comparison and miss the other."
+  },
+  {
+    "questionId": "q010",
+    "failureType": "generic_billing_language_outranked_specific_access_rule",
+    "failureNote": "The question asks why paid features remain available after cancellation. The expected sources are cancellation and end-of-period access but keyword retrieval can be distracted by generic billing/refund/payment wording.",
+    "strategyFindings": [
+      {
+        "strategy": "tfidf",
+        "finding": "TF-IDF ranked refund-policy first, then cancel-plan, and only found billing-period-access at rank 5. It matched billing-like words but missed the access-after-cancellation rule.",
+        "affectedMetrics": ["hitAt1", "recallAt3", "reciprocalRank"]
+      },
+      {
+        "strategy": "embedding-minilm",
+        "finding": "MiniLM fixed the case by ranking billing-period-access first and cancel-plan second.",
+        "affectedMetrics": []
+      },
+      {
+        "strategy": "embedding-mpnet",
+        "finding": "MPNet also fixed the case, ranking cancel-plan first and billing-period-access second.",
+        "affectedMetrics": []
+      },
+      {
+        "strategy": "hybrid-tfidf50-mpnet50",
+        "finding": "The 50/50 hybrid ranked cancel-plan first but pushed billing-period-access to rank 5. It preserved a correct top result but weakened early source coverage compared with MPNet.",
+        "affectedMetrics": ["recallAt3"]
+      }
+    ],
+    "retrievalNote": "Embedding retrieval can improve semantic matching when the query describes a product rule indirectly such as continued access after cancellation."
   },
   {
     "questionId": "q015",
@@ -156,6 +180,11 @@
       {
         "strategy": "embedding-mpnet",
         "finding": "MPNet also ranked plan-limits first and upgrade-plan second, keeping both expected sources in the top 3.",
+        "affectedMetrics": []
+      },
+      {
+        "strategy": "hybrid-tfidf50-mpnet50",
+        "finding": "The 50/50 hybrid ranked upgrade-plan first and kept plan-limits in the top 3, fixing the early source coverage issue seen in TF-IDF.",
         "affectedMetrics": []
       }
     ],
@@ -179,6 +208,11 @@
       {
         "strategy": "embedding-mpnet",
         "finding": "MPNet ranked export-permissions first and found billing-permissions at rank 5, similar to TF-IDF.",
+        "affectedMetrics": ["recallAt3"]
+      },
+      {
+        "strategy": "hybrid-tfidf50-mpnet50",
+        "finding": "The 50/50 hybrid ranked export-permissions first and found billing-permissions at rank 5. It matched TF-IDF and MPNet on top-5 coverage but still failed to surface both permission scopes in the top 3.",
         "affectedMetrics": ["recallAt3"]
       }
     ],
