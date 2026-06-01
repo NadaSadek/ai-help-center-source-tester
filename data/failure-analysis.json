@@ -102,6 +102,11 @@
         "strategy": "embedding-mpnet",
         "finding": "MPNet corrected this and ranked billing-permissions first.",
         "affectedMetrics": []
+      },
+      {
+        "strategy": "hybrid-tfidf50-mpnet50",
+        "finding": "The 50/50 hybrid ranked billing-permissions first and change-admin-role second. It preserved the correct top result while still surfacing the related admin-role document as a secondary match.",
+        "affectedMetrics": []
       }
     ],
     "retrievalNote": "Semantic retrieval can over-focus on role/admin wording when the actual intent is billing permission. Stronger embedding models may handle this better but the result still depends on source wording."

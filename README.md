@@ -12,7 +12,7 @@ This project tests the retrieval step when we have the following:
 * realistic customer/support questions
 * expected source documents for each question
 
-It compares whether different retrieval strategies return the expected source documents early (high ranking).
+It compares whether different retrieval strategies return the expected source documents at high ranks.
 
 ## Fake product context
 
@@ -54,7 +54,7 @@ Each strategy is evaluated using ranking metrics:
 | `MRR`      | Mean reciprocal rank of the first correct source          |
 
 - Hit metrics show whether retrieval found at least one useful source
-- Recall metrics show whether retrieval covered all expected source
+- Recall metrics show whether retrieval covered all expected sources
 
 
 ## Current results
@@ -127,13 +127,13 @@ scripts/
 
 ## Source files
 
-Manually-written inputs:
+Inputs:
 
 | File                         | Purpose                                          |
 | ---------------------------- | ------------------------------------------------ |
 | `data/docs/`                 | Fake help-center documentation                   |
 | `data/test-questions.json`   | Test questions with expected source documents    |
-| `data/failure-analysis.json` | Manual interpretation of retrieval failure cases |
+
 
 Script-generated outputs:
 
@@ -145,6 +145,8 @@ Script-generated outputs:
 | `data/embedding-results-mpnet.json`        | MPNet embedding retrieval output         |
 | `data/hybrid-results-tfidf50-mpnet50.json` | 50/50 hybrid retrieval output            |
 | `data/eval-results.json`                   | Evaluation results across all strategies |
+
+I put the analysis of retrieval failure cases in [data/failure-analysis.json](data/failure-analysis.json)
 
 ## Running the project
 
