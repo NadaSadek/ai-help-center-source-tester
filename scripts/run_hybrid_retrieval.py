@@ -186,7 +186,7 @@ def main() -> None:
             keyword_chunk_vectors,
             embedding_chunk_vectors,
             TOP_K,
-            "hybrid-tfidf-mpnet",
+            STRATEGY_NAME,
         )
         for question_obj in questions
     ]
