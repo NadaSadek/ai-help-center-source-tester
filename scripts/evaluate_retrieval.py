@@ -2,7 +2,16 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import TypedDict
+
+from retrieval.types import (
+    MetricsSummary,
+    QuestionEvaluation,
+    QuestionRetrievalResult,
+    QuestionsEvaluation,
+    RetrievalMetrics,
+    RetrievalResult,
+    TestQuestion,
+)
 
 QUESTIONS_PATH = Path("data/test-questions.json")
 OUTPUT_PATH = Path("data/eval-results.json")
@@ -13,62 +22,6 @@ RETRIEVAL_RESULT_SOURCES = [
     ("embedding-mpnet", Path("data/embedding-results-mpnet.json")),
     ("hybrid-tfidf50-mpnet50", Path("data/hybrid-results-tfidf50-mpnet50.json")),
 ]
-
-
-class TestQuestion(TypedDict):
-    id: str
-    question: str
-    expectedDocIds: list[str]
-    category: str
-    difficulty: str
-    notes: str
-
-
-class RetrievalResult(TypedDict):
-    rank: int
-    docId: str
-    chunkId: str
-    title: str
-    score: float
-
-
-class QuestionRetrievalResult(TypedDict):
-    questionId: str
-    question: str
-    strategy: str
-    results: list[RetrievalResult]
-
-
-class RetrievalMetrics(TypedDict):
-    hitAt1: bool
-    hitAt3: bool
-    hitAt5: bool
-    recallAt3: float
-    recallAt5: float
-    reciprocalRank: float
-
-
-class MetricsSummary(TypedDict):
-    meanHitAt1: float
-    meanHitAt3: float
-    meanHitAt5: float
-    meanRecallAt3: float
-    meanRecallAt5: float
-    mrr: float
-
-
-class QuestionEvaluation(TypedDict):
-    questionId: str
-    question: str
-    expectedDocIds: list[str]
-    retrievedDocIds: list[str]
-    metrics: RetrievalMetrics
-
-
-class QuestionsEvaluation(TypedDict):
-    strategy: str
-    questions: list[QuestionEvaluation]
-    summary: MetricsSummary
 
 
 def load_json(path: Path):

@@ -9,6 +9,13 @@ from numpy.typing import NDArray
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
+from retrieval.types import (
+    Chunk,
+    QuestionRetrievalResult,
+    RetrievalResult,
+    TestQuestion,
+)
+
 CHUNKS_PATH = Path("data/chunks.json")
 QUESTIONS_PATH = Path("data/test-questions.json")
 TOP_K = 5
@@ -32,39 +39,6 @@ EMBEDDING_STRATEGIES: list[EmbeddingStrategy] = [
         "outputPath": Path("data/embedding-results-mpnet.json"),
     },
 ]
-
-
-class Chunk(TypedDict):
-    chunkId: str
-    docId: str
-    title: str
-    category: str
-    sourcePath: str
-    text: str
-
-
-class TestQuestion(TypedDict):
-    id: str
-    question: str
-    expectedDocIds: list[str]
-    category: str
-    difficulty: str
-    notes: str
-
-
-class RetrievalResult(TypedDict):
-    rank: int
-    docId: str
-    chunkId: str
-    title: str
-    score: float
-
-
-class QuestionRetrievalResult(TypedDict):
-    questionId: str
-    question: str
-    strategy: str
-    results: list[RetrievalResult]
 
 
 def load_json(path: Path):
