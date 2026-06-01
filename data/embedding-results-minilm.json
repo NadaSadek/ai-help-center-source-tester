@@ -2,7 +2,7 @@
   {
     "questionId": "q001",
     "question": "I cancelled my subscription. Why can I still use ExampleOps until next month?",
-    "strategy": "embedding",
+    "strategy": "embedding-minilm",
     "results": [
       {
         "docId": "billing-period-access",
@@ -44,7 +44,7 @@
   {
     "questionId": "q002",
     "question": "If I cancel my plan today, will I get a refund for the rest of the month?",
-    "strategy": "embedding",
+    "strategy": "embedding-minilm",
     "results": [
       {
         "docId": "cancel-plan",
@@ -86,7 +86,7 @@
   {
     "questionId": "q003",
     "question": "Our card payment failed. What happens to our workspace now?",
-    "strategy": "embedding",
+    "strategy": "embedding-minilm",
     "results": [
       {
         "docId": "failed-payment",
@@ -128,7 +128,7 @@
   {
     "questionId": "q004",
     "question": "The invoice says paid but my team still can't access the workspace.",
-    "strategy": "embedding",
+    "strategy": "embedding-minilm",
     "results": [
       {
         "docId": "invite-team-members",
@@ -170,7 +170,7 @@
   {
     "questionId": "q005",
     "question": "Where can I download a PDF copy of our last invoice?",
-    "strategy": "embedding",
+    "strategy": "embedding-minilm",
     "results": [
       {
         "docId": "download-invoices",
@@ -212,7 +212,7 @@
   {
     "questionId": "q006",
     "question": "I can't see the billing settings or invoices. Do I need a different role?",
-    "strategy": "embedding",
+    "strategy": "embedding-minilm",
     "results": [
       {
         "docId": "download-invoices",
@@ -254,7 +254,7 @@
   {
     "questionId": "q007",
     "question": "The old billing admin left the company and nobody can update the payment method.",
-    "strategy": "embedding",
+    "strategy": "embedding-minilm",
     "results": [
       {
         "docId": "change-admin-role",
@@ -296,7 +296,7 @@
   {
     "questionId": "q008",
     "question": "I cancelled but I am worried we will be charged again next month.",
-    "strategy": "embedding",
+    "strategy": "embedding-minilm",
     "results": [
       {
         "docId": "cancel-plan",
@@ -338,7 +338,7 @@
   {
     "questionId": "q009",
     "question": "Is a failed payment the same thing as cancelling my plan?",
-    "strategy": "embedding",
+    "strategy": "embedding-minilm",
     "results": [
       {
         "docId": "billing-period-access",
@@ -380,7 +380,7 @@
   {
     "questionId": "q010",
     "question": "Why do I still have paid features after cancelling?",
-    "strategy": "embedding",
+    "strategy": "embedding-minilm",
     "results": [
       {
         "docId": "billing-period-access",
@@ -422,7 +422,7 @@
   {
     "questionId": "q011",
     "question": "Why can't I add more projects to our workspace?",
-    "strategy": "embedding",
+    "strategy": "embedding-minilm",
     "results": [
       {
         "docId": "plan-limits",
@@ -464,7 +464,7 @@
   {
     "questionId": "q012",
     "question": "If we downgrade our plan, will we lose access to paid features immediately?",
-    "strategy": "embedding",
+    "strategy": "embedding-minilm",
     "results": [
       {
         "docId": "downgrade-plan",
@@ -506,7 +506,7 @@
   {
     "questionId": "q013",
     "question": "Can I export only the rows that match my current filters?",
-    "strategy": "embedding",
+    "strategy": "embedding-minilm",
     "results": [
       {
         "docId": "export-filtered-results",
@@ -548,7 +548,7 @@
   {
     "questionId": "q014",
     "question": "My teammate can view the dashboard but cannot download the report.",
-    "strategy": "embedding",
+    "strategy": "embedding-minilm",
     "results": [
       {
         "docId": "export-permissions",
@@ -590,7 +590,7 @@
   {
     "questionId": "q015",
     "question": "Do we need to upgrade to increase our project and export limits?",
-    "strategy": "embedding",
+    "strategy": "embedding-minilm",
     "results": [
       {
         "docId": "plan-limits",
@@ -632,7 +632,7 @@
   {
     "questionId": "q016",
     "question": "I can manage invoices but I don't see the export button.",
-    "strategy": "embedding",
+    "strategy": "embedding-minilm",
     "results": [
       {
         "docId": "export-permissions",

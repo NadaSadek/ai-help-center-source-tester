@@ -11,8 +11,27 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 CHUNKS_PATH = Path("data/chunks.json")
 QUESTIONS_PATH = Path("data/test-questions.json")
-OUTPUT_PATH = Path("data/embedding-results.json")
 TOP_K = 5
+
+
+class EmbeddingStrategy(TypedDict):
+    name: str
+    modelName: str
+    outputPath: Path
+
+
+EMBEDDING_STRATEGIES: list[EmbeddingStrategy] = [
+    {
+        "name": "embedding-minilm",
+        "modelName": "sentence-transformers/all-MiniLM-L6-v2",
+        "outputPath": Path("data/embedding-results-minilm.json"),
+    },
+    {
+        "name": "embedding-mpnet",
+        "modelName": "sentence-transformers/all-mpnet-base-v2",
+        "outputPath": Path("data/embedding-results-mpnet.json"),
+    },
+]
 
 
 class Chunk(TypedDict):
@@ -78,6 +97,7 @@ def get_top_results(
     chunk_vectors: NDArray[np.float32],
     model: SentenceTransformer,
     top_k: int,
+    strategy_name: str,
 ) -> QuestionRetrievalResult:
     question = question_obj["question"]
     question_vector = encode_texts(
@@ -104,29 +124,36 @@ def get_top_results(
     return {
         "questionId": question_obj["id"],
         "question": question,
-        "strategy": "embedding",
+        "strategy": strategy_name,
         "results": results,
     }
 
 
 def main() -> None:
-    model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
-
     chunks: list[Chunk] = load_json(CHUNKS_PATH)
-    chunk_texts = [chunk["text"] for chunk in chunks]
-    chunk_vectors = encode_texts(model, chunk_texts)
-
     questions: list[TestQuestion] = load_json(QUESTIONS_PATH)
+    chunk_texts = [chunk["text"] for chunk in chunks]
 
-    all_questions_results = [
-        get_top_results(question_obj, chunks, chunk_vectors, model, TOP_K)
-        for question_obj in questions
-    ]
+    for strategy in EMBEDDING_STRATEGIES:
+        model = SentenceTransformer(strategy["modelName"])
+        chunk_vectors = encode_texts(model, chunk_texts)
 
-    OUTPUT_PATH.write_text(
-        json.dumps(all_questions_results, indent=2, ensure_ascii=False),
-        encoding="utf-8",
-    )
+        all_questions_results = [
+            get_top_results(
+                question_obj,
+                chunks,
+                chunk_vectors,
+                model,
+                TOP_K,
+                strategy["name"],
+            )
+            for question_obj in questions
+        ]
+
+        strategy["outputPath"].write_text(
+            json.dumps(all_questions_results, indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
 
 
 if __name__ == "__main__":
