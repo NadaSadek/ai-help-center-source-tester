@@ -1,0 +1,16 @@
+[
+  {
+    "questionId": "q004",
+    "failureType": "exact_term_overweighted",
+    "failureNote": "TF-IDF ranked download-invoices first because the question contains invoice and paid, but the user intent is workspace access after payment.",
+    "suggestedFix": "Improve workspace-access and entitlement-sync docs with phrases like paid invoice but still locked out, paid but no access and team cannot access workspace after payment.",
+    "affectedMetric": "hitAt1"
+  },
+  {
+    "questionId": "q010",
+    "failureType": "generic_billing_language_outranked_specific_access_rule",
+    "failureNote": "TF-IDF ranked failed-payment and refund-policy above billing-period-access because the query mentions paid features and cancelling, while the intended source is end-of-period access after cancellation.",
+    "suggestedFix": "Add clearer cancellation/access wording to billing-period-access and test whether embedding or hybrid retrieval ranks it higher.",
+    "affectedMetric": "hitAt1"
+  }
+]
