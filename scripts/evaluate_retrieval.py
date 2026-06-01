@@ -5,9 +5,13 @@ from pathlib import Path
 from typing import TypedDict
 
 QUESTIONS_PATH = Path("data/test-questions.json")
-KEYWORD_RETRIEVAL_RESULTS_PATH = Path("data/keyword-results.json")
-EMBEDDING_RETRIEVAL_RESULTS_PATH = Path("data/embedding-results.json")
 OUTPUT_PATH = Path("data/eval-results.json")
+
+RETRIEVAL_RESULT_SOURCES = [
+    ("tfidf", Path("data/keyword-results.json")),
+    ("embedding-minilm", Path("data/embedding-results-minilm.json")),
+    ("embedding-mpnet", Path("data/embedding-results-mpnet.json")),
+]
 
 
 class TestQuestion(TypedDict):
@@ -183,18 +187,10 @@ def evaluate_strategy(
 
 def main() -> None:
     questions: list[TestQuestion] = load_json(QUESTIONS_PATH)
-    embedding_retrieval_results: list[QuestionRetrievalResult] = load_json(
-        EMBEDDING_RETRIEVAL_RESULTS_PATH
-    )
-    keyword_retrieval_results: list[QuestionRetrievalResult] = load_json(
-        KEYWORD_RETRIEVAL_RESULTS_PATH
-    )
 
     final_eval_result = [
-        evaluate_strategy(questions, keyword_retrieval_results, "tfidf"),
-        evaluate_strategy(
-            questions, embedding_retrieval_results, "embedding"
-        ),
+        evaluate_strategy(questions, load_json(path), strategy)
+        for strategy, path in RETRIEVAL_RESULT_SOURCES
     ]
     OUTPUT_PATH.write_text(
         json.dumps(final_eval_result, indent=2, ensure_ascii=False),
