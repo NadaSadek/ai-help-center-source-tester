@@ -1,4 +1,5 @@
-import type { EvalResult, TestQuestion } from "../lib/types";
+import type { EvalResult, TestQuestion, FailureAnalysis } from "../lib/types";
+import { QuestionFailureAnalysis } from "./QuestionFailureAnalysis";
 import { QuestionStrategyResult } from "./QuestionStrategyResult";
 
 const getQuestionsStrategyResultsById = (
@@ -18,14 +19,20 @@ const getQuestionsStrategyResultsById = (
   }));
 };
 
+const getFailureAnalysisByQuestionId = (failureAnalysisList: FailureAnalysis[]) =>
+  new Map(failureAnalysisList.map((item) => [item.questionId, item]));
+
 export const QuestionsResults = ({
   evalResults,
   testQuestions,
+  failureAnalysisList,
 }: {
   evalResults: EvalResult[];
   testQuestions: TestQuestion[];
+  failureAnalysisList: FailureAnalysis[];
 }) => {
   const resultsByQuestionId = getQuestionsStrategyResultsById(evalResults, testQuestions);
+  const failureAnalysisByQuestionId = getFailureAnalysisByQuestionId(failureAnalysisList);
 
   return (
     <section className="space-y-5">
@@ -34,8 +41,9 @@ export const QuestionsResults = ({
       </h2>
 
       <div className="space-y-4">
-        {resultsByQuestionId.map(
-          ({ id, question, expectedDocIds, category, strategies }) => (
+        {resultsByQuestionId.map(({ id, question, expectedDocIds, category, strategies }) => {
+          const failureAnalysis = failureAnalysisByQuestionId.get(id);
+          return (
             <details
               key={id}
               className="group rounded-2xl border border-slate-200 bg-white shadow-sm"
@@ -44,22 +52,25 @@ export const QuestionsResults = ({
                 <div className="flex items-start justify-between gap-4">
                   <div className="space-y-3">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="rounded-full bg-slate-100 px-2.5 py-1 font-mono text-xs font-medium text-slate-600">
+                      <span className="rounded-full bg-slate-100 px-2.5 py-1 font-mono text-xs text-slate-500">
                         {id}
                       </span>
-                      <span className="rounded-full bg-indigo-50 px-2.5 py-1 text-xs font-medium text-indigo-700">
+                      <span className="rounded-full bg-indigo-100 px-2.5 py-1 text-xs font-medium text-indigo-900">
                         {category}
                       </span>
+                      {failureAnalysis && (
+                        <span className="rounded-full bg-amber-100 px-2.5 py-1 text-xs font-medium text-amber-800">
+                          failure note
+                        </span>
+                      )}
                     </div>
-
                     <h3 className="text-lg font-semibold leading-7 text-slate-950">{question}</h3>
-
-                    <div className="flex flex-wrap gap-2">
-                      <span className="text-sm font-medium text-slate-500">Expected sources:</span>
+                    <div className="mt-3 flex flex-wrap gap-2 text-sm">
+                      <span className="font-medium text-slate-500">Expected:</span>
                       {expectedDocIds.map((docId) => (
                         <span
                           key={docId}
-                          className="rounded-full bg-emerald-50 px-2.5 py-1 font-mono text-xs font-medium text-emerald-700"
+                          className="rounded-full bg-slate-100 px-2.5 py-1 font-mono text-xs text-slate-700"
                         >
                           {docId}
                         </span>
@@ -82,7 +93,8 @@ export const QuestionsResults = ({
                 </div>
               </summary>
 
-              <div className="border-t border-slate-200 p-5">
+              <div className="border-t border-slate-200 px-5 pt-1 pb-5">
+                <QuestionFailureAnalysis failureAnalysis={failureAnalysis} />
                 <div className="grid gap-4 lg:grid-cols-2">
                   {strategies.map(({ strategy, result }) => {
                     if (!result) {
@@ -101,8 +113,8 @@ export const QuestionsResults = ({
                 </div>
               </div>
             </details>
-          ),
-        )}
+          );
+        })}
       </div>
     </section>
   );

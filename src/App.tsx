@@ -1,6 +1,7 @@
 import { StrategySummaryGrid } from "./components/StrategySummaryGrid";
 import evalResults from "../data/eval-results.json";
 import testQuestions from "../data/test-questions.json";
+import failureAnalysis from "../data/failure-analysis.json"
 import { QuestionsResults } from "./components/QuestionsResults";
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
         </header>
 
         <StrategySummaryGrid evalResults={evalResults} />
-        <QuestionsResults evalResults={evalResults} testQuestions={testQuestions} />
+        <QuestionsResults evalResults={evalResults} testQuestions={testQuestions} failureAnalysisList={failureAnalysis} />
       </div>
     </main>
   );

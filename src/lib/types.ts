@@ -36,3 +36,15 @@ export type TestQuestion = {
   difficulty: string;
   notes: string;
 };
+
+export type FailureAnalysis = {
+  questionId: string;
+  failureNote: string;
+  failureType: string;
+  retrievalNote: string;
+  strategyFindings: {
+    strategy: string;
+    finding: string;
+    affectedMetrics: string[];
+  }[];
+};
