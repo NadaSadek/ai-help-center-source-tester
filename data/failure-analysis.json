@@ -58,7 +58,7 @@
   {
     "questionId": "q004",
     "failureType": "multi_intent_access_billing_ambiguity",
-    "failureNote": "The question mixes invoice/payment wording with workspace access intent. The correct answer likely needs payment status, workspace access and entitlement sync sources but retrieval strategies are pulled toward different parts of the query.",
+    "failureNote": "The question mixes invoice/payment wording with workspace access intent. The correct answer needs payment status, workspace access and entitlement sync sources but retrieval strategies are pulled toward different parts of the query.",
     "strategyFindings": [
       {
         "strategy": "tfidf",
