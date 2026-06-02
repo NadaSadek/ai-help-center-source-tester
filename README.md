@@ -6,6 +6,10 @@ The goal is to test source retrieval quality across a controlled fake SaaS help 
 
 Live demo: https://support-rag-source-eval.netlify.app/
 
+![AI Help Center Source Tester dashboard overview](./docs/screenshots/top_dashboard_overview.png)
+
+_Overview of the retrieval evaluation dashboard comparing TF-IDF, embeddings and hybrid retrieval._
+
 ## What this project tests
 
 This project tests the retrieval step when we have the following:
