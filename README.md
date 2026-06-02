@@ -181,3 +181,34 @@ Run formatting and linting:
 uv run ruff check .
 uv run ruff format .
 ```
+
+## Running the dashboard
+
+Install frontend dependencies:
+
+```bash
+npm install
+
+Run the local dev server:
+
+npm run dev
+```
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+Run frontend checks:
+
+```bash
+npm run lint
+npm run format:check
+```
+
+Preview:
+
+```bash
+npm run preview
+```

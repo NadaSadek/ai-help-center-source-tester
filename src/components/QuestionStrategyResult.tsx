@@ -1,9 +1,7 @@
+import { formatMetric } from "../lib/formatMetric";
 import type { EvalResult } from "../lib/types";
 
 type QuestionResult = EvalResult["questions"][number];
-
-const formatMetric = (value: number) => value.toFixed(3);
-
 const ResultBadge = ({ isCorrect }: { isCorrect: boolean }) => (
   <span
     className={
@@ -28,7 +26,7 @@ export const QuestionStrategyResult = ({
   return (
     <article className="rounded-xl border border-slate-200 bg-slate-50 p-4">
       <div className="mb-3 flex items-center justify-between gap-3">
-        <span className="text-sm font-semibold text-slate-900">{strategy}</span>
+        <h3 className="text-sm font-semibold text-slate-900">{strategy}</h3>
         <span className="font-mono text-xs text-slate-500">
           First match RR {formatMetric(result.metrics.reciprocalRank)}
         </span>

@@ -29,7 +29,7 @@
     "expectedDocIds": ["failed-payment", "workspace-access", "entitlement-sync"],
     "category": "billing",
     "difficulty": "hard",
-    "notes": "Tests payment/access ambiguity. Later this should also include workspace-access and entitlement-sync once those docs exist."
+    "notes": "Multi-intent billing/access question. Expected sources cover payment status, workspace access and entitlement sync."
   },
   {
     "id": "q005",
