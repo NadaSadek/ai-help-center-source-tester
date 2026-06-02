@@ -7,9 +7,9 @@ import { DashboardHeader } from "./components/RetrievalDashboardHeader";
 
 function App() {
   return (
-    <main className="min-h-screen bg-slate-50 px-6 py-6 text-slate-950">
+    <main className="min-h-screen bg-slate-50 px-6 py-6 text-slate-800">
       <div className="mx-auto max-w-6xl space-y-8">
-        <DashboardHeader />
+        <DashboardHeader evalResults={evalResults} />
         <StrategySummaryGrid evalResults={evalResults} />
         <QuestionsResults
           evalResults={evalResults}
