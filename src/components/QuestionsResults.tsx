@@ -36,7 +36,7 @@ export const QuestionsResults = ({
 
   return (
     <section className="space-y-5">
-      <h2 className="mt-1 text-2xl font-semibold tracking-tight text-slate-950">
+      <h2 className="mt-1 text-2xl font-semibold tracking-tight text-slate-800">
         Retrieval results by question
       </h2>
       <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
@@ -68,7 +68,7 @@ export const QuestionsResults = ({
                         </span>
                       )}
                     </div>
-                    <h3 className="text-lg font-semibold leading-7 text-slate-950">{question}</h3>
+                    <h3 className="text-lg font-semibold leading-7 text-slate-800">{question}</h3>
                     <div className="mt-3 flex flex-wrap gap-2 text-sm">
                       <span className="font-medium text-slate-500">Expected:</span>
                       {expectedDocIds.map((docId) => (
@@ -97,7 +97,7 @@ export const QuestionsResults = ({
                 </div>
               </summary>
 
-              <div className="border-t border-slate-200 px-5 pt-1 pb-5">
+              <div className="border-t border-slate-200 px-5 pt-5 mt-5 mb-5">
                 <QuestionFailureAnalysis failureAnalysis={failureAnalysis} />
                 <div className="grid gap-4 lg:grid-cols-2">
                   {strategies.map(({ strategy, result }) => {

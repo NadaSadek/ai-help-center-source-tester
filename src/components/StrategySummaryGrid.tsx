@@ -1,3 +1,4 @@
+import { formatMetric } from "../lib/formatMetric";
 import type { EvalResult } from "../lib/types";
 
 const metricLabels: Record<string, string> = {
@@ -16,8 +17,6 @@ const strategyLabels: Record<string, string> = {
   "hybrid-tfidf50-mpnet50": "Weighted hybrid",
 };
 
-const formatMetric = (value: number) => value.toFixed(3);
-
 export const StrategySummaryGrid = ({ evalResults }: { evalResults: EvalResult[] }) => (
   <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
     {evalResults.map(({ summary, strategy }) => (
@@ -29,7 +28,7 @@ export const StrategySummaryGrid = ({ evalResults }: { evalResults: EvalResult[]
           <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
             {strategyLabels[strategy]}
           </p>
-          <h2 className="mt-1 text-lg font-semibold text-slate-950">{strategy}</h2>
+          <h2 className="mt-1 text-lg font-semibold text-slate-800">{strategy}</h2>
         </div>
 
         <dl className="space-y-3">
