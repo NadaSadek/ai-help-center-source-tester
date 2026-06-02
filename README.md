@@ -4,6 +4,8 @@ A retrieval evaluation project for testing whether a help-center assistant finds
 
 The goal is to test source retrieval quality across a controlled fake SaaS help center and compare different retrieval strategies using measurable ranking metrics.
 
+Live demo: https://support-rag-source-eval.netlify.app/
+
 ## What this project tests
 
 This project tests the retrieval step when we have the following:
