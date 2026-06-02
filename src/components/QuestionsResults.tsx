@@ -37,8 +37,12 @@ export const QuestionsResults = ({
   return (
     <section className="space-y-5">
       <h2 className="mt-1 text-2xl font-semibold tracking-tight text-slate-950">
-        Retrieval Results Per Question
+        Retrieval results by question
       </h2>
+      <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
+        Expand a question to compare which source documents each strategy retrieved and where
+        rankings and source coverage differ
+      </p>
 
       <div className="space-y-4">
         {resultsByQuestionId.map(({ id, question, expectedDocIds, category, strategies }) => {

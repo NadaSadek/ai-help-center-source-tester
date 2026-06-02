@@ -10,9 +10,9 @@ Live demo: https://support-rag-source-eval.netlify.app/
 
 This project tests the retrieval step when we have the following:
 
-* fake help-center documentation
-* realistic customer/support questions
-* expected source documents for each question
+- fake help-center documentation
+- realistic customer/support questions
+- expected source documents for each question
 
 It compares whether different retrieval strategies return the expected source documents at high ranks.
 
@@ -22,14 +22,14 @@ The dataset uses a fake SaaS product called **ExampleOps**. The help-center docs
 
 The current help-center docs cover:
 
-* billing and invoices
-* cancellation and refund behavior
-* failed payments
-* workspace access
-* entitlement sync
-* plan limits and upgrades
-* dashboard exports
-* export and billing permissions
+- billing and invoices
+- cancellation and refund behavior
+- failed payments
+- workspace access
+- entitlement sync
+- plan limits and upgrades
+- dashboard exports
+- export and billing permissions
 
 ## Retrieval strategies
 
@@ -58,7 +58,6 @@ Each strategy is evaluated using ranking metrics:
 - Hit metrics show whether retrieval found at least one useful source
 - Recall metrics show whether retrieval covered all expected sources
 
-
 ## Current results
 
 Current evaluation over 16 test questions:
@@ -69,7 +68,6 @@ Current evaluation over 16 test questions:
 | `embedding-minilm`       |      0.813 |      1.000 |      1.000 |         0.875 |         0.948 | 0.896 |
 | `embedding-mpnet`        |      1.000 |      1.000 |      1.000 |         0.917 |         0.948 | 1.000 |
 | `hybrid-tfidf50-mpnet50` |      0.938 |      1.000 |      1.000 |         0.844 |         1.000 | 0.958 |
-
 
 ## Main findings
 
@@ -131,11 +129,10 @@ scripts/
 
 Inputs:
 
-| File                         | Purpose                                          |
-| ---------------------------- | ------------------------------------------------ |
-| `data/docs/`                 | Fake help-center documentation                   |
-| `data/test-questions.json`   | Test questions with expected source documents    |
-
+| File                       | Purpose                                       |
+| -------------------------- | --------------------------------------------- |
+| `data/docs/`               | Fake help-center documentation                |
+| `data/test-questions.json` | Test questions with expected source documents |
 
 Script-generated outputs:
 

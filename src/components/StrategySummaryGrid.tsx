@@ -9,6 +9,13 @@ const metricLabels: Record<string, string> = {
   mrr: "MRR",
 };
 
+const strategyLabels: Record<string, string> = {
+  tfidf: "Keyword baseline",
+  "embedding-minilm": "Local embedding",
+  "embedding-mpnet": "Local embedding",
+  "hybrid-tfidf50-mpnet50": "Weighted hybrid",
+};
+
 const formatMetric = (value: number) => value.toFixed(3);
 
 export const StrategySummaryGrid = ({ evalResults }: { evalResults: EvalResult[] }) => (
@@ -19,7 +26,9 @@ export const StrategySummaryGrid = ({ evalResults }: { evalResults: EvalResult[]
         className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
       >
         <div className="mb-5">
-          <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600">Strategy</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
+            {strategyLabels[strategy]}
+          </p>
           <h2 className="mt-1 text-lg font-semibold text-slate-950">{strategy}</h2>
         </div>
 

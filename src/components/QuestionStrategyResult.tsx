@@ -30,7 +30,7 @@ export const QuestionStrategyResult = ({
       <div className="mb-3 flex items-center justify-between gap-3">
         <span className="text-sm font-semibold text-slate-900">{strategy}</span>
         <span className="font-mono text-xs text-slate-500">
-          First match RR  {formatMetric(result.metrics.reciprocalRank)}
+          First match RR {formatMetric(result.metrics.reciprocalRank)}
         </span>
       </div>
 
