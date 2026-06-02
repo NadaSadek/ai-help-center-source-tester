@@ -19,17 +19,15 @@ export const StrategySummaryGrid = ({ evalResults }: { evalResults: EvalResult[]
         className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
       >
         <div className="mb-5">
-          <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
-            Strategy
-          </p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600">Strategy</p>
           <h2 className="mt-1 text-lg font-semibold text-slate-950">{strategy}</h2>
         </div>
 
         <dl className="space-y-3">
           {Object.entries(summary).map(([key, value]) => (
             <div key={key} className="flex items-center justify-between gap-4">
-              <dt className="text-sm text-slate-500">{metricLabels[key] ?? key}</dt>
-              <dd className="font-mono text-sm font-semibold text-slate-900">
+              <dt className="text-sm font-medium text-slate-500">{metricLabels[key] ?? key}</dt>
+              <dd className="font-mono text-sm font-medium text-slate-900">
                 {formatMetric(value)}
               </dd>
             </div>

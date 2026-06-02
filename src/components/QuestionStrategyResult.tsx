@@ -28,7 +28,7 @@ export const QuestionStrategyResult = ({
   return (
     <article className="rounded-xl border border-slate-200 bg-slate-50 p-4">
       <div className="mb-3 flex items-center justify-between gap-3">
-        <h3 className="text-sm font-semibold text-slate-900">{strategy}</h3>
+        <span className="text-sm font-semibold text-slate-900">{strategy}</span>
         <span className="font-mono text-xs text-slate-500">
           First match RR  {formatMetric(result.metrics.reciprocalRank)}
         </span>
@@ -37,15 +37,15 @@ export const QuestionStrategyResult = ({
       <div className="mb-4 grid grid-cols-3 gap-2 text-xs">
         <div className="rounded-lg bg-white px-3 py-2">
           <p className="text-slate-500">Hit@1</p>
-          <p className="font-semibold text-slate-900">{String(result.metrics.hitAt1)}</p>
+          <p className="font-medium text-slate-900">{String(result.metrics.hitAt1)}</p>
         </div>
         <div className="rounded-lg bg-white px-3 py-2">
           <p className="text-slate-500">Recall@3</p>
-          <p className="font-semibold text-slate-900">{formatMetric(result.metrics.recallAt3)}</p>
+          <p className="font-medium text-slate-900">{formatMetric(result.metrics.recallAt3)}</p>
         </div>
         <div className="rounded-lg bg-white px-3 py-2">
           <p className="text-slate-500">Recall@5</p>
-          <p className="font-semibold text-slate-900">{formatMetric(result.metrics.recallAt5)}</p>
+          <p className="font-medium text-slate-900">{formatMetric(result.metrics.recallAt5)}</p>
         </div>
       </div>
 
