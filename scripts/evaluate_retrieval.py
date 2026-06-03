@@ -3,6 +3,11 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from retrieval.metrics import (
+    calculate_hit_at_k,
+    calculate_recall_at_k,
+    calculate_reciprocal_rank,
+)
 from retrieval.types import (
     MetricsSummary,
     QuestionEvaluation,
@@ -28,37 +33,6 @@ def load_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def get_retrieved_doc_ids(results: list[RetrievalResult], k: int) -> list[str]:
-    return [result["docId"] for result in results[:k]]
-
-
-def calculate_hit(
-    expected_doc_ids: list[str],
-    retrieved_doc_ids: list[str],
-) -> bool:
-    return any(doc_id in expected_doc_ids for doc_id in retrieved_doc_ids)
-
-
-def calculate_recall_at_k(
-    expected_doc_ids: list[str],
-    retrieved_doc_ids: list[str],
-) -> float:
-    expected = set(expected_doc_ids)
-    retrieved = set(retrieved_doc_ids)
-    return len(expected & retrieved) / len(expected)
-
-
-def calculate_reciprocal_rank(
-    expected_doc_ids: list[str],
-    results: list[RetrievalResult],
-) -> float:
-    for result in results:
-        if result["docId"] in expected_doc_ids:
-            return 1 / result["rank"]
-
-    return 0.0
-
-
 def get_all_retrieved_doc_ids(results: list[RetrievalResult]) -> list[str]:
     return [result["docId"] for result in results]
 
@@ -75,23 +49,13 @@ def evaluate_question(
         "expectedDocIds": expected_doc_ids,
         "retrievedDocIds": retrieved_doc_ids,
         "metrics": {
-            "hitAt1": calculate_hit(
-                expected_doc_ids, get_retrieved_doc_ids(retrieval_results["results"], 1)
-            ),
-            "hitAt3": calculate_hit(
-                expected_doc_ids, get_retrieved_doc_ids(retrieval_results["results"], 3)
-            ),
-            "hitAt5": calculate_hit(
-                expected_doc_ids, get_retrieved_doc_ids(retrieval_results["results"], 5)
-            ),
-            "recallAt3": calculate_recall_at_k(
-                expected_doc_ids, get_retrieved_doc_ids(retrieval_results["results"], 3)
-            ),
-            "recallAt5": calculate_recall_at_k(
-                expected_doc_ids, get_retrieved_doc_ids(retrieval_results["results"], 5)
-            ),
+            "hitAt1": calculate_hit_at_k(expected_doc_ids, retrieved_doc_ids, 1),
+            "hitAt3": calculate_hit_at_k(expected_doc_ids, retrieved_doc_ids, 3),
+            "hitAt5": calculate_hit_at_k(expected_doc_ids, retrieved_doc_ids, 5),
+            "recallAt3": calculate_recall_at_k(expected_doc_ids, retrieved_doc_ids, 3),
+            "recallAt5": calculate_recall_at_k(expected_doc_ids, retrieved_doc_ids, 5),
             "reciprocalRank": calculate_reciprocal_rank(
-                expected_doc_ids, retrieval_results["results"]
+                expected_doc_ids, retrieved_doc_ids
             ),
         },
     }
