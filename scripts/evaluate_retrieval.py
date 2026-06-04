@@ -86,7 +86,16 @@ def evaluate_strategy(
 
     all_questions_evaluations_result: list[QuestionEvaluation] = []
     for question in questions:
-        retrieval_result = retrieval_by_question_id[question["id"]]
+        question_id = question["id"]
+
+        if question_id not in retrieval_by_question_id:
+            raise ValueError(
+                f"Missing retrieval result for question {question_id} "
+                "in strategy {strategy_type}."
+                "Re-run the retrieval scripts after changing test questions."
+            )
+
+        retrieval_result = retrieval_by_question_id[question_id]
         all_questions_evaluations_result.append(
             evaluate_question(retrieval_result, question)
         )

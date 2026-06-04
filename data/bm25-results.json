@@ -670,5 +670,1013 @@
         "rank": 5
       }
     ]
+  },
+  {
+    "questionId": "q017",
+    "question": "The payment went through, but our upgraded limits are still not available.",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "workspace-access",
+        "chunkId": "workspace-access__chunk_001",
+        "title": "Troubleshoot workspace access",
+        "score": 5.043,
+        "rank": 1
+      },
+      {
+        "docId": "upgrade-plan",
+        "chunkId": "upgrade-plan__chunk_001",
+        "title": "Upgrade your plan",
+        "score": 4.898,
+        "rank": 2
+      },
+      {
+        "docId": "downgrade-plan",
+        "chunkId": "downgrade-plan__chunk_001",
+        "title": "Downgrade your plan",
+        "score": 4.385,
+        "rank": 3
+      },
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 4.319,
+        "rank": 4
+      },
+      {
+        "docId": "billing-permissions",
+        "chunkId": "billing-permissions__chunk_001",
+        "title": "Billing permissions",
+        "score": 4.171,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q018",
+    "question": "Our invoice is paid, but the workspace still behaves like we are on the free plan.",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 8.027,
+        "rank": 1
+      },
+      {
+        "docId": "downgrade-plan",
+        "chunkId": "downgrade-plan__chunk_001",
+        "title": "Downgrade your plan",
+        "score": 6.576,
+        "rank": 2
+      },
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 6.153,
+        "rank": 3
+      },
+      {
+        "docId": "upgrade-plan",
+        "chunkId": "upgrade-plan__chunk_001",
+        "title": "Upgrade your plan",
+        "score": 5.813,
+        "rank": 4
+      },
+      {
+        "docId": "refund-policy",
+        "chunkId": "refund-policy__chunk_001",
+        "title": "Refund policy",
+        "score": 5.422,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q019",
+    "question": "My card failed, but some paid features still work. Does that mean the plan was cancelled?",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 9.012,
+        "rank": 1
+      },
+      {
+        "docId": "refund-policy",
+        "chunkId": "refund-policy__chunk_001",
+        "title": "Refund policy",
+        "score": 6.51,
+        "rank": 2
+      },
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 4.976,
+        "rank": 3
+      },
+      {
+        "docId": "failed-payment",
+        "chunkId": "failed-payment__chunk_001",
+        "title": "Failed payment",
+        "score": 4.293,
+        "rank": 4
+      },
+      {
+        "docId": "workspace-access",
+        "chunkId": "workspace-access__chunk_001",
+        "title": "Troubleshoot workspace access",
+        "score": 4.228,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q020",
+    "question": "The invoice is still open even though we tried to pay. What should we check?",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "download-invoices",
+        "chunkId": "download-invoices__chunk_001",
+        "title": "Download invoices",
+        "score": 5.633,
+        "rank": 1
+      },
+      {
+        "docId": "entitlement-sync",
+        "chunkId": "entitlement-sync__chunk_001",
+        "title": "Entitlement sync after billing changes",
+        "score": 4.526,
+        "rank": 2
+      },
+      {
+        "docId": "change-admin-role",
+        "chunkId": "change-admin-role__chunk_001",
+        "title": "Change workspace admin role",
+        "score": 3.941,
+        "rank": 3
+      },
+      {
+        "docId": "failed-payment",
+        "chunkId": "failed-payment__chunk_001",
+        "title": "Failed payment",
+        "score": 3.483,
+        "rank": 4
+      },
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 2.939,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q021",
+    "question": "We cancelled yesterday, but exports and paid features still work. Is that expected?",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 6.243,
+        "rank": 1
+      },
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 4.44,
+        "rank": 2
+      },
+      {
+        "docId": "entitlement-sync",
+        "chunkId": "entitlement-sync__chunk_001",
+        "title": "Entitlement sync after billing changes",
+        "score": 3.292,
+        "rank": 3
+      },
+      {
+        "docId": "workspace-access",
+        "chunkId": "workspace-access__chunk_001",
+        "title": "Troubleshoot workspace access",
+        "score": 3.102,
+        "rank": 4
+      },
+      {
+        "docId": "export-filtered-results",
+        "chunkId": "export-filtered-results__chunk_001",
+        "title": "Export filtered results",
+        "score": 3.07,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q022",
+    "question": "The whole team lost access after a billing update.",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "entitlement-sync",
+        "chunkId": "entitlement-sync__chunk_001",
+        "title": "Entitlement sync after billing changes",
+        "score": 7.009,
+        "rank": 1
+      },
+      {
+        "docId": "billing-permissions",
+        "chunkId": "billing-permissions__chunk_001",
+        "title": "Billing permissions",
+        "score": 4.47,
+        "rank": 2
+      },
+      {
+        "docId": "download-invoices",
+        "chunkId": "download-invoices__chunk_001",
+        "title": "Download invoices",
+        "score": 4.301,
+        "rank": 3
+      },
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 3.697,
+        "rank": 4
+      },
+      {
+        "docId": "refund-policy",
+        "chunkId": "refund-policy__chunk_001",
+        "title": "Refund policy",
+        "score": 3.361,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q023",
+    "question": "I can use the workspace, but I cannot update the card on file.",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "download-invoices",
+        "chunkId": "download-invoices__chunk_001",
+        "title": "Download invoices",
+        "score": 5.144,
+        "rank": 1
+      },
+      {
+        "docId": "billing-permissions",
+        "chunkId": "billing-permissions__chunk_001",
+        "title": "Billing permissions",
+        "score": 4.932,
+        "rank": 2
+      },
+      {
+        "docId": "export-filtered-results",
+        "chunkId": "export-filtered-results__chunk_001",
+        "title": "Export filtered results",
+        "score": 4.577,
+        "rank": 3
+      },
+      {
+        "docId": "export-dashboard-data",
+        "chunkId": "export-dashboard-data__chunk_001",
+        "title": "Export dashboard data",
+        "score": 4.565,
+        "rank": 4
+      },
+      {
+        "docId": "export-permissions",
+        "chunkId": "export-permissions__chunk_001",
+        "title": "Export permissions",
+        "score": 4.293,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q024",
+    "question": "A manager needs access to invoices, but should not be able to export customer reports.",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "export-permissions",
+        "chunkId": "export-permissions__chunk_001",
+        "title": "Export permissions",
+        "score": 11.192,
+        "rank": 1
+      },
+      {
+        "docId": "upgrade-plan",
+        "chunkId": "upgrade-plan__chunk_001",
+        "title": "Upgrade your plan",
+        "score": 5.87,
+        "rank": 2
+      },
+      {
+        "docId": "workspace-access",
+        "chunkId": "workspace-access__chunk_001",
+        "title": "Troubleshoot workspace access",
+        "score": 5.523,
+        "rank": 3
+      },
+      {
+        "docId": "change-admin-role",
+        "chunkId": "change-admin-role__chunk_001",
+        "title": "Change workspace admin role",
+        "score": 5.515,
+        "rank": 4
+      },
+      {
+        "docId": "billing-permissions",
+        "chunkId": "billing-permissions__chunk_001",
+        "title": "Billing permissions",
+        "score": 5.398,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q025",
+    "question": "An admin can invite teammates, but cannot cancel the subscription.",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 7.325,
+        "rank": 1
+      },
+      {
+        "docId": "invite-team-members",
+        "chunkId": "invite-team-members__chunk_001",
+        "title": "Invite team members",
+        "score": 5.04,
+        "rank": 2
+      },
+      {
+        "docId": "billing-permissions",
+        "chunkId": "billing-permissions__chunk_001",
+        "title": "Billing permissions",
+        "score": 4.867,
+        "rank": 3
+      },
+      {
+        "docId": "workspace-access",
+        "chunkId": "workspace-access__chunk_001",
+        "title": "Troubleshoot workspace access",
+        "score": 4.303,
+        "rank": 4
+      },
+      {
+        "docId": "plan-limits",
+        "chunkId": "plan-limits__chunk_001",
+        "title": "Plan limits",
+        "score": 4.038,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q026",
+    "question": "My user can see reports, but the export button is missing.",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "export-permissions",
+        "chunkId": "export-permissions__chunk_001",
+        "title": "Export permissions",
+        "score": 10.286,
+        "rank": 1
+      },
+      {
+        "docId": "export-dashboard-data",
+        "chunkId": "export-dashboard-data__chunk_001",
+        "title": "Export dashboard data",
+        "score": 4.102,
+        "rank": 2
+      },
+      {
+        "docId": "export-filtered-results",
+        "chunkId": "export-filtered-results__chunk_001",
+        "title": "Export filtered results",
+        "score": 3.649,
+        "rank": 3
+      },
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 3.423,
+        "rank": 4
+      },
+      {
+        "docId": "download-invoices",
+        "chunkId": "download-invoices__chunk_001",
+        "title": "Download invoices",
+        "score": 3.045,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q027",
+    "question": "The previous owner left and now nobody knows who can manage billing or workspace roles.",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "change-admin-role",
+        "chunkId": "change-admin-role__chunk_001",
+        "title": "Change workspace admin role",
+        "score": 13.696,
+        "rank": 1
+      },
+      {
+        "docId": "billing-permissions",
+        "chunkId": "billing-permissions__chunk_001",
+        "title": "Billing permissions",
+        "score": 8.95,
+        "rank": 2
+      },
+      {
+        "docId": "export-permissions",
+        "chunkId": "export-permissions__chunk_001",
+        "title": "Export permissions",
+        "score": 6.137,
+        "rank": 3
+      },
+      {
+        "docId": "workspace-access",
+        "chunkId": "workspace-access__chunk_001",
+        "title": "Troubleshoot workspace access",
+        "score": 4.495,
+        "rank": 4
+      },
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 3.966,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q028",
+    "question": "My CSV export included too many rows. I only wanted the filtered results.",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "export-filtered-results",
+        "chunkId": "export-filtered-results__chunk_001",
+        "title": "Export filtered results",
+        "score": 16.126,
+        "rank": 1
+      },
+      {
+        "docId": "export-dashboard-data",
+        "chunkId": "export-dashboard-data__chunk_001",
+        "title": "Export dashboard data",
+        "score": 9.675,
+        "rank": 2
+      },
+      {
+        "docId": "export-permissions",
+        "chunkId": "export-permissions__chunk_001",
+        "title": "Export permissions",
+        "score": 3.725,
+        "rank": 3
+      },
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 3.104,
+        "rank": 4
+      },
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 1.082,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q029",
+    "question": "I applied filters, but I cannot download the filtered report.",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "export-filtered-results",
+        "chunkId": "export-filtered-results__chunk_001",
+        "title": "Export filtered results",
+        "score": 13.457,
+        "rank": 1
+      },
+      {
+        "docId": "export-dashboard-data",
+        "chunkId": "export-dashboard-data__chunk_001",
+        "title": "Export dashboard data",
+        "score": 6.072,
+        "rank": 2
+      },
+      {
+        "docId": "export-permissions",
+        "chunkId": "export-permissions__chunk_001",
+        "title": "Export permissions",
+        "score": 6.052,
+        "rank": 3
+      },
+      {
+        "docId": "download-invoices",
+        "chunkId": "download-invoices__chunk_001",
+        "title": "Download invoices",
+        "score": 3.571,
+        "rank": 4
+      },
+      {
+        "docId": "upgrade-plan",
+        "chunkId": "upgrade-plan__chunk_001",
+        "title": "Upgrade your plan",
+        "score": 3.453,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q030",
+    "question": "Can I get billing invoice data from the dashboard export?",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "export-dashboard-data",
+        "chunkId": "export-dashboard-data__chunk_001",
+        "title": "Export dashboard data",
+        "score": 9.931,
+        "rank": 1
+      },
+      {
+        "docId": "export-permissions",
+        "chunkId": "export-permissions__chunk_001",
+        "title": "Export permissions",
+        "score": 8.816,
+        "rank": 2
+      },
+      {
+        "docId": "export-filtered-results",
+        "chunkId": "export-filtered-results__chunk_001",
+        "title": "Export filtered results",
+        "score": 5.668,
+        "rank": 3
+      },
+      {
+        "docId": "downgrade-plan",
+        "chunkId": "downgrade-plan__chunk_001",
+        "title": "Downgrade your plan",
+        "score": 3.541,
+        "rank": 4
+      },
+      {
+        "docId": "download-invoices",
+        "chunkId": "download-invoices__chunk_001",
+        "title": "Download invoices",
+        "score": 3.362,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q031",
+    "question": "The export option disappeared. Could it be a plan limit or a role problem?",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "export-dashboard-data",
+        "chunkId": "export-dashboard-data__chunk_001",
+        "title": "Export dashboard data",
+        "score": 6.842,
+        "rank": 1
+      },
+      {
+        "docId": "plan-limits",
+        "chunkId": "plan-limits__chunk_001",
+        "title": "Plan limits",
+        "score": 6.318,
+        "rank": 2
+      },
+      {
+        "docId": "export-permissions",
+        "chunkId": "export-permissions__chunk_001",
+        "title": "Export permissions",
+        "score": 6.28,
+        "rank": 3
+      },
+      {
+        "docId": "export-filtered-results",
+        "chunkId": "export-filtered-results__chunk_001",
+        "title": "Export filtered results",
+        "score": 5.945,
+        "rank": 4
+      },
+      {
+        "docId": "billing-permissions",
+        "chunkId": "billing-permissions__chunk_001",
+        "title": "Billing permissions",
+        "score": 5.158,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q032",
+    "question": "A large dashboard export is taking longer than usual.",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "export-dashboard-data",
+        "chunkId": "export-dashboard-data__chunk_001",
+        "title": "Export dashboard data",
+        "score": 11.027,
+        "rank": 1
+      },
+      {
+        "docId": "export-filtered-results",
+        "chunkId": "export-filtered-results__chunk_001",
+        "title": "Export filtered results",
+        "score": 7.529,
+        "rank": 2
+      },
+      {
+        "docId": "export-permissions",
+        "chunkId": "export-permissions__chunk_001",
+        "title": "Export permissions",
+        "score": 5.525,
+        "rank": 3
+      },
+      {
+        "docId": "downgrade-plan",
+        "chunkId": "downgrade-plan__chunk_001",
+        "title": "Downgrade your plan",
+        "score": 3.132,
+        "rank": 4
+      },
+      {
+        "docId": "entitlement-sync",
+        "chunkId": "entitlement-sync__chunk_001",
+        "title": "Entitlement sync after billing changes",
+        "score": 2.669,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q033",
+    "question": "We are blocked from creating more projects even though our billing is active.",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "plan-limits",
+        "chunkId": "plan-limits__chunk_001",
+        "title": "Plan limits",
+        "score": 11.756,
+        "rank": 1
+      },
+      {
+        "docId": "upgrade-plan",
+        "chunkId": "upgrade-plan__chunk_001",
+        "title": "Upgrade your plan",
+        "score": 5.03,
+        "rank": 2
+      },
+      {
+        "docId": "export-dashboard-data",
+        "chunkId": "export-dashboard-data__chunk_001",
+        "title": "Export dashboard data",
+        "score": 3.18,
+        "rank": 3
+      },
+      {
+        "docId": "billing-permissions",
+        "chunkId": "billing-permissions__chunk_001",
+        "title": "Billing permissions",
+        "score": 3.093,
+        "rank": 4
+      },
+      {
+        "docId": "entitlement-sync",
+        "chunkId": "entitlement-sync__chunk_001",
+        "title": "Entitlement sync after billing changes",
+        "score": 2.999,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q034",
+    "question": "After a downgrade, when will advanced exports and higher limits stop working?",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "downgrade-plan",
+        "chunkId": "downgrade-plan__chunk_001",
+        "title": "Downgrade your plan",
+        "score": 7.6,
+        "rank": 1
+      },
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 6.495,
+        "rank": 2
+      },
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 5.465,
+        "rank": 3
+      },
+      {
+        "docId": "upgrade-plan",
+        "chunkId": "upgrade-plan__chunk_001",
+        "title": "Upgrade your plan",
+        "score": 5.208,
+        "rank": 4
+      },
+      {
+        "docId": "export-filtered-results",
+        "chunkId": "export-filtered-results__chunk_001",
+        "title": "Export filtered results",
+        "score": 4.256,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q035",
+    "question": "We need more team members, more projects and more exports. Should we upgrade?",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "upgrade-plan",
+        "chunkId": "upgrade-plan__chunk_001",
+        "title": "Upgrade your plan",
+        "score": 10.967,
+        "rank": 1
+      },
+      {
+        "docId": "plan-limits",
+        "chunkId": "plan-limits__chunk_001",
+        "title": "Plan limits",
+        "score": 9.492,
+        "rank": 2
+      },
+      {
+        "docId": "export-filtered-results",
+        "chunkId": "export-filtered-results__chunk_001",
+        "title": "Export filtered results",
+        "score": 6.615,
+        "rank": 3
+      },
+      {
+        "docId": "entitlement-sync",
+        "chunkId": "entitlement-sync__chunk_001",
+        "title": "Entitlement sync after billing changes",
+        "score": 5.164,
+        "rank": 4
+      },
+      {
+        "docId": "export-dashboard-data",
+        "chunkId": "export-dashboard-data__chunk_001",
+        "title": "Export dashboard data",
+        "score": 3.474,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q036",
+    "question": "The upgrade invoice was paid, but new project limits are not showing yet.",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "upgrade-plan",
+        "chunkId": "upgrade-plan__chunk_001",
+        "title": "Upgrade your plan",
+        "score": 11.343,
+        "rank": 1
+      },
+      {
+        "docId": "invite-team-members",
+        "chunkId": "invite-team-members__chunk_001",
+        "title": "Invite team members",
+        "score": 5.794,
+        "rank": 2
+      },
+      {
+        "docId": "refund-policy",
+        "chunkId": "refund-policy__chunk_001",
+        "title": "Refund policy",
+        "score": 5.082,
+        "rank": 3
+      },
+      {
+        "docId": "workspace-access",
+        "chunkId": "workspace-access__chunk_001",
+        "title": "Troubleshoot workspace access",
+        "score": 3.114,
+        "rank": 4
+      },
+      {
+        "docId": "billing-period-access",
+        "chunkId": "billing-period-access__chunk_001",
+        "title": "Access after cancellation",
+        "score": 3.114,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q037",
+    "question": "How do I change the company logo and theme colors?",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "change-admin-role",
+        "chunkId": "change-admin-role__chunk_001",
+        "title": "Change workspace admin role",
+        "score": 3.582,
+        "rank": 1
+      },
+      {
+        "docId": "billing-permissions",
+        "chunkId": "billing-permissions__chunk_001",
+        "title": "Billing permissions",
+        "score": 3.241,
+        "rank": 2
+      },
+      {
+        "docId": "invite-team-members",
+        "chunkId": "invite-team-members__chunk_001",
+        "title": "Invite team members",
+        "score": 1.775,
+        "rank": 3
+      },
+      {
+        "docId": "upgrade-plan",
+        "chunkId": "upgrade-plan__chunk_001",
+        "title": "Upgrade your plan",
+        "score": 1.718,
+        "rank": 4
+      },
+      {
+        "docId": "plan-limits",
+        "chunkId": "plan-limits__chunk_001",
+        "title": "Plan limits",
+        "score": 1.646,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q038",
+    "question": "Can I connect ExampleOps to Salesforce?",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "export-permissions",
+        "chunkId": "export-permissions__chunk_001",
+        "title": "Export permissions",
+        "score": 1.642,
+        "rank": 1
+      },
+      {
+        "docId": "change-admin-role",
+        "chunkId": "change-admin-role__chunk_001",
+        "title": "Change workspace admin role",
+        "score": 1.612,
+        "rank": 2
+      },
+      {
+        "docId": "upgrade-plan",
+        "chunkId": "upgrade-plan__chunk_001",
+        "title": "Upgrade your plan",
+        "score": 1.577,
+        "rank": 3
+      },
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 1.535,
+        "rank": 4
+      },
+      {
+        "docId": "billing-permissions",
+        "chunkId": "billing-permissions__chunk_001",
+        "title": "Billing permissions",
+        "score": 1.528,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q039",
+    "question": "Where do I enable two-factor authentication for my account?",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "billing-permissions",
+        "chunkId": "billing-permissions__chunk_001",
+        "title": "Billing permissions",
+        "score": 2.795,
+        "rank": 1
+      },
+      {
+        "docId": "failed-payment",
+        "chunkId": "failed-payment__chunk_001",
+        "title": "Failed payment",
+        "score": 2.066,
+        "rank": 2
+      },
+      {
+        "docId": "workspace-access",
+        "chunkId": "workspace-access__chunk_001",
+        "title": "Troubleshoot workspace access",
+        "score": 1.613,
+        "rank": 3
+      },
+      {
+        "docId": "plan-limits",
+        "chunkId": "plan-limits__chunk_001",
+        "title": "Plan limits",
+        "score": 0.55,
+        "rank": 4
+      },
+      {
+        "docId": "change-admin-role",
+        "chunkId": "change-admin-role__chunk_001",
+        "title": "Change workspace admin role",
+        "score": 0.399,
+        "rank": 5
+      }
+    ]
+  },
+  {
+    "questionId": "q040",
+    "question": "Can I permanently delete a workspace?",
+    "strategy": "bm25",
+    "results": [
+      {
+        "docId": "change-admin-role",
+        "chunkId": "change-admin-role__chunk_001",
+        "title": "Change workspace admin role",
+        "score": 2.197,
+        "rank": 1
+      },
+      {
+        "docId": "cancel-plan",
+        "chunkId": "cancel-plan__chunk_001",
+        "title": "Cancel your plan",
+        "score": 2.081,
+        "rank": 2
+      },
+      {
+        "docId": "upgrade-plan",
+        "chunkId": "upgrade-plan__chunk_001",
+        "title": "Upgrade your plan",
+        "score": 2.075,
+        "rank": 3
+      },
+      {
+        "docId": "billing-permissions",
+        "chunkId": "billing-permissions__chunk_001",
+        "title": "Billing permissions",
+        "score": 2.013,
+        "rank": 4
+      },
+      {
+        "docId": "export-permissions",
+        "chunkId": "export-permissions__chunk_001",
+        "title": "Export permissions",
+        "score": 1.981,
+        "rank": 5
+      }
+    ]
   }
 ]

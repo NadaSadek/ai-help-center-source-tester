@@ -3,11 +3,11 @@
     "strategy": "bm25",
     "summary": {
       "meanHitAt1": 0.75,
-      "meanHitAt3": 0.9375,
-      "meanHitAt5": 1.0,
-      "meanRecallAt3": 0.6875,
-      "meanRecallAt5": 0.8125,
-      "mrr": 0.8458333333333333
+      "meanHitAt3": 0.875,
+      "meanHitAt5": 0.9,
+      "meanRecallAt3": 0.6083333333333333,
+      "meanRecallAt5": 0.7208333333333333,
+      "mrr": 0.8133333333333332
     },
     "questions": [
       {
@@ -377,18 +377,568 @@
           "recallAt5": 1.0,
           "reciprocalRank": 1.0
         }
+      },
+      {
+        "questionId": "q017",
+        "question": "The payment went through, but our upgraded limits are still not available.",
+        "expectedDocIds": [
+          "upgrade-plan",
+          "entitlement-sync",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "workspace-access",
+          "upgrade-plan",
+          "downgrade-plan",
+          "billing-period-access",
+          "billing-permissions"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.3333333333333333,
+          "recallAt5": 0.3333333333333333,
+          "reciprocalRank": 0.5
+        }
+      },
+      {
+        "questionId": "q018",
+        "question": "Our invoice is paid, but the workspace still behaves like we are on the free plan.",
+        "expectedDocIds": [
+          "entitlement-sync",
+          "billing-period-access",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "billing-period-access",
+          "downgrade-plan",
+          "cancel-plan",
+          "upgrade-plan",
+          "refund-policy"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.3333333333333333,
+          "recallAt5": 0.3333333333333333,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q019",
+        "question": "My card failed, but some paid features still work. Does that mean the plan was cancelled?",
+        "expectedDocIds": [
+          "failed-payment",
+          "billing-period-access",
+          "cancel-plan"
+        ],
+        "retrievedDocIds": [
+          "billing-period-access",
+          "refund-policy",
+          "cancel-plan",
+          "failed-payment",
+          "workspace-access"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q020",
+        "question": "The invoice is still open even though we tried to pay. What should we check?",
+        "expectedDocIds": [
+          "download-invoices",
+          "failed-payment"
+        ],
+        "retrievedDocIds": [
+          "download-invoices",
+          "entitlement-sync",
+          "change-admin-role",
+          "failed-payment",
+          "billing-period-access"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.5,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q021",
+        "question": "We cancelled yesterday, but exports and paid features still work. Is that expected?",
+        "expectedDocIds": [
+          "billing-period-access",
+          "cancel-plan",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "billing-period-access",
+          "cancel-plan",
+          "entitlement-sync",
+          "workspace-access",
+          "export-filtered-results"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q022",
+        "question": "The whole team lost access after a billing update.",
+        "expectedDocIds": [
+          "entitlement-sync",
+          "failed-payment",
+          "workspace-access"
+        ],
+        "retrievedDocIds": [
+          "entitlement-sync",
+          "billing-permissions",
+          "download-invoices",
+          "billing-period-access",
+          "refund-policy"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.3333333333333333,
+          "recallAt5": 0.3333333333333333,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q023",
+        "question": "I can use the workspace, but I cannot update the card on file.",
+        "expectedDocIds": [
+          "billing-permissions",
+          "workspace-access"
+        ],
+        "retrievedDocIds": [
+          "download-invoices",
+          "billing-permissions",
+          "export-filtered-results",
+          "export-dashboard-data",
+          "export-permissions"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.5,
+          "recallAt5": 0.5,
+          "reciprocalRank": 0.5
+        }
+      },
+      {
+        "questionId": "q024",
+        "question": "A manager needs access to invoices, but should not be able to export customer reports.",
+        "expectedDocIds": [
+          "billing-permissions",
+          "export-permissions"
+        ],
+        "retrievedDocIds": [
+          "export-permissions",
+          "upgrade-plan",
+          "workspace-access",
+          "change-admin-role",
+          "billing-permissions"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.5,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q025",
+        "question": "An admin can invite teammates, but cannot cancel the subscription.",
+        "expectedDocIds": [
+          "billing-permissions",
+          "change-admin-role",
+          "cancel-plan"
+        ],
+        "retrievedDocIds": [
+          "cancel-plan",
+          "invite-team-members",
+          "billing-permissions",
+          "workspace-access",
+          "plan-limits"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q026",
+        "question": "My user can see reports, but the export button is missing.",
+        "expectedDocIds": [
+          "export-permissions",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-permissions",
+          "export-dashboard-data",
+          "export-filtered-results",
+          "cancel-plan",
+          "download-invoices"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q027",
+        "question": "The previous owner left and now nobody knows who can manage billing or workspace roles.",
+        "expectedDocIds": [
+          "change-admin-role",
+          "billing-permissions",
+          "workspace-access"
+        ],
+        "retrievedDocIds": [
+          "change-admin-role",
+          "billing-permissions",
+          "export-permissions",
+          "workspace-access",
+          "cancel-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q028",
+        "question": "My CSV export included too many rows. I only wanted the filtered results.",
+        "expectedDocIds": [
+          "export-filtered-results",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-filtered-results",
+          "export-dashboard-data",
+          "export-permissions",
+          "billing-period-access",
+          "cancel-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q029",
+        "question": "I applied filters, but I cannot download the filtered report.",
+        "expectedDocIds": [
+          "export-filtered-results",
+          "export-permissions"
+        ],
+        "retrievedDocIds": [
+          "export-filtered-results",
+          "export-dashboard-data",
+          "export-permissions",
+          "download-invoices",
+          "upgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q030",
+        "question": "Can I get billing invoice data from the dashboard export?",
+        "expectedDocIds": [
+          "export-dashboard-data",
+          "download-invoices"
+        ],
+        "retrievedDocIds": [
+          "export-dashboard-data",
+          "export-permissions",
+          "export-filtered-results",
+          "downgrade-plan",
+          "download-invoices"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.5,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q031",
+        "question": "The export option disappeared. Could it be a plan limit or a role problem?",
+        "expectedDocIds": [
+          "export-permissions",
+          "plan-limits",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-dashboard-data",
+          "plan-limits",
+          "export-permissions",
+          "export-filtered-results",
+          "billing-permissions"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q032",
+        "question": "A large dashboard export is taking longer than usual.",
+        "expectedDocIds": [
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-dashboard-data",
+          "export-filtered-results",
+          "export-permissions",
+          "downgrade-plan",
+          "entitlement-sync"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q033",
+        "question": "We are blocked from creating more projects even though our billing is active.",
+        "expectedDocIds": [
+          "plan-limits",
+          "upgrade-plan",
+          "entitlement-sync"
+        ],
+        "retrievedDocIds": [
+          "plan-limits",
+          "upgrade-plan",
+          "export-dashboard-data",
+          "billing-permissions",
+          "entitlement-sync"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q034",
+        "question": "After a downgrade, when will advanced exports and higher limits stop working?",
+        "expectedDocIds": [
+          "downgrade-plan",
+          "billing-period-access",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "downgrade-plan",
+          "billing-period-access",
+          "cancel-plan",
+          "upgrade-plan",
+          "export-filtered-results"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q035",
+        "question": "We need more team members, more projects and more exports. Should we upgrade?",
+        "expectedDocIds": [
+          "upgrade-plan",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "upgrade-plan",
+          "plan-limits",
+          "export-filtered-results",
+          "entitlement-sync",
+          "export-dashboard-data"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q036",
+        "question": "The upgrade invoice was paid, but new project limits are not showing yet.",
+        "expectedDocIds": [
+          "upgrade-plan",
+          "entitlement-sync",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "upgrade-plan",
+          "invite-team-members",
+          "refund-policy",
+          "workspace-access",
+          "billing-period-access"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.3333333333333333,
+          "recallAt5": 0.3333333333333333,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q037",
+        "question": "How do I change the company logo and theme colors?",
+        "expectedDocIds": [],
+        "retrievedDocIds": [
+          "change-admin-role",
+          "billing-permissions",
+          "invite-team-members",
+          "upgrade-plan",
+          "plan-limits"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": false,
+          "recallAt3": 0.0,
+          "recallAt5": 0.0,
+          "reciprocalRank": 0.0
+        }
+      },
+      {
+        "questionId": "q038",
+        "question": "Can I connect ExampleOps to Salesforce?",
+        "expectedDocIds": [],
+        "retrievedDocIds": [
+          "export-permissions",
+          "change-admin-role",
+          "upgrade-plan",
+          "cancel-plan",
+          "billing-permissions"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": false,
+          "recallAt3": 0.0,
+          "recallAt5": 0.0,
+          "reciprocalRank": 0.0
+        }
+      },
+      {
+        "questionId": "q039",
+        "question": "Where do I enable two-factor authentication for my account?",
+        "expectedDocIds": [],
+        "retrievedDocIds": [
+          "billing-permissions",
+          "failed-payment",
+          "workspace-access",
+          "plan-limits",
+          "change-admin-role"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": false,
+          "recallAt3": 0.0,
+          "recallAt5": 0.0,
+          "reciprocalRank": 0.0
+        }
+      },
+      {
+        "questionId": "q040",
+        "question": "Can I permanently delete a workspace?",
+        "expectedDocIds": [],
+        "retrievedDocIds": [
+          "change-admin-role",
+          "cancel-plan",
+          "upgrade-plan",
+          "billing-permissions",
+          "export-permissions"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": false,
+          "recallAt3": 0.0,
+          "recallAt5": 0.0,
+          "reciprocalRank": 0.0
+        }
       }
     ]
   },
   {
     "strategy": "tfidf",
     "summary": {
-      "meanHitAt1": 0.875,
-      "meanHitAt3": 1.0,
-      "meanHitAt5": 1.0,
-      "meanRecallAt3": 0.78125,
-      "meanRecallAt5": 0.9270833333333334,
-      "mrr": 0.9270833333333334
+      "meanHitAt1": 0.825,
+      "meanHitAt3": 0.9,
+      "meanHitAt5": 0.9,
+      "meanRecallAt3": 0.7125,
+      "meanRecallAt5": 0.8,
+      "mrr": 0.8541666666666666
     },
     "questions": [
       {
@@ -758,18 +1308,568 @@
           "recallAt5": 1.0,
           "reciprocalRank": 1.0
         }
+      },
+      {
+        "questionId": "q017",
+        "question": "The payment went through, but our upgraded limits are still not available.",
+        "expectedDocIds": [
+          "upgrade-plan",
+          "entitlement-sync",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "plan-limits",
+          "upgrade-plan",
+          "failed-payment",
+          "billing-permissions",
+          "download-invoices"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q018",
+        "question": "Our invoice is paid, but the workspace still behaves like we are on the free plan.",
+        "expectedDocIds": [
+          "entitlement-sync",
+          "billing-period-access",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "billing-period-access",
+          "cancel-plan",
+          "download-invoices",
+          "downgrade-plan",
+          "failed-payment"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.3333333333333333,
+          "recallAt5": 0.3333333333333333,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q019",
+        "question": "My card failed, but some paid features still work. Does that mean the plan was cancelled?",
+        "expectedDocIds": [
+          "failed-payment",
+          "billing-period-access",
+          "cancel-plan"
+        ],
+        "retrievedDocIds": [
+          "billing-period-access",
+          "failed-payment",
+          "cancel-plan",
+          "downgrade-plan",
+          "refund-policy"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q020",
+        "question": "The invoice is still open even though we tried to pay. What should we check?",
+        "expectedDocIds": [
+          "download-invoices",
+          "failed-payment"
+        ],
+        "retrievedDocIds": [
+          "download-invoices",
+          "failed-payment",
+          "upgrade-plan",
+          "billing-period-access",
+          "entitlement-sync"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q021",
+        "question": "We cancelled yesterday, but exports and paid features still work. Is that expected?",
+        "expectedDocIds": [
+          "billing-period-access",
+          "cancel-plan",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "billing-period-access",
+          "cancel-plan",
+          "export-dashboard-data",
+          "export-filtered-results",
+          "failed-payment"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q022",
+        "question": "The whole team lost access after a billing update.",
+        "expectedDocIds": [
+          "entitlement-sync",
+          "failed-payment",
+          "workspace-access"
+        ],
+        "retrievedDocIds": [
+          "billing-permissions",
+          "download-invoices",
+          "entitlement-sync",
+          "invite-team-members",
+          "billing-period-access"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.3333333333333333,
+          "recallAt5": 0.3333333333333333,
+          "reciprocalRank": 0.3333333333333333
+        }
+      },
+      {
+        "questionId": "q023",
+        "question": "I can use the workspace, but I cannot update the card on file.",
+        "expectedDocIds": [
+          "billing-permissions",
+          "workspace-access"
+        ],
+        "retrievedDocIds": [
+          "billing-permissions",
+          "workspace-access",
+          "entitlement-sync",
+          "download-invoices",
+          "change-admin-role"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q024",
+        "question": "A manager needs access to invoices, but should not be able to export customer reports.",
+        "expectedDocIds": [
+          "billing-permissions",
+          "export-permissions"
+        ],
+        "retrievedDocIds": [
+          "export-permissions",
+          "export-dashboard-data",
+          "export-filtered-results",
+          "download-invoices",
+          "workspace-access"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.5,
+          "recallAt5": 0.5,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q025",
+        "question": "An admin can invite teammates, but cannot cancel the subscription.",
+        "expectedDocIds": [
+          "billing-permissions",
+          "change-admin-role",
+          "cancel-plan"
+        ],
+        "retrievedDocIds": [
+          "cancel-plan",
+          "invite-team-members",
+          "change-admin-role",
+          "billing-permissions",
+          "plan-limits"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q026",
+        "question": "My user can see reports, but the export button is missing.",
+        "expectedDocIds": [
+          "export-permissions",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-permissions",
+          "export-dashboard-data",
+          "export-filtered-results",
+          "invite-team-members",
+          "billing-permissions"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q027",
+        "question": "The previous owner left and now nobody knows who can manage billing or workspace roles.",
+        "expectedDocIds": [
+          "change-admin-role",
+          "billing-permissions",
+          "workspace-access"
+        ],
+        "retrievedDocIds": [
+          "change-admin-role",
+          "billing-permissions",
+          "workspace-access",
+          "entitlement-sync",
+          "cancel-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q028",
+        "question": "My CSV export included too many rows. I only wanted the filtered results.",
+        "expectedDocIds": [
+          "export-filtered-results",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-filtered-results",
+          "export-dashboard-data",
+          "export-permissions",
+          "billing-period-access",
+          "workspace-access"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q029",
+        "question": "I applied filters, but I cannot download the filtered report.",
+        "expectedDocIds": [
+          "export-filtered-results",
+          "export-permissions"
+        ],
+        "retrievedDocIds": [
+          "export-filtered-results",
+          "export-permissions",
+          "download-invoices",
+          "export-dashboard-data",
+          "upgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q030",
+        "question": "Can I get billing invoice data from the dashboard export?",
+        "expectedDocIds": [
+          "export-dashboard-data",
+          "download-invoices"
+        ],
+        "retrievedDocIds": [
+          "export-dashboard-data",
+          "export-permissions",
+          "export-filtered-results",
+          "download-invoices",
+          "failed-payment"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.5,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q031",
+        "question": "The export option disappeared. Could it be a plan limit or a role problem?",
+        "expectedDocIds": [
+          "export-permissions",
+          "plan-limits",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-permissions",
+          "export-dashboard-data",
+          "plan-limits",
+          "export-filtered-results",
+          "cancel-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q032",
+        "question": "A large dashboard export is taking longer than usual.",
+        "expectedDocIds": [
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-dashboard-data",
+          "export-permissions",
+          "export-filtered-results",
+          "downgrade-plan",
+          "workspace-access"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q033",
+        "question": "We are blocked from creating more projects even though our billing is active.",
+        "expectedDocIds": [
+          "plan-limits",
+          "upgrade-plan",
+          "entitlement-sync"
+        ],
+        "retrievedDocIds": [
+          "plan-limits",
+          "billing-permissions",
+          "upgrade-plan",
+          "billing-period-access",
+          "workspace-access"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q034",
+        "question": "After a downgrade, when will advanced exports and higher limits stop working?",
+        "expectedDocIds": [
+          "downgrade-plan",
+          "billing-period-access",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "downgrade-plan",
+          "upgrade-plan",
+          "plan-limits",
+          "billing-period-access",
+          "export-dashboard-data"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q035",
+        "question": "We need more team members, more projects and more exports. Should we upgrade?",
+        "expectedDocIds": [
+          "upgrade-plan",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "upgrade-plan",
+          "plan-limits",
+          "export-dashboard-data",
+          "invite-team-members",
+          "export-filtered-results"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q036",
+        "question": "The upgrade invoice was paid, but new project limits are not showing yet.",
+        "expectedDocIds": [
+          "upgrade-plan",
+          "entitlement-sync",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "upgrade-plan",
+          "plan-limits",
+          "download-invoices",
+          "failed-payment",
+          "invite-team-members"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q037",
+        "question": "How do I change the company logo and theme colors?",
+        "expectedDocIds": [],
+        "retrievedDocIds": [
+          "change-admin-role",
+          "billing-permissions",
+          "upgrade-plan",
+          "plan-limits",
+          "invite-team-members"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": false,
+          "recallAt3": 0.0,
+          "recallAt5": 0.0,
+          "reciprocalRank": 0.0
+        }
+      },
+      {
+        "questionId": "q038",
+        "question": "Can I connect ExampleOps to Salesforce?",
+        "expectedDocIds": [],
+        "retrievedDocIds": [
+          "failed-payment",
+          "refund-policy",
+          "upgrade-plan",
+          "billing-period-access",
+          "plan-limits"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": false,
+          "recallAt3": 0.0,
+          "recallAt5": 0.0,
+          "reciprocalRank": 0.0
+        }
+      },
+      {
+        "questionId": "q039",
+        "question": "Where do I enable two-factor authentication for my account?",
+        "expectedDocIds": [],
+        "retrievedDocIds": [
+          "billing-permissions",
+          "failed-payment",
+          "workspace-access",
+          "invite-team-members",
+          "entitlement-sync"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": false,
+          "recallAt3": 0.0,
+          "recallAt5": 0.0,
+          "reciprocalRank": 0.0
+        }
+      },
+      {
+        "questionId": "q040",
+        "question": "Can I permanently delete a workspace?",
+        "expectedDocIds": [],
+        "retrievedDocIds": [
+          "workspace-access",
+          "change-admin-role",
+          "entitlement-sync",
+          "invite-team-members",
+          "download-invoices"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": false,
+          "recallAt3": 0.0,
+          "recallAt5": 0.0,
+          "reciprocalRank": 0.0
+        }
       }
     ]
   },
   {
     "strategy": "embedding-minilm",
     "summary": {
-      "meanHitAt1": 0.8125,
-      "meanHitAt3": 1.0,
-      "meanHitAt5": 1.0,
-      "meanRecallAt3": 0.875,
-      "meanRecallAt5": 0.9479166666666666,
-      "mrr": 0.8958333333333334
+      "meanHitAt1": 0.75,
+      "meanHitAt3": 0.875,
+      "meanHitAt5": 0.9,
+      "meanRecallAt3": 0.725,
+      "meanRecallAt5": 0.7916666666666667,
+      "mrr": 0.8104166666666666
     },
     "questions": [
       {
@@ -1139,18 +2239,568 @@
           "recallAt5": 0.5,
           "reciprocalRank": 1.0
         }
+      },
+      {
+        "questionId": "q017",
+        "question": "The payment went through, but our upgraded limits are still not available.",
+        "expectedDocIds": [
+          "upgrade-plan",
+          "entitlement-sync",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "plan-limits",
+          "upgrade-plan",
+          "downgrade-plan",
+          "failed-payment",
+          "billing-period-access"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q018",
+        "question": "Our invoice is paid, but the workspace still behaves like we are on the free plan.",
+        "expectedDocIds": [
+          "entitlement-sync",
+          "billing-period-access",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "cancel-plan",
+          "download-invoices",
+          "failed-payment",
+          "billing-period-access",
+          "invite-team-members"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": true,
+          "recallAt3": 0.0,
+          "recallAt5": 0.3333333333333333,
+          "reciprocalRank": 0.25
+        }
+      },
+      {
+        "questionId": "q019",
+        "question": "My card failed, but some paid features still work. Does that mean the plan was cancelled?",
+        "expectedDocIds": [
+          "failed-payment",
+          "billing-period-access",
+          "cancel-plan"
+        ],
+        "retrievedDocIds": [
+          "billing-period-access",
+          "failed-payment",
+          "cancel-plan",
+          "downgrade-plan",
+          "refund-policy"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q020",
+        "question": "The invoice is still open even though we tried to pay. What should we check?",
+        "expectedDocIds": [
+          "download-invoices",
+          "failed-payment"
+        ],
+        "retrievedDocIds": [
+          "failed-payment",
+          "download-invoices",
+          "billing-period-access",
+          "refund-policy",
+          "entitlement-sync"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q021",
+        "question": "We cancelled yesterday, but exports and paid features still work. Is that expected?",
+        "expectedDocIds": [
+          "billing-period-access",
+          "cancel-plan",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "billing-period-access",
+          "cancel-plan",
+          "failed-payment",
+          "downgrade-plan",
+          "refund-policy"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q022",
+        "question": "The whole team lost access after a billing update.",
+        "expectedDocIds": [
+          "entitlement-sync",
+          "failed-payment",
+          "workspace-access"
+        ],
+        "retrievedDocIds": [
+          "billing-permissions",
+          "billing-period-access",
+          "failed-payment",
+          "invite-team-members",
+          "download-invoices"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.3333333333333333,
+          "recallAt5": 0.3333333333333333,
+          "reciprocalRank": 0.3333333333333333
+        }
+      },
+      {
+        "questionId": "q023",
+        "question": "I can use the workspace, but I cannot update the card on file.",
+        "expectedDocIds": [
+          "billing-permissions",
+          "workspace-access"
+        ],
+        "retrievedDocIds": [
+          "workspace-access",
+          "change-admin-role",
+          "invite-team-members",
+          "entitlement-sync",
+          "download-invoices"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.5,
+          "recallAt5": 0.5,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q024",
+        "question": "A manager needs access to invoices, but should not be able to export customer reports.",
+        "expectedDocIds": [
+          "billing-permissions",
+          "export-permissions"
+        ],
+        "retrievedDocIds": [
+          "export-permissions",
+          "download-invoices",
+          "export-dashboard-data",
+          "export-filtered-results",
+          "billing-permissions"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.5,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q025",
+        "question": "An admin can invite teammates, but cannot cancel the subscription.",
+        "expectedDocIds": [
+          "billing-permissions",
+          "change-admin-role",
+          "cancel-plan"
+        ],
+        "retrievedDocIds": [
+          "invite-team-members",
+          "cancel-plan",
+          "billing-permissions",
+          "billing-period-access",
+          "change-admin-role"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 1.0,
+          "reciprocalRank": 0.5
+        }
+      },
+      {
+        "questionId": "q026",
+        "question": "My user can see reports, but the export button is missing.",
+        "expectedDocIds": [
+          "export-permissions",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-permissions",
+          "export-filtered-results",
+          "export-dashboard-data",
+          "download-invoices",
+          "billing-permissions"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q027",
+        "question": "The previous owner left and now nobody knows who can manage billing or workspace roles.",
+        "expectedDocIds": [
+          "change-admin-role",
+          "billing-permissions",
+          "workspace-access"
+        ],
+        "retrievedDocIds": [
+          "change-admin-role",
+          "billing-permissions",
+          "workspace-access",
+          "invite-team-members",
+          "entitlement-sync"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q028",
+        "question": "My CSV export included too many rows. I only wanted the filtered results.",
+        "expectedDocIds": [
+          "export-filtered-results",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-filtered-results",
+          "export-dashboard-data",
+          "export-permissions",
+          "plan-limits",
+          "download-invoices"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q029",
+        "question": "I applied filters, but I cannot download the filtered report.",
+        "expectedDocIds": [
+          "export-filtered-results",
+          "export-permissions"
+        ],
+        "retrievedDocIds": [
+          "export-filtered-results",
+          "export-dashboard-data",
+          "export-permissions",
+          "download-invoices",
+          "plan-limits"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q030",
+        "question": "Can I get billing invoice data from the dashboard export?",
+        "expectedDocIds": [
+          "export-dashboard-data",
+          "download-invoices"
+        ],
+        "retrievedDocIds": [
+          "export-dashboard-data",
+          "download-invoices",
+          "export-permissions",
+          "export-filtered-results",
+          "billing-permissions"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q031",
+        "question": "The export option disappeared. Could it be a plan limit or a role problem?",
+        "expectedDocIds": [
+          "export-permissions",
+          "plan-limits",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-permissions",
+          "export-filtered-results",
+          "export-dashboard-data",
+          "plan-limits",
+          "download-invoices"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q032",
+        "question": "A large dashboard export is taking longer than usual.",
+        "expectedDocIds": [
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-dashboard-data",
+          "export-filtered-results",
+          "export-permissions",
+          "plan-limits",
+          "upgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q033",
+        "question": "We are blocked from creating more projects even though our billing is active.",
+        "expectedDocIds": [
+          "plan-limits",
+          "upgrade-plan",
+          "entitlement-sync"
+        ],
+        "retrievedDocIds": [
+          "plan-limits",
+          "failed-payment",
+          "upgrade-plan",
+          "invite-team-members",
+          "billing-permissions"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q034",
+        "question": "After a downgrade, when will advanced exports and higher limits stop working?",
+        "expectedDocIds": [
+          "downgrade-plan",
+          "billing-period-access",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "downgrade-plan",
+          "plan-limits",
+          "export-permissions",
+          "export-filtered-results",
+          "upgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q035",
+        "question": "We need more team members, more projects and more exports. Should we upgrade?",
+        "expectedDocIds": [
+          "upgrade-plan",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "upgrade-plan",
+          "export-dashboard-data",
+          "plan-limits",
+          "export-filtered-results",
+          "export-permissions"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q036",
+        "question": "The upgrade invoice was paid, but new project limits are not showing yet.",
+        "expectedDocIds": [
+          "upgrade-plan",
+          "entitlement-sync",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "plan-limits",
+          "upgrade-plan",
+          "download-invoices",
+          "failed-payment",
+          "billing-period-access"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q037",
+        "question": "How do I change the company logo and theme colors?",
+        "expectedDocIds": [],
+        "retrievedDocIds": [
+          "change-admin-role",
+          "billing-permissions",
+          "upgrade-plan",
+          "invite-team-members",
+          "downgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": false,
+          "recallAt3": 0.0,
+          "recallAt5": 0.0,
+          "reciprocalRank": 0.0
+        }
+      },
+      {
+        "questionId": "q038",
+        "question": "Can I connect ExampleOps to Salesforce?",
+        "expectedDocIds": [],
+        "retrievedDocIds": [
+          "refund-policy",
+          "upgrade-plan",
+          "plan-limits",
+          "failed-payment",
+          "downgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": false,
+          "recallAt3": 0.0,
+          "recallAt5": 0.0,
+          "reciprocalRank": 0.0
+        }
+      },
+      {
+        "questionId": "q039",
+        "question": "Where do I enable two-factor authentication for my account?",
+        "expectedDocIds": [],
+        "retrievedDocIds": [
+          "invite-team-members",
+          "workspace-access",
+          "entitlement-sync",
+          "billing-permissions",
+          "export-permissions"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": false,
+          "recallAt3": 0.0,
+          "recallAt5": 0.0,
+          "reciprocalRank": 0.0
+        }
+      },
+      {
+        "questionId": "q040",
+        "question": "Can I permanently delete a workspace?",
+        "expectedDocIds": [],
+        "retrievedDocIds": [
+          "cancel-plan",
+          "downgrade-plan",
+          "change-admin-role",
+          "workspace-access",
+          "billing-permissions"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": false,
+          "recallAt3": 0.0,
+          "recallAt5": 0.0,
+          "reciprocalRank": 0.0
+        }
       }
     ]
   },
   {
     "strategy": "embedding-mpnet",
     "summary": {
-      "meanHitAt1": 1.0,
-      "meanHitAt3": 1.0,
-      "meanHitAt5": 1.0,
-      "meanRecallAt3": 0.9166666666666666,
-      "meanRecallAt5": 0.9479166666666666,
-      "mrr": 1.0
+      "meanHitAt1": 0.825,
+      "meanHitAt3": 0.9,
+      "meanHitAt5": 0.9,
+      "meanRecallAt3": 0.7458333333333333,
+      "meanRecallAt5": 0.8291666666666666,
+      "mrr": 0.8625
     },
     "questions": [
       {
@@ -1520,18 +3170,568 @@
           "recallAt5": 1.0,
           "reciprocalRank": 1.0
         }
+      },
+      {
+        "questionId": "q017",
+        "question": "The payment went through, but our upgraded limits are still not available.",
+        "expectedDocIds": [
+          "upgrade-plan",
+          "entitlement-sync",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "plan-limits",
+          "upgrade-plan",
+          "failed-payment",
+          "billing-period-access",
+          "entitlement-sync"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q018",
+        "question": "Our invoice is paid, but the workspace still behaves like we are on the free plan.",
+        "expectedDocIds": [
+          "entitlement-sync",
+          "billing-period-access",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "entitlement-sync",
+          "workspace-access",
+          "failed-payment",
+          "billing-permissions",
+          "cancel-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.3333333333333333,
+          "recallAt5": 0.3333333333333333,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q019",
+        "question": "My card failed, but some paid features still work. Does that mean the plan was cancelled?",
+        "expectedDocIds": [
+          "failed-payment",
+          "billing-period-access",
+          "cancel-plan"
+        ],
+        "retrievedDocIds": [
+          "billing-period-access",
+          "cancel-plan",
+          "failed-payment",
+          "downgrade-plan",
+          "refund-policy"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q020",
+        "question": "The invoice is still open even though we tried to pay. What should we check?",
+        "expectedDocIds": [
+          "download-invoices",
+          "failed-payment"
+        ],
+        "retrievedDocIds": [
+          "failed-payment",
+          "download-invoices",
+          "workspace-access",
+          "refund-policy",
+          "entitlement-sync"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q021",
+        "question": "We cancelled yesterday, but exports and paid features still work. Is that expected?",
+        "expectedDocIds": [
+          "billing-period-access",
+          "cancel-plan",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "billing-period-access",
+          "cancel-plan",
+          "refund-policy",
+          "failed-payment",
+          "downgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q022",
+        "question": "The whole team lost access after a billing update.",
+        "expectedDocIds": [
+          "entitlement-sync",
+          "failed-payment",
+          "workspace-access"
+        ],
+        "retrievedDocIds": [
+          "billing-permissions",
+          "workspace-access",
+          "billing-period-access",
+          "entitlement-sync",
+          "refund-policy"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.3333333333333333,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 0.5
+        }
+      },
+      {
+        "questionId": "q023",
+        "question": "I can use the workspace, but I cannot update the card on file.",
+        "expectedDocIds": [
+          "billing-permissions",
+          "workspace-access"
+        ],
+        "retrievedDocIds": [
+          "workspace-access",
+          "entitlement-sync",
+          "change-admin-role",
+          "billing-permissions",
+          "upgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.5,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q024",
+        "question": "A manager needs access to invoices, but should not be able to export customer reports.",
+        "expectedDocIds": [
+          "billing-permissions",
+          "export-permissions"
+        ],
+        "retrievedDocIds": [
+          "export-permissions",
+          "billing-permissions",
+          "download-invoices",
+          "export-filtered-results",
+          "export-dashboard-data"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q025",
+        "question": "An admin can invite teammates, but cannot cancel the subscription.",
+        "expectedDocIds": [
+          "billing-permissions",
+          "change-admin-role",
+          "cancel-plan"
+        ],
+        "retrievedDocIds": [
+          "invite-team-members",
+          "cancel-plan",
+          "refund-policy",
+          "billing-period-access",
+          "billing-permissions"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.3333333333333333,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 0.5
+        }
+      },
+      {
+        "questionId": "q026",
+        "question": "My user can see reports, but the export button is missing.",
+        "expectedDocIds": [
+          "export-permissions",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-permissions",
+          "export-filtered-results",
+          "export-dashboard-data",
+          "workspace-access",
+          "download-invoices"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q027",
+        "question": "The previous owner left and now nobody knows who can manage billing or workspace roles.",
+        "expectedDocIds": [
+          "change-admin-role",
+          "billing-permissions",
+          "workspace-access"
+        ],
+        "retrievedDocIds": [
+          "change-admin-role",
+          "billing-permissions",
+          "workspace-access",
+          "entitlement-sync",
+          "invite-team-members"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q028",
+        "question": "My CSV export included too many rows. I only wanted the filtered results.",
+        "expectedDocIds": [
+          "export-filtered-results",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-filtered-results",
+          "export-dashboard-data",
+          "export-permissions",
+          "download-invoices",
+          "plan-limits"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q029",
+        "question": "I applied filters, but I cannot download the filtered report.",
+        "expectedDocIds": [
+          "export-filtered-results",
+          "export-permissions"
+        ],
+        "retrievedDocIds": [
+          "export-filtered-results",
+          "export-dashboard-data",
+          "export-permissions",
+          "download-invoices",
+          "downgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q030",
+        "question": "Can I get billing invoice data from the dashboard export?",
+        "expectedDocIds": [
+          "export-dashboard-data",
+          "download-invoices"
+        ],
+        "retrievedDocIds": [
+          "export-dashboard-data",
+          "download-invoices",
+          "export-filtered-results",
+          "export-permissions",
+          "billing-permissions"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q031",
+        "question": "The export option disappeared. Could it be a plan limit or a role problem?",
+        "expectedDocIds": [
+          "export-permissions",
+          "plan-limits",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-permissions",
+          "export-filtered-results",
+          "export-dashboard-data",
+          "plan-limits",
+          "upgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q032",
+        "question": "A large dashboard export is taking longer than usual.",
+        "expectedDocIds": [
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-dashboard-data",
+          "export-permissions",
+          "export-filtered-results",
+          "plan-limits",
+          "upgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q033",
+        "question": "We are blocked from creating more projects even though our billing is active.",
+        "expectedDocIds": [
+          "plan-limits",
+          "upgrade-plan",
+          "entitlement-sync"
+        ],
+        "retrievedDocIds": [
+          "failed-payment",
+          "plan-limits",
+          "billing-permissions",
+          "entitlement-sync",
+          "billing-period-access"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.3333333333333333,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 0.5
+        }
+      },
+      {
+        "questionId": "q034",
+        "question": "After a downgrade, when will advanced exports and higher limits stop working?",
+        "expectedDocIds": [
+          "downgrade-plan",
+          "billing-period-access",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "downgrade-plan",
+          "plan-limits",
+          "export-permissions",
+          "upgrade-plan",
+          "billing-period-access"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q035",
+        "question": "We need more team members, more projects and more exports. Should we upgrade?",
+        "expectedDocIds": [
+          "upgrade-plan",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "upgrade-plan",
+          "plan-limits",
+          "invite-team-members",
+          "export-permissions",
+          "change-admin-role"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q036",
+        "question": "The upgrade invoice was paid, but new project limits are not showing yet.",
+        "expectedDocIds": [
+          "upgrade-plan",
+          "entitlement-sync",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "upgrade-plan",
+          "plan-limits",
+          "download-invoices",
+          "failed-payment",
+          "entitlement-sync"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q037",
+        "question": "How do I change the company logo and theme colors?",
+        "expectedDocIds": [],
+        "retrievedDocIds": [
+          "change-admin-role",
+          "upgrade-plan",
+          "invite-team-members",
+          "billing-permissions",
+          "download-invoices"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": false,
+          "recallAt3": 0.0,
+          "recallAt5": 0.0,
+          "reciprocalRank": 0.0
+        }
+      },
+      {
+        "questionId": "q038",
+        "question": "Can I connect ExampleOps to Salesforce?",
+        "expectedDocIds": [],
+        "retrievedDocIds": [
+          "workspace-access",
+          "refund-policy",
+          "failed-payment",
+          "change-admin-role",
+          "plan-limits"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": false,
+          "recallAt3": 0.0,
+          "recallAt5": 0.0,
+          "reciprocalRank": 0.0
+        }
+      },
+      {
+        "questionId": "q039",
+        "question": "Where do I enable two-factor authentication for my account?",
+        "expectedDocIds": [],
+        "retrievedDocIds": [
+          "invite-team-members",
+          "upgrade-plan",
+          "entitlement-sync",
+          "plan-limits",
+          "billing-permissions"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": false,
+          "recallAt3": 0.0,
+          "recallAt5": 0.0,
+          "reciprocalRank": 0.0
+        }
+      },
+      {
+        "questionId": "q040",
+        "question": "Can I permanently delete a workspace?",
+        "expectedDocIds": [],
+        "retrievedDocIds": [
+          "change-admin-role",
+          "cancel-plan",
+          "workspace-access",
+          "downgrade-plan",
+          "entitlement-sync"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": false,
+          "recallAt3": 0.0,
+          "recallAt5": 0.0,
+          "reciprocalRank": 0.0
+        }
       }
     ]
   },
   {
     "strategy": "hybrid-tfidf50-mpnet50",
     "summary": {
-      "meanHitAt1": 0.9375,
-      "meanHitAt3": 1.0,
-      "meanHitAt5": 1.0,
-      "meanRecallAt3": 0.84375,
-      "meanRecallAt5": 1.0,
-      "mrr": 0.9583333333333334
+      "meanHitAt1": 0.85,
+      "meanHitAt3": 0.9,
+      "meanHitAt5": 0.9,
+      "meanRecallAt3": 0.7208333333333333,
+      "meanRecallAt5": 0.8416666666666666,
+      "mrr": 0.8708333333333333
     },
     "questions": [
       {
@@ -1900,6 +4100,556 @@
           "recallAt3": 0.5,
           "recallAt5": 1.0,
           "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q017",
+        "question": "The payment went through, but our upgraded limits are still not available.",
+        "expectedDocIds": [
+          "upgrade-plan",
+          "entitlement-sync",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "plan-limits",
+          "upgrade-plan",
+          "failed-payment",
+          "billing-permissions",
+          "downgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q018",
+        "question": "Our invoice is paid, but the workspace still behaves like we are on the free plan.",
+        "expectedDocIds": [
+          "entitlement-sync",
+          "billing-period-access",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "billing-period-access",
+          "cancel-plan",
+          "download-invoices",
+          "downgrade-plan",
+          "failed-payment"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.3333333333333333,
+          "recallAt5": 0.3333333333333333,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q019",
+        "question": "My card failed, but some paid features still work. Does that mean the plan was cancelled?",
+        "expectedDocIds": [
+          "failed-payment",
+          "billing-period-access",
+          "cancel-plan"
+        ],
+        "retrievedDocIds": [
+          "billing-period-access",
+          "failed-payment",
+          "cancel-plan",
+          "downgrade-plan",
+          "refund-policy"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q020",
+        "question": "The invoice is still open even though we tried to pay. What should we check?",
+        "expectedDocIds": [
+          "download-invoices",
+          "failed-payment"
+        ],
+        "retrievedDocIds": [
+          "download-invoices",
+          "failed-payment",
+          "refund-policy",
+          "billing-period-access",
+          "entitlement-sync"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q021",
+        "question": "We cancelled yesterday, but exports and paid features still work. Is that expected?",
+        "expectedDocIds": [
+          "billing-period-access",
+          "cancel-plan",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "billing-period-access",
+          "cancel-plan",
+          "failed-payment",
+          "downgrade-plan",
+          "export-filtered-results"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q022",
+        "question": "The whole team lost access after a billing update.",
+        "expectedDocIds": [
+          "entitlement-sync",
+          "failed-payment",
+          "workspace-access"
+        ],
+        "retrievedDocIds": [
+          "billing-permissions",
+          "entitlement-sync",
+          "billing-period-access",
+          "invite-team-members",
+          "download-invoices"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.3333333333333333,
+          "recallAt5": 0.3333333333333333,
+          "reciprocalRank": 0.5
+        }
+      },
+      {
+        "questionId": "q023",
+        "question": "I can use the workspace, but I cannot update the card on file.",
+        "expectedDocIds": [
+          "billing-permissions",
+          "workspace-access"
+        ],
+        "retrievedDocIds": [
+          "workspace-access",
+          "entitlement-sync",
+          "billing-permissions",
+          "change-admin-role",
+          "download-invoices"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q024",
+        "question": "A manager needs access to invoices, but should not be able to export customer reports.",
+        "expectedDocIds": [
+          "billing-permissions",
+          "export-permissions"
+        ],
+        "retrievedDocIds": [
+          "export-permissions",
+          "export-dashboard-data",
+          "download-invoices",
+          "export-filtered-results",
+          "billing-permissions"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.5,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q025",
+        "question": "An admin can invite teammates, but cannot cancel the subscription.",
+        "expectedDocIds": [
+          "billing-permissions",
+          "change-admin-role",
+          "cancel-plan"
+        ],
+        "retrievedDocIds": [
+          "cancel-plan",
+          "invite-team-members",
+          "change-admin-role",
+          "billing-permissions",
+          "plan-limits"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q026",
+        "question": "My user can see reports, but the export button is missing.",
+        "expectedDocIds": [
+          "export-permissions",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-permissions",
+          "export-dashboard-data",
+          "export-filtered-results",
+          "workspace-access",
+          "billing-permissions"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q027",
+        "question": "The previous owner left and now nobody knows who can manage billing or workspace roles.",
+        "expectedDocIds": [
+          "change-admin-role",
+          "billing-permissions",
+          "workspace-access"
+        ],
+        "retrievedDocIds": [
+          "change-admin-role",
+          "billing-permissions",
+          "workspace-access",
+          "entitlement-sync",
+          "cancel-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q028",
+        "question": "My CSV export included too many rows. I only wanted the filtered results.",
+        "expectedDocIds": [
+          "export-filtered-results",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-filtered-results",
+          "export-dashboard-data",
+          "export-permissions",
+          "download-invoices",
+          "billing-period-access"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q029",
+        "question": "I applied filters, but I cannot download the filtered report.",
+        "expectedDocIds": [
+          "export-filtered-results",
+          "export-permissions"
+        ],
+        "retrievedDocIds": [
+          "export-filtered-results",
+          "export-permissions",
+          "export-dashboard-data",
+          "download-invoices",
+          "upgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q030",
+        "question": "Can I get billing invoice data from the dashboard export?",
+        "expectedDocIds": [
+          "export-dashboard-data",
+          "download-invoices"
+        ],
+        "retrievedDocIds": [
+          "export-dashboard-data",
+          "export-permissions",
+          "export-filtered-results",
+          "download-invoices",
+          "billing-permissions"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.5,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q031",
+        "question": "The export option disappeared. Could it be a plan limit or a role problem?",
+        "expectedDocIds": [
+          "export-permissions",
+          "plan-limits",
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-permissions",
+          "export-dashboard-data",
+          "export-filtered-results",
+          "plan-limits",
+          "upgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q032",
+        "question": "A large dashboard export is taking longer than usual.",
+        "expectedDocIds": [
+          "export-dashboard-data"
+        ],
+        "retrievedDocIds": [
+          "export-dashboard-data",
+          "export-permissions",
+          "export-filtered-results",
+          "plan-limits",
+          "downgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q033",
+        "question": "We are blocked from creating more projects even though our billing is active.",
+        "expectedDocIds": [
+          "plan-limits",
+          "upgrade-plan",
+          "entitlement-sync"
+        ],
+        "retrievedDocIds": [
+          "plan-limits",
+          "billing-permissions",
+          "upgrade-plan",
+          "billing-period-access",
+          "failed-payment"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 0.6666666666666666,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q034",
+        "question": "After a downgrade, when will advanced exports and higher limits stop working?",
+        "expectedDocIds": [
+          "downgrade-plan",
+          "billing-period-access",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "downgrade-plan",
+          "plan-limits",
+          "upgrade-plan",
+          "billing-period-access",
+          "export-dashboard-data"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q035",
+        "question": "We need more team members, more projects and more exports. Should we upgrade?",
+        "expectedDocIds": [
+          "upgrade-plan",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "upgrade-plan",
+          "plan-limits",
+          "invite-team-members",
+          "export-dashboard-data",
+          "export-filtered-results"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 1.0,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q036",
+        "question": "The upgrade invoice was paid, but new project limits are not showing yet.",
+        "expectedDocIds": [
+          "upgrade-plan",
+          "entitlement-sync",
+          "plan-limits"
+        ],
+        "retrievedDocIds": [
+          "upgrade-plan",
+          "plan-limits",
+          "download-invoices",
+          "failed-payment",
+          "entitlement-sync"
+        ],
+        "metrics": {
+          "hitAt1": true,
+          "hitAt3": true,
+          "hitAt5": true,
+          "recallAt3": 0.6666666666666666,
+          "recallAt5": 1.0,
+          "reciprocalRank": 1.0
+        }
+      },
+      {
+        "questionId": "q037",
+        "question": "How do I change the company logo and theme colors?",
+        "expectedDocIds": [],
+        "retrievedDocIds": [
+          "change-admin-role",
+          "billing-permissions",
+          "upgrade-plan",
+          "invite-team-members",
+          "download-invoices"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": false,
+          "recallAt3": 0.0,
+          "recallAt5": 0.0,
+          "reciprocalRank": 0.0
+        }
+      },
+      {
+        "questionId": "q038",
+        "question": "Can I connect ExampleOps to Salesforce?",
+        "expectedDocIds": [],
+        "retrievedDocIds": [
+          "failed-payment",
+          "refund-policy",
+          "workspace-access",
+          "change-admin-role",
+          "plan-limits"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": false,
+          "recallAt3": 0.0,
+          "recallAt5": 0.0,
+          "reciprocalRank": 0.0
+        }
+      },
+      {
+        "questionId": "q039",
+        "question": "Where do I enable two-factor authentication for my account?",
+        "expectedDocIds": [],
+        "retrievedDocIds": [
+          "billing-permissions",
+          "workspace-access",
+          "failed-payment",
+          "invite-team-members",
+          "upgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": false,
+          "recallAt3": 0.0,
+          "recallAt5": 0.0,
+          "reciprocalRank": 0.0
+        }
+      },
+      {
+        "questionId": "q040",
+        "question": "Can I permanently delete a workspace?",
+        "expectedDocIds": [],
+        "retrievedDocIds": [
+          "change-admin-role",
+          "workspace-access",
+          "entitlement-sync",
+          "cancel-plan",
+          "downgrade-plan"
+        ],
+        "metrics": {
+          "hitAt1": false,
+          "hitAt3": false,
+          "hitAt5": false,
+          "recallAt3": 0.0,
+          "recallAt5": 0.0,
+          "reciprocalRank": 0.0
         }
       }
     ]

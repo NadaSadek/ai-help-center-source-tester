@@ -158,5 +158,245 @@
     "difficulty": "hard",
     "expectedBehavior": "retrieve_expected_sources",
     "notes": "Tests export permissions versus billing permissions ambiguity."
+  },
+  {
+    "id": "q017",
+    "question": "The payment went through, but our upgraded limits are still not available.",
+    "expectedDocIds": ["upgrade-plan", "entitlement-sync", "plan-limits"],
+    "category": "billing_access",
+    "slices": ["billing_access_overlap", "multi_intent", "semantic_paraphrase"],
+    "difficulty": "hard",
+    "expectedBehavior": "retrieve_expected_sources",
+    "notes": "Tests whether retrieval connects successful payment or upgrade wording with entitlement sync and plan limits."
+  },
+  {
+    "id": "q018",
+    "question": "Our invoice is paid, but the workspace still behaves like we are on the free plan.",
+    "expectedDocIds": ["entitlement-sync", "billing-period-access", "plan-limits"],
+    "category": "billing_access",
+    "slices": ["billing_access_overlap", "multi_intent", "semantic_paraphrase"],
+    "difficulty": "hard",
+    "expectedBehavior": "retrieve_expected_sources",
+    "notes": "Tests paid invoice wording versus actual workspace entitlement state."
+  },
+  {
+    "id": "q019",
+    "question": "My card failed, but some paid features still work. Does that mean the plan was cancelled?",
+    "expectedDocIds": ["failed-payment", "billing-period-access", "cancel-plan"],
+    "category": "billing",
+    "slices": ["multi_intent", "billing_access_overlap", "exact_keyword"],
+    "difficulty": "medium",
+    "expectedBehavior": "retrieve_expected_sources",
+    "notes": "Tests distinction between failed payment, temporary access continuation and cancellation."
+  },
+  {
+    "id": "q020",
+    "question": "The invoice is still open even though we tried to pay. What should we check?",
+    "expectedDocIds": ["download-invoices", "failed-payment"],
+    "category": "billing",
+    "slices": ["semantic_paraphrase", "billing_access_overlap"],
+    "difficulty": "medium",
+    "expectedBehavior": "retrieve_expected_sources",
+    "notes": "Tests invoice status wording and failed payment troubleshooting."
+  },
+  {
+    "id": "q021",
+    "question": "We cancelled yesterday, but exports and paid features still work. Is that expected?",
+    "expectedDocIds": ["billing-period-access", "cancel-plan", "export-dashboard-data"],
+    "category": "billing",
+    "slices": ["multi_intent", "semantic_paraphrase"],
+    "difficulty": "medium",
+    "expectedBehavior": "retrieve_expected_sources",
+    "notes": "Tests cancellation access period with a feature-specific example."
+  },
+  {
+    "id": "q022",
+    "question": "The whole team lost access after a billing update.",
+    "expectedDocIds": ["entitlement-sync", "failed-payment", "workspace-access"],
+    "category": "billing_access",
+    "slices": ["billing_access_overlap", "multi_intent", "vague_wording"],
+    "difficulty": "hard",
+    "expectedBehavior": "retrieve_expected_sources",
+    "notes": "Tests whether retrieval distinguishes whole-workspace access impact from individual invitation or role issues."
+  },
+  {
+    "id": "q023",
+    "question": "I can use the workspace, but I cannot update the card on file.",
+    "expectedDocIds": ["billing-permissions", "workspace-access"],
+    "category": "permissions",
+    "slices": ["permission_boundary", "semantic_paraphrase"],
+    "difficulty": "medium",
+    "expectedBehavior": "retrieve_expected_sources",
+    "notes": "Tests boundary between general workspace access and billing permissions."
+  },
+  {
+    "id": "q024",
+    "question": "A manager needs access to invoices, but should not be able to export customer reports.",
+    "expectedDocIds": ["billing-permissions", "export-permissions"],
+    "category": "permissions",
+    "slices": ["permission_boundary", "multi_intent"],
+    "difficulty": "hard",
+    "expectedBehavior": "retrieve_expected_sources",
+    "notes": "Tests separation between billing permissions and export permissions."
+  },
+  {
+    "id": "q025",
+    "question": "An admin can invite teammates, but cannot cancel the subscription.",
+    "expectedDocIds": ["billing-permissions", "change-admin-role", "cancel-plan"],
+    "category": "permissions",
+    "slices": ["permission_boundary", "multi_intent"],
+    "difficulty": "hard",
+    "expectedBehavior": "retrieve_expected_sources",
+    "notes": "Tests workspace admin role versus billing-specific permissions."
+  },
+  {
+    "id": "q026",
+    "question": "My user can see reports, but the export button is missing.",
+    "expectedDocIds": ["export-permissions", "export-dashboard-data"],
+    "category": "exports",
+    "slices": ["export_permission", "permission_boundary", "semantic_paraphrase"],
+    "difficulty": "medium",
+    "expectedBehavior": "retrieve_expected_sources",
+    "notes": "Tests report visibility versus export permission."
+  },
+  {
+    "id": "q027",
+    "question": "The previous owner left and now nobody knows who can manage billing or workspace roles.",
+    "expectedDocIds": ["change-admin-role", "billing-permissions", "workspace-access"],
+    "category": "permissions",
+    "slices": ["permission_boundary", "multi_intent", "vague_wording"],
+    "difficulty": "hard",
+    "expectedBehavior": "retrieve_expected_sources",
+    "notes": "Tests owner/admin recovery across workspace and billing permissions."
+  },
+  {
+    "id": "q028",
+    "question": "My CSV export included too many rows. I only wanted the filtered results.",
+    "expectedDocIds": ["export-filtered-results", "export-dashboard-data"],
+    "category": "exports",
+    "slices": ["exact_keyword", "semantic_paraphrase"],
+    "difficulty": "medium",
+    "expectedBehavior": "retrieve_expected_sources",
+    "notes": "Tests filtered export behavior and distinction from full dashboard export."
+  },
+  {
+    "id": "q029",
+    "question": "I applied filters, but I cannot download the filtered report.",
+    "expectedDocIds": ["export-filtered-results", "export-permissions"],
+    "category": "exports",
+    "slices": ["export_permission", "multi_intent", "semantic_paraphrase"],
+    "difficulty": "hard",
+    "expectedBehavior": "retrieve_expected_sources",
+    "notes": "Tests filtered export behavior combined with export permission issues."
+  },
+  {
+    "id": "q030",
+    "question": "Can I get billing invoice data from the dashboard export?",
+    "expectedDocIds": ["export-dashboard-data", "download-invoices"],
+    "category": "exports",
+    "slices": ["multi_intent", "permission_boundary"],
+    "difficulty": "medium",
+    "expectedBehavior": "retrieve_expected_sources",
+    "notes": "Tests distinction between dashboard data exports and billing invoice downloads."
+  },
+  {
+    "id": "q031",
+    "question": "The export option disappeared. Could it be a plan limit or a role problem?",
+    "expectedDocIds": ["export-permissions", "plan-limits", "export-dashboard-data"],
+    "category": "exports",
+    "slices": ["export_permission", "permission_boundary", "plan_limit", "multi_intent"],
+    "difficulty": "hard",
+    "expectedBehavior": "retrieve_expected_sources",
+    "notes": "Tests export availability across permissions and plan limits."
+  },
+  {
+    "id": "q032",
+    "question": "A large dashboard export is taking longer than usual.",
+    "expectedDocIds": ["export-dashboard-data"],
+    "category": "exports",
+    "slices": ["semantic_paraphrase"],
+    "difficulty": "easy",
+    "expectedBehavior": "retrieve_expected_sources",
+    "notes": "Tests simple dashboard export behavior without permission ambiguity."
+  },
+  {
+    "id": "q033",
+    "question": "We are blocked from creating more projects even though our billing is active.",
+    "expectedDocIds": ["plan-limits", "upgrade-plan", "entitlement-sync"],
+    "category": "plans",
+    "slices": ["plan_limit", "billing_access_overlap", "semantic_paraphrase"],
+    "difficulty": "hard",
+    "expectedBehavior": "retrieve_expected_sources",
+    "notes": "Tests plan limit wording when the user assumes active billing should be enough."
+  },
+  {
+    "id": "q034",
+    "question": "After a downgrade, when will advanced exports and higher limits stop working?",
+    "expectedDocIds": ["downgrade-plan", "billing-period-access", "plan-limits"],
+    "category": "plans",
+    "slices": ["plan_limit", "multi_intent", "semantic_paraphrase"],
+    "difficulty": "hard",
+    "expectedBehavior": "retrieve_expected_sources",
+    "notes": "Tests downgrade timing and loss of higher-plan features."
+  },
+  {
+    "id": "q035",
+    "question": "We need more team members, more projects and more exports. Should we upgrade?",
+    "expectedDocIds": ["upgrade-plan", "plan-limits"],
+    "category": "plans",
+    "slices": ["plan_limit", "exact_keyword"],
+    "difficulty": "easy",
+    "expectedBehavior": "retrieve_expected_sources",
+    "notes": "Tests direct plan limit and upgrade intent."
+  },
+  {
+    "id": "q036",
+    "question": "The upgrade invoice was paid, but new project limits are not showing yet.",
+    "expectedDocIds": ["upgrade-plan", "entitlement-sync", "plan-limits"],
+    "category": "plans",
+    "slices": ["plan_limit", "billing_access_overlap", "multi_intent"],
+    "difficulty": "hard",
+    "expectedBehavior": "retrieve_expected_sources",
+    "notes": "Tests upgrade, payment and entitlement sync overlap."
+  },
+  {
+    "id": "q037",
+    "question": "How do I change the company logo and theme colors?",
+    "expectedDocIds": [],
+    "category": "negative_case",
+    "slices": ["negative_case"],
+    "difficulty": "medium",
+    "expectedBehavior": "return_no_confident_match",
+    "notes": "No current help-center document covers branding or theme customization. Used to test false-positive retrieval."
+  },
+  {
+    "id": "q038",
+    "question": "Can I connect ExampleOps to Salesforce?",
+    "expectedDocIds": [],
+    "category": "negative_case",
+    "slices": ["negative_case"],
+    "difficulty": "medium",
+    "expectedBehavior": "return_no_confident_match",
+    "notes": "No current help-center document covers integrations or Salesforce. Used to test unsupported intent handling."
+  },
+  {
+    "id": "q039",
+    "question": "Where do I enable two-factor authentication for my account?",
+    "expectedDocIds": [],
+    "category": "negative_case",
+    "slices": ["negative_case"],
+    "difficulty": "medium",
+    "expectedBehavior": "return_no_confident_match",
+    "notes": "No current help-center document covers account security or 2FA. Used to test whether retrieval returns unrelated access docs."
+  },
+  {
+    "id": "q040",
+    "question": "Can I permanently delete a workspace?",
+    "expectedDocIds": [],
+    "category": "negative_case",
+    "slices": ["negative_case"],
+    "difficulty": "medium",
+    "expectedBehavior": "return_no_confident_match",
+    "notes": "No current help-center document covers permanent workspace deletion. Used to test unsupported destructive-action questions."
   }
 ]
