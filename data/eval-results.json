@@ -1213,7 +1213,189 @@
           "reciprocalRank": 0.0
         }
       }
-    ]
+    ],
+    "byCategory": {
+      "billing": {
+        "questionCount": 9,
+        "summary": {
+          "meanHitAt1": 0.8888888888888888,
+          "meanHitAt3": 0.8888888888888888,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.6111111111111112,
+          "meanRecallAt5": 0.7592592592592592,
+          "mrr": 0.911111111111111
+        }
+      },
+      "billing_access": {
+        "questionCount": 5,
+        "summary": {
+          "meanHitAt1": 0.6,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.4666666666666666,
+          "meanRecallAt5": 0.4666666666666666,
+          "mrr": 0.7666666666666667
+        }
+      },
+      "permissions": {
+        "questionCount": 6,
+        "summary": {
+          "meanHitAt1": 0.5,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.6388888888888888,
+          "meanRecallAt5": 0.8611111111111112,
+          "mrr": 0.75
+        }
+      },
+      "plans": {
+        "questionCount": 7,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.6666666666666667,
+          "meanRecallAt5": 0.7857142857142857,
+          "mrr": 1.0
+        }
+      },
+      "exports": {
+        "questionCount": 9,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8888888888888888,
+          "meanRecallAt5": 1.0,
+          "mrr": 1.0
+        }
+      }
+    },
+    "byDifficulty": {
+      "medium": {
+        "questionCount": 17,
+        "summary": {
+          "meanHitAt1": 0.8235294117647058,
+          "meanHitAt3": 0.9411764705882353,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.7352941176470589,
+          "meanRecallAt5": 0.8725490196078431,
+          "mrr": 0.8941176470588235
+        }
+      },
+      "hard": {
+        "questionCount": 13,
+        "summary": {
+          "meanHitAt1": 0.8461538461538461,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.5641025641025641,
+          "meanRecallAt5": 0.6923076923076923,
+          "mrr": 0.9102564102564104
+        }
+      },
+      "easy": {
+        "questionCount": 6,
+        "summary": {
+          "meanHitAt1": 0.8333333333333334,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.75,
+          "meanRecallAt5": 0.8333333333333334,
+          "mrr": 0.9166666666666666
+        }
+      }
+    },
+    "bySlice": {
+      "semantic_paraphrase": {
+        "questionCount": 18,
+        "summary": {
+          "meanHitAt1": 0.7222222222222222,
+          "meanHitAt3": 0.9444444444444444,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.6666666666666666,
+          "meanRecallAt5": 0.7685185185185186,
+          "mrr": 0.8351851851851851
+        }
+      },
+      "multi_intent": {
+        "questionCount": 19,
+        "summary": {
+          "meanHitAt1": 0.8947368421052632,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.587719298245614,
+          "meanRecallAt5": 0.7280701754385965,
+          "mrr": 0.9385964912280701
+        }
+      },
+      "billing_access_overlap": {
+        "questionCount": 9,
+        "summary": {
+          "meanHitAt1": 0.7777777777777778,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.5,
+          "meanRecallAt5": 0.6296296296296297,
+          "mrr": 0.8703703703703703
+        }
+      },
+      "exact_keyword": {
+        "questionCount": 7,
+        "summary": {
+          "meanHitAt1": 0.8571428571428571,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8095238095238095,
+          "meanRecallAt5": 0.9285714285714286,
+          "mrr": 0.9285714285714286
+        }
+      },
+      "permission_boundary": {
+        "questionCount": 11,
+        "summary": {
+          "meanHitAt1": 0.7272727272727273,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.712121212121212,
+          "meanRecallAt5": 0.9242424242424242,
+          "mrr": 0.8636363636363636
+        }
+      },
+      "plan_limit": {
+        "questionCount": 7,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.7380952380952381,
+          "meanRecallAt5": 0.7857142857142857,
+          "mrr": 1.0
+        }
+      },
+      "export_permission": {
+        "questionCount": 5,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.9,
+          "meanRecallAt5": 1.0,
+          "mrr": 1.0
+        }
+      },
+      "vague_wording": {
+        "questionCount": 2,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.5,
+          "meanRecallAt5": 0.6666666666666666,
+          "mrr": 1.0
+        }
+      }
+    }
   },
   {
     "strategy": "tfidf",
@@ -2429,7 +2611,189 @@
           "reciprocalRank": 0.0
         }
       }
-    ]
+    ],
+    "byCategory": {
+      "billing": {
+        "questionCount": 9,
+        "summary": {
+          "meanHitAt1": 0.8888888888888888,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8518518518518519,
+          "meanRecallAt5": 0.9074074074074073,
+          "mrr": 0.9444444444444444
+        }
+      },
+      "billing_access": {
+        "questionCount": 5,
+        "summary": {
+          "meanHitAt1": 0.6,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.4333333333333333,
+          "meanRecallAt5": 0.6,
+          "mrr": 0.7333333333333333
+        }
+      },
+      "permissions": {
+        "questionCount": 6,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8611111111111112,
+          "meanRecallAt5": 0.9166666666666666,
+          "mrr": 1.0
+        }
+      },
+      "plans": {
+        "questionCount": 7,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.7857142857142857,
+          "meanRecallAt5": 0.9047619047619048,
+          "mrr": 1.0
+        }
+      },
+      "exports": {
+        "questionCount": 9,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8888888888888888,
+          "meanRecallAt5": 1.0,
+          "mrr": 1.0
+        }
+      }
+    },
+    "byDifficulty": {
+      "medium": {
+        "questionCount": 17,
+        "summary": {
+          "meanHitAt1": 0.9411764705882353,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.892156862745098,
+          "meanRecallAt5": 0.9803921568627452,
+          "mrr": 0.9705882352941176
+        }
+      },
+      "hard": {
+        "questionCount": 13,
+        "summary": {
+          "meanHitAt1": 0.8461538461538461,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.6410256410256411,
+          "meanRecallAt5": 0.7564102564102565,
+          "mrr": 0.8974358974358974
+        }
+      },
+      "easy": {
+        "questionCount": 6,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8333333333333334,
+          "meanRecallAt5": 0.9166666666666666,
+          "mrr": 1.0
+        }
+      }
+    },
+    "bySlice": {
+      "semantic_paraphrase": {
+        "questionCount": 18,
+        "summary": {
+          "meanHitAt1": 0.8888888888888888,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8425925925925926,
+          "meanRecallAt5": 0.9074074074074073,
+          "mrr": 0.9351851851851851
+        }
+      },
+      "multi_intent": {
+        "questionCount": 19,
+        "summary": {
+          "meanHitAt1": 0.8947368421052632,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.6754385964912281,
+          "meanRecallAt5": 0.8333333333333334,
+          "mrr": 0.9298245614035089
+        }
+      },
+      "billing_access_overlap": {
+        "questionCount": 9,
+        "summary": {
+          "meanHitAt1": 0.7777777777777778,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.6111111111111112,
+          "meanRecallAt5": 0.7037037037037037,
+          "mrr": 0.8518518518518519
+        }
+      },
+      "exact_keyword": {
+        "questionCount": 7,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.9285714285714286,
+          "meanRecallAt5": 0.9285714285714286,
+          "mrr": 1.0
+        }
+      },
+      "permission_boundary": {
+        "questionCount": 11,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8333333333333333,
+          "meanRecallAt5": 0.9545454545454546,
+          "mrr": 1.0
+        }
+      },
+      "plan_limit": {
+        "questionCount": 7,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.7857142857142857,
+          "meanRecallAt5": 0.9047619047619048,
+          "mrr": 1.0
+        }
+      },
+      "export_permission": {
+        "questionCount": 5,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.9,
+          "meanRecallAt5": 1.0,
+          "mrr": 1.0
+        }
+      },
+      "vague_wording": {
+        "questionCount": 2,
+        "summary": {
+          "meanHitAt1": 0.5,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.6666666666666666,
+          "meanRecallAt5": 0.6666666666666666,
+          "mrr": 0.6666666666666666
+        }
+      }
+    }
   },
   {
     "strategy": "embedding-minilm",
@@ -3645,7 +4009,189 @@
           "reciprocalRank": 0.0
         }
       }
-    ]
+    ],
+    "byCategory": {
+      "billing": {
+        "questionCount": 9,
+        "summary": {
+          "meanHitAt1": 0.8888888888888888,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.925925925925926,
+          "meanRecallAt5": 0.9629629629629629,
+          "mrr": 0.9444444444444444
+        }
+      },
+      "billing_access": {
+        "questionCount": 5,
+        "summary": {
+          "meanHitAt1": 0.4,
+          "meanHitAt3": 0.8,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.4666666666666666,
+          "meanRecallAt5": 0.6,
+          "mrr": 0.5833333333333333
+        }
+      },
+      "permissions": {
+        "questionCount": 6,
+        "summary": {
+          "meanHitAt1": 0.6666666666666666,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.7777777777777778,
+          "meanRecallAt5": 0.9166666666666666,
+          "mrr": 0.8333333333333334
+        }
+      },
+      "plans": {
+        "questionCount": 7,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.7857142857142857,
+          "meanRecallAt5": 0.8571428571428571,
+          "mrr": 1.0
+        }
+      },
+      "exports": {
+        "questionCount": 9,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.9074074074074073,
+          "meanRecallAt5": 0.9444444444444444,
+          "mrr": 1.0
+        }
+      }
+    },
+    "byDifficulty": {
+      "medium": {
+        "questionCount": 17,
+        "summary": {
+          "meanHitAt1": 0.9411764705882353,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.9019607843137255,
+          "meanRecallAt5": 0.9509803921568628,
+          "mrr": 0.9705882352941176
+        }
+      },
+      "hard": {
+        "questionCount": 13,
+        "summary": {
+          "meanHitAt1": 0.6923076923076923,
+          "meanHitAt3": 0.9230769230769231,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.5897435897435896,
+          "meanRecallAt5": 0.7307692307692307,
+          "mrr": 0.8012820512820512
+        }
+      },
+      "easy": {
+        "questionCount": 6,
+        "summary": {
+          "meanHitAt1": 0.8333333333333334,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 1.0,
+          "meanRecallAt5": 1.0,
+          "mrr": 0.9166666666666666
+        }
+      }
+    },
+    "bySlice": {
+      "semantic_paraphrase": {
+        "questionCount": 18,
+        "summary": {
+          "meanHitAt1": 0.8333333333333334,
+          "meanHitAt3": 0.9444444444444444,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.7777777777777778,
+          "meanRecallAt5": 0.8425925925925926,
+          "mrr": 0.8935185185185185
+        }
+      },
+      "multi_intent": {
+        "questionCount": 19,
+        "summary": {
+          "meanHitAt1": 0.7894736842105263,
+          "meanHitAt3": 0.9473684210526315,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.6754385964912281,
+          "meanRecallAt5": 0.8157894736842105,
+          "mrr": 0.8640350877192983
+        }
+      },
+      "billing_access_overlap": {
+        "questionCount": 9,
+        "summary": {
+          "meanHitAt1": 0.6666666666666666,
+          "meanHitAt3": 0.8888888888888888,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.6296296296296295,
+          "meanRecallAt5": 0.7037037037037037,
+          "mrr": 0.7685185185185186
+        }
+      },
+      "exact_keyword": {
+        "questionCount": 7,
+        "summary": {
+          "meanHitAt1": 0.8571428571428571,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 1.0,
+          "meanRecallAt5": 1.0,
+          "mrr": 0.9285714285714286
+        }
+      },
+      "permission_boundary": {
+        "questionCount": 11,
+        "summary": {
+          "meanHitAt1": 0.8181818181818182,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8030303030303031,
+          "meanRecallAt5": 0.9090909090909091,
+          "mrr": 0.9090909090909091
+        }
+      },
+      "plan_limit": {
+        "questionCount": 7,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8095238095238094,
+          "meanRecallAt5": 0.8571428571428571,
+          "mrr": 1.0
+        }
+      },
+      "export_permission": {
+        "questionCount": 5,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8333333333333334,
+          "meanRecallAt5": 0.9,
+          "mrr": 1.0
+        }
+      },
+      "vague_wording": {
+        "questionCount": 2,
+        "summary": {
+          "meanHitAt1": 0.5,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.6666666666666666,
+          "meanRecallAt5": 0.6666666666666666,
+          "mrr": 0.6666666666666666
+        }
+      }
+    }
   },
   {
     "strategy": "embedding-mpnet",
@@ -4861,7 +5407,189 @@
           "reciprocalRank": 0.0
         }
       }
-    ]
+    ],
+    "byCategory": {
+      "billing": {
+        "questionCount": 9,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.9629629629629629,
+          "meanRecallAt5": 0.9629629629629629,
+          "mrr": 1.0
+        }
+      },
+      "billing_access": {
+        "questionCount": 5,
+        "summary": {
+          "meanHitAt1": 0.8,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.5,
+          "meanRecallAt5": 0.6333333333333333,
+          "mrr": 0.9
+        }
+      },
+      "permissions": {
+        "questionCount": 6,
+        "summary": {
+          "meanHitAt1": 0.8333333333333334,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8055555555555555,
+          "meanRecallAt5": 0.9444444444444445,
+          "mrr": 0.9166666666666666
+        }
+      },
+      "plans": {
+        "questionCount": 7,
+        "summary": {
+          "meanHitAt1": 0.8571428571428571,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8095238095238095,
+          "meanRecallAt5": 0.9523809523809524,
+          "mrr": 0.9285714285714286
+        }
+      },
+      "exports": {
+        "questionCount": 9,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.9074074074074073,
+          "meanRecallAt5": 1.0,
+          "mrr": 1.0
+        }
+      }
+    },
+    "byDifficulty": {
+      "medium": {
+        "questionCount": 17,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.9215686274509803,
+          "meanRecallAt5": 0.9509803921568628,
+          "mrr": 1.0
+        }
+      },
+      "hard": {
+        "questionCount": 13,
+        "summary": {
+          "meanHitAt1": 0.7692307692307693,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.6282051282051282,
+          "meanRecallAt5": 0.8461538461538461,
+          "mrr": 0.8846153846153846
+        }
+      },
+      "easy": {
+        "questionCount": 6,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 1.0,
+          "meanRecallAt5": 1.0,
+          "mrr": 1.0
+        }
+      }
+    },
+    "bySlice": {
+      "semantic_paraphrase": {
+        "questionCount": 18,
+        "summary": {
+          "meanHitAt1": 0.9444444444444444,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8240740740740741,
+          "meanRecallAt5": 0.9074074074074073,
+          "mrr": 0.9722222222222222
+        }
+      },
+      "multi_intent": {
+        "questionCount": 19,
+        "summary": {
+          "meanHitAt1": 0.8947368421052632,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.7368421052631579,
+          "meanRecallAt5": 0.868421052631579,
+          "mrr": 0.9473684210526315
+        }
+      },
+      "billing_access_overlap": {
+        "questionCount": 9,
+        "summary": {
+          "meanHitAt1": 0.7777777777777778,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.6111111111111112,
+          "meanRecallAt5": 0.7592592592592592,
+          "mrr": 0.8888888888888888
+        }
+      },
+      "exact_keyword": {
+        "questionCount": 7,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 1.0,
+          "meanRecallAt5": 1.0,
+          "mrr": 1.0
+        }
+      },
+      "permission_boundary": {
+        "questionCount": 11,
+        "summary": {
+          "meanHitAt1": 0.9090909090909091,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8181818181818182,
+          "meanRecallAt5": 0.9696969696969696,
+          "mrr": 0.9545454545454546
+        }
+      },
+      "plan_limit": {
+        "questionCount": 7,
+        "summary": {
+          "meanHitAt1": 0.8571428571428571,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.7619047619047619,
+          "meanRecallAt5": 0.9523809523809524,
+          "mrr": 0.9285714285714286
+        }
+      },
+      "export_permission": {
+        "questionCount": 5,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8333333333333334,
+          "meanRecallAt5": 1.0,
+          "mrr": 1.0
+        }
+      },
+      "vague_wording": {
+        "questionCount": 2,
+        "summary": {
+          "meanHitAt1": 0.5,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.6666666666666666,
+          "meanRecallAt5": 0.8333333333333333,
+          "mrr": 0.75
+        }
+      }
+    }
   },
   {
     "strategy": "hybrid-tfidf50-mpnet50",
@@ -6077,6 +6805,188 @@
           "reciprocalRank": 0.0
         }
       }
-    ]
+    ],
+    "byCategory": {
+      "billing": {
+        "questionCount": 9,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8703703703703703,
+          "meanRecallAt5": 0.9629629629629629,
+          "mrr": 1.0
+        }
+      },
+      "billing_access": {
+        "questionCount": 5,
+        "summary": {
+          "meanHitAt1": 0.6,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.4333333333333333,
+          "meanRecallAt5": 0.6666666666666666,
+          "mrr": 0.7666666666666667
+        }
+      },
+      "permissions": {
+        "questionCount": 6,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8611111111111112,
+          "meanRecallAt5": 1.0,
+          "mrr": 1.0
+        }
+      },
+      "plans": {
+        "questionCount": 7,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8571428571428571,
+          "meanRecallAt5": 0.9523809523809524,
+          "mrr": 1.0
+        }
+      },
+      "exports": {
+        "questionCount": 9,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8518518518518519,
+          "meanRecallAt5": 1.0,
+          "mrr": 1.0
+        }
+      }
+    },
+    "byDifficulty": {
+      "medium": {
+        "questionCount": 17,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8725490196078431,
+          "meanRecallAt5": 0.9803921568627452,
+          "mrr": 1.0
+        }
+      },
+      "hard": {
+        "questionCount": 13,
+        "summary": {
+          "meanHitAt1": 0.8461538461538461,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.6153846153846154,
+          "meanRecallAt5": 0.8461538461538461,
+          "mrr": 0.9102564102564104
+        }
+      },
+      "easy": {
+        "questionCount": 6,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 1.0,
+          "meanRecallAt5": 1.0,
+          "mrr": 1.0
+        }
+      }
+    },
+    "bySlice": {
+      "semantic_paraphrase": {
+        "questionCount": 18,
+        "summary": {
+          "meanHitAt1": 0.9444444444444444,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8240740740740741,
+          "meanRecallAt5": 0.9074074074074073,
+          "mrr": 0.9629629629629629
+        }
+      },
+      "multi_intent": {
+        "questionCount": 19,
+        "summary": {
+          "meanHitAt1": 0.8947368421052632,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.6666666666666666,
+          "meanRecallAt5": 0.8947368421052632,
+          "mrr": 0.9385964912280701
+        }
+      },
+      "billing_access_overlap": {
+        "questionCount": 9,
+        "summary": {
+          "meanHitAt1": 0.7777777777777778,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.6111111111111112,
+          "meanRecallAt5": 0.7777777777777778,
+          "mrr": 0.8703703703703703
+        }
+      },
+      "exact_keyword": {
+        "questionCount": 7,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 1.0,
+          "meanRecallAt5": 1.0,
+          "mrr": 1.0
+        }
+      },
+      "permission_boundary": {
+        "questionCount": 11,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8030303030303031,
+          "meanRecallAt5": 1.0,
+          "mrr": 1.0
+        }
+      },
+      "plan_limit": {
+        "questionCount": 7,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8095238095238094,
+          "meanRecallAt5": 0.9523809523809524,
+          "mrr": 1.0
+        }
+      },
+      "export_permission": {
+        "questionCount": 5,
+        "summary": {
+          "meanHitAt1": 1.0,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.8333333333333334,
+          "meanRecallAt5": 1.0,
+          "mrr": 1.0
+        }
+      },
+      "vague_wording": {
+        "questionCount": 2,
+        "summary": {
+          "meanHitAt1": 0.5,
+          "meanHitAt3": 1.0,
+          "meanHitAt5": 1.0,
+          "meanRecallAt3": 0.6666666666666666,
+          "meanRecallAt5": 0.6666666666666666,
+          "mrr": 0.75
+        }
+      }
+    }
   }
 ]

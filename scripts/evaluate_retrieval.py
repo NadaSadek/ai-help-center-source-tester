@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import Literal
 
 from retrieval.metrics import (
     calculate_hit_at_k,
@@ -9,6 +10,7 @@ from retrieval.metrics import (
     calculate_reciprocal_rank,
 )
 from retrieval.types import (
+    GroupedEvaluationSummary,
     MetricsSummary,
     QuestionEvaluation,
     QuestionRetrievalResult,
@@ -93,11 +95,51 @@ def calculate_summary_metrics(metrics_list: list[RetrievalMetrics]) -> MetricsSu
     }
 
 
+def add_to_group(
+    groups: dict[str, list[QuestionEvaluation]],
+    group_key: str,
+    question_evaluation: QuestionEvaluation,
+) -> None:
+    if group_key not in groups:
+        groups[group_key] = []
+
+    groups[group_key].append(question_evaluation)
+
+
+def group_summaries(
+    questions_evaluations: list[QuestionEvaluation],
+    group_name: Literal["slices", "category", "difficulty"],
+) -> dict[str, GroupedEvaluationSummary]:
+    groups: dict[str, list[QuestionEvaluation]] = {}
+    for question_evaluation in questions_evaluations:
+        if group_name == "slices":
+            for slice_name in question_evaluation["slices"]:
+                add_to_group(groups, slice_name, question_evaluation)
+        else:
+            group_key = question_evaluation[group_name]
+            add_to_group(groups, group_key, question_evaluation)
+
+    grouped_summaries: dict[str, GroupedEvaluationSummary] = {}
+
+    for group_key, group_questions in groups.items():
+        metrics_list = [
+            question_evaluation["metrics"] for question_evaluation in group_questions
+        ]
+
+        grouped_summaries[group_key] = {
+            "questionCount": len(group_questions),
+            "summary": calculate_summary_metrics(metrics_list),
+        }
+
+    return grouped_summaries
+
+
 def evaluate_strategy(
     questions: list[TestQuestion],
     retrieval_results: list[QuestionRetrievalResult],
     strategy_type: str,
 ) -> QuestionsEvaluation:
+
     retrieval_by_question_id = {item["questionId"]: item for item in retrieval_results}
 
     all_questions_evaluations_result: list[QuestionEvaluation] = []
@@ -135,6 +177,9 @@ def evaluate_strategy(
         - len(positive_question_evaluations),
         "summary": calculate_summary_metrics(positive_metrics_list),
         "questions": all_questions_evaluations_result,
+        "byCategory": group_summaries(positive_question_evaluations, "category"),
+        "byDifficulty": group_summaries(positive_question_evaluations, "difficulty"),
+        "bySlice": group_summaries(positive_question_evaluations, "slices"),
     }
     return eval_result_by_strategy
 
