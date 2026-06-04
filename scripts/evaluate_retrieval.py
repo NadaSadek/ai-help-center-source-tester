@@ -49,6 +49,10 @@ def evaluate_question(
         "question": question["question"],
         "expectedDocIds": expected_doc_ids,
         "retrievedDocIds": retrieved_doc_ids,
+        "category": question["category"],
+        "slices": question["slices"],
+        "difficulty": question["difficulty"],
+        "expectedBehavior": question["expectedBehavior"],
         "metrics": {
             "hitAt1": calculate_hit_at_k(expected_doc_ids, retrieved_doc_ids, 1),
             "hitAt3": calculate_hit_at_k(expected_doc_ids, retrieved_doc_ids, 3),
@@ -64,6 +68,18 @@ def evaluate_question(
 
 def calculate_mean(values: list[float]) -> float:
     return sum(values) / len(values)
+
+
+def is_positive_retrieval_question(
+    question_evaluation: QuestionEvaluation,
+) -> bool:
+    return question_evaluation["expectedBehavior"] == "retrieve_expected_sources"
+
+
+def is_negative_case_question(
+    question_evaluation: QuestionEvaluation,
+) -> bool:
+    return question_evaluation["expectedBehavior"] == "return_no_confident_match"
 
 
 def calculate_summary_metrics(metrics_list: list[RetrievalMetrics]) -> MetricsSummary:
@@ -100,14 +116,24 @@ def evaluate_strategy(
             evaluate_question(retrieval_result, question)
         )
 
-    metrics_list = [
-        question_evaluation_result["metrics"]
+    positive_question_evaluations = [
+        question_evaluation_result
         for question_evaluation_result in all_questions_evaluations_result
+        if is_positive_retrieval_question(question_evaluation_result)
+    ]
+
+    positive_metrics_list = [
+        question_evaluation_result["metrics"]
+        for question_evaluation_result in positive_question_evaluations
     ]
 
     eval_result_by_strategy: QuestionsEvaluation = {
         "strategy": strategy_type,
-        "summary": calculate_summary_metrics(metrics_list),
+        "questionCount": len(all_questions_evaluations_result),
+        "positiveQuestionCount": len(positive_question_evaluations),
+        "negativeQuestionCount": len(all_questions_evaluations_result)
+        - len(positive_question_evaluations),
+        "summary": calculate_summary_metrics(positive_metrics_list),
         "questions": all_questions_evaluations_result,
     }
     return eval_result_by_strategy

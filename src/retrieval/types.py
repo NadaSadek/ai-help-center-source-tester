@@ -1,15 +1,5 @@
 from typing import Literal, TypedDict
 
-
-class Chunk(TypedDict):
-    chunkId: str
-    docId: str
-    title: str
-    category: str
-    sourcePath: str
-    text: str
-
-
 QuestionCategory = Literal[
     "billing",
     "billing_access",
@@ -90,10 +80,17 @@ class QuestionEvaluation(TypedDict):
     question: str
     expectedDocIds: list[str]
     retrievedDocIds: list[str]
+    category: QuestionCategory
+    slices: list[QuestionSlice]
+    difficulty: QuestionDifficulty
+    expectedBehavior: ExpectedBehavior
     metrics: RetrievalMetrics
 
 
 class QuestionsEvaluation(TypedDict):
     strategy: str
-    questions: list[QuestionEvaluation]
+    questionCount: int
+    positiveQuestionCount: int
+    negativeQuestionCount: int
     summary: MetricsSummary
+    questions: list[QuestionEvaluation]
