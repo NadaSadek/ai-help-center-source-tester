@@ -78,8 +78,7 @@ def main() -> None:
     bm25 = BM25Okapi(tokenized_corpus)
 
     all_questions_results = [
-        get_top_results(question_obj, chunks, bm25, TOP_K)
-        for question_obj in questions
+        get_top_results(question_obj, chunks, bm25, TOP_K) for question_obj in questions
     ]
 
     OUTPUT_PATH.write_text(
