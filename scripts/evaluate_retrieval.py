@@ -22,6 +22,7 @@ QUESTIONS_PATH = Path("data/test-questions.json")
 OUTPUT_PATH = Path("data/eval-results.json")
 
 RETRIEVAL_RESULT_SOURCES = [
+    ("bm25", Path("data/bm25-results.json")),
     ("tfidf", Path("data/keyword-results.json")),
     ("embedding-minilm", Path("data/embedding-results-minilm.json")),
     ("embedding-mpnet", Path("data/embedding-results-mpnet.json")),
