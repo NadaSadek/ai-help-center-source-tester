@@ -1,9 +1,8 @@
 import { StrategySummaryGrid } from "./components/StrategySummaryGrid";
-import evalResults from "../data/eval-results.json";
-import testQuestions from "../data/test-questions.json";
 import failureAnalysis from "../data/failure-analysis.json";
 import { QuestionsResults } from "./components/QuestionsResults";
 import { DashboardHeader } from "./components/RetrievalDashboardHeader";
+import { evalResults, testQuestions } from "./generated/evaluation-data";
 
 function App() {
   return (
