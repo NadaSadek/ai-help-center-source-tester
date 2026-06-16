@@ -1,34 +1,6 @@
 import { formatMetric } from "../lib/formatMetric";
 import type { EvalResult } from "../lib/types";
-
-const strategyLabels: Record<
-  EvalResult["strategy"],
-  {
-    label: string;
-    description: string;
-  }
-> = {
-  bm25: {
-    label: "BM25",
-    description: "Lexical baseline with term-frequency ranking",
-  },
-  tfidf: {
-    label: "TF-IDF",
-    description: "Keyword baseline",
-  },
-  "embedding-minilm": {
-    label: "MiniLM embedding",
-    description: "Lightweight semantic retrieval",
-  },
-  "embedding-mpnet": {
-    label: "MPNet embedding",
-    description: "Stronger semantic retrieval",
-  },
-  "hybrid-tfidf50-mpnet50": {
-    label: "Hybrid TF-IDF + MPNet",
-    description: "Keyword and semantic retrieval combined",
-  },
-};
+import { strategyLabels } from "../lib/strategyLabels";
 
 export const StrategySummaryGrid = ({ evalResults }: { evalResults: EvalResult[] }) => {
   const sortedResults = [...evalResults].sort((a, b) => b.summary.mrr - a.summary.mrr);
