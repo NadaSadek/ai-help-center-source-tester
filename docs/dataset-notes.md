@@ -34,4 +34,4 @@ Unsupported or negative cases are included to represent questions where the help
 
 ## Evaluation intent
 
-The evaluation goal is to catch retrieval failures before an answer is generated and specifically understand which retrieval strategy performs best for a set of questions grouped by slice, category and difficulty.
+The evaluation goal is to catch retrieval failures before an answer is generated and to understand which retrieval strategy performs best for a set of questions grouped by slice, category and difficulty.
