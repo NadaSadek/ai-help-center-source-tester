@@ -1,42 +1,25 @@
-export type Summary = {
-  meanHitAt1: number;
-  meanHitAt3: number;
-  meanHitAt5: number;
-  meanRecallAt3: number;
-  meanRecallAt5: number;
-  mrr: number;
-};
+import type {
+  MetricsSummary,
+  QuestionEvaluation,
+  QuestionCategory,
+  QuestionDifficulty,
+  QuestionSlice,
+  ExpectedBehavior,
+} from "../types/evaluation";
 
-export type Question = {
-  questionId: string;
-  question: string;
-  expectedDocIds: string[];
-  retrievedDocIds: string[];
-  metrics: {
-    hitAt1: boolean;
-    hitAt3: boolean;
-    hitAt5: boolean;
-    recallAt3: number;
-    recallAt5: number;
-    reciprocalRank: number;
-  };
-};
-
-export type EvalResult = {
-  strategy: string;
-  questions: Question[];
-  summary: Summary;
-};
+export type Summary = MetricsSummary;
+export type Question = QuestionEvaluation;
 
 export type TestQuestion = {
   id: string;
   question: string;
   expectedDocIds: string[];
-  category: string;
-  difficulty: string;
+  category: QuestionCategory;
+  slices: QuestionSlice[];
+  difficulty: QuestionDifficulty;
+  expectedBehavior: ExpectedBehavior;
   notes: string;
 };
-
 export type FailureAnalysis = {
   questionId: string;
   failureNote: string;

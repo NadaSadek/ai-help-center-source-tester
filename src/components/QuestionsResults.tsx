@@ -1,9 +1,10 @@
-import type { EvalResult, TestQuestion, FailureAnalysis } from "../lib/types";
+import type { TestQuestion, FailureAnalysis } from "../lib/types";
+import type { StrategyEvaluation } from "../types/evaluation";
 import { QuestionFailureAnalysis } from "./QuestionFailureAnalysis";
 import { QuestionStrategyResult } from "./QuestionStrategyResult";
 
 const getQuestionsStrategyResultsById = (
-  evalResults: EvalResult[],
+  evalResults: StrategyEvaluation[],
   testQuestions: TestQuestion[],
 ) => {
   return testQuestions.map(({ id, question, expectedDocIds, category, difficulty }) => ({
@@ -27,7 +28,7 @@ export const QuestionsResults = ({
   testQuestions,
   failureAnalysisList,
 }: {
-  evalResults: EvalResult[];
+  evalResults: StrategyEvaluation[];
   testQuestions: TestQuestion[];
   failureAnalysisList: FailureAnalysis[];
 }) => {

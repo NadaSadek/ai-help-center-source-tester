@@ -2,8 +2,15 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import Literal
 
+from retrieval.metrics import (
+    calculate_hit_at_k,
+    calculate_recall_at_k,
+    calculate_reciprocal_rank,
+)
 from retrieval.types import (
+    GroupedEvaluationSummary,
     MetricsSummary,
     QuestionEvaluation,
     QuestionRetrievalResult,
@@ -17,6 +24,7 @@ QUESTIONS_PATH = Path("data/test-questions.json")
 OUTPUT_PATH = Path("data/eval-results.json")
 
 RETRIEVAL_RESULT_SOURCES = [
+    ("bm25", Path("data/bm25-results.json")),
     ("tfidf", Path("data/keyword-results.json")),
     ("embedding-minilm", Path("data/embedding-results-minilm.json")),
     ("embedding-mpnet", Path("data/embedding-results-mpnet.json")),
@@ -26,37 +34,6 @@ RETRIEVAL_RESULT_SOURCES = [
 
 def load_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
-
-
-def get_retrieved_doc_ids(results: list[RetrievalResult], k: int) -> list[str]:
-    return [result["docId"] for result in results[:k]]
-
-
-def calculate_hit(
-    expected_doc_ids: list[str],
-    retrieved_doc_ids: list[str],
-) -> bool:
-    return any(doc_id in expected_doc_ids for doc_id in retrieved_doc_ids)
-
-
-def calculate_recall_at_k(
-    expected_doc_ids: list[str],
-    retrieved_doc_ids: list[str],
-) -> float:
-    expected = set(expected_doc_ids)
-    retrieved = set(retrieved_doc_ids)
-    return len(expected & retrieved) / len(expected)
-
-
-def calculate_reciprocal_rank(
-    expected_doc_ids: list[str],
-    results: list[RetrievalResult],
-) -> float:
-    for result in results:
-        if result["docId"] in expected_doc_ids:
-            return 1 / result["rank"]
-
-    return 0.0
 
 
 def get_all_retrieved_doc_ids(results: list[RetrievalResult]) -> list[str]:
@@ -74,24 +51,18 @@ def evaluate_question(
         "question": question["question"],
         "expectedDocIds": expected_doc_ids,
         "retrievedDocIds": retrieved_doc_ids,
+        "category": question["category"],
+        "slices": question["slices"],
+        "difficulty": question["difficulty"],
+        "expectedBehavior": question["expectedBehavior"],
         "metrics": {
-            "hitAt1": calculate_hit(
-                expected_doc_ids, get_retrieved_doc_ids(retrieval_results["results"], 1)
-            ),
-            "hitAt3": calculate_hit(
-                expected_doc_ids, get_retrieved_doc_ids(retrieval_results["results"], 3)
-            ),
-            "hitAt5": calculate_hit(
-                expected_doc_ids, get_retrieved_doc_ids(retrieval_results["results"], 5)
-            ),
-            "recallAt3": calculate_recall_at_k(
-                expected_doc_ids, get_retrieved_doc_ids(retrieval_results["results"], 3)
-            ),
-            "recallAt5": calculate_recall_at_k(
-                expected_doc_ids, get_retrieved_doc_ids(retrieval_results["results"], 5)
-            ),
+            "hitAt1": calculate_hit_at_k(expected_doc_ids, retrieved_doc_ids, 1),
+            "hitAt3": calculate_hit_at_k(expected_doc_ids, retrieved_doc_ids, 3),
+            "hitAt5": calculate_hit_at_k(expected_doc_ids, retrieved_doc_ids, 5),
+            "recallAt3": calculate_recall_at_k(expected_doc_ids, retrieved_doc_ids, 3),
+            "recallAt5": calculate_recall_at_k(expected_doc_ids, retrieved_doc_ids, 5),
             "reciprocalRank": calculate_reciprocal_rank(
-                expected_doc_ids, retrieval_results["results"]
+                expected_doc_ids, retrieved_doc_ids
             ),
         },
     }
@@ -99,6 +70,18 @@ def evaluate_question(
 
 def calculate_mean(values: list[float]) -> float:
     return sum(values) / len(values)
+
+
+def is_positive_retrieval_question(
+    question_evaluation: QuestionEvaluation,
+) -> bool:
+    return question_evaluation["expectedBehavior"] == "retrieve_expected_sources"
+
+
+def is_negative_case_question(
+    question_evaluation: QuestionEvaluation,
+) -> bool:
+    return question_evaluation["expectedBehavior"] == "return_no_confident_match"
 
 
 def calculate_summary_metrics(metrics_list: list[RetrievalMetrics]) -> MetricsSummary:
@@ -112,29 +95,91 @@ def calculate_summary_metrics(metrics_list: list[RetrievalMetrics]) -> MetricsSu
     }
 
 
+def add_to_group(
+    groups: dict[str, list[QuestionEvaluation]],
+    group_key: str,
+    question_evaluation: QuestionEvaluation,
+) -> None:
+    if group_key not in groups:
+        groups[group_key] = []
+
+    groups[group_key].append(question_evaluation)
+
+
+def group_summaries(
+    questions_evaluations: list[QuestionEvaluation],
+    group_name: Literal["slices", "category", "difficulty"],
+) -> dict[str, GroupedEvaluationSummary]:
+    groups: dict[str, list[QuestionEvaluation]] = {}
+    for question_evaluation in questions_evaluations:
+        if group_name == "slices":
+            for slice_name in question_evaluation["slices"]:
+                add_to_group(groups, slice_name, question_evaluation)
+        else:
+            group_key = question_evaluation[group_name]
+            add_to_group(groups, group_key, question_evaluation)
+
+    grouped_summaries: dict[str, GroupedEvaluationSummary] = {}
+
+    for group_key, group_questions in groups.items():
+        metrics_list = [
+            question_evaluation["metrics"] for question_evaluation in group_questions
+        ]
+
+        grouped_summaries[group_key] = {
+            "questionCount": len(group_questions),
+            "summary": calculate_summary_metrics(metrics_list),
+        }
+
+    return grouped_summaries
+
+
 def evaluate_strategy(
     questions: list[TestQuestion],
     retrieval_results: list[QuestionRetrievalResult],
     strategy_type: str,
 ) -> QuestionsEvaluation:
+
     retrieval_by_question_id = {item["questionId"]: item for item in retrieval_results}
 
     all_questions_evaluations_result: list[QuestionEvaluation] = []
     for question in questions:
-        retrieval_result = retrieval_by_question_id[question["id"]]
+        question_id = question["id"]
+
+        if question_id not in retrieval_by_question_id:
+            raise ValueError(
+                f"Missing retrieval result for question {question_id} "
+                f"in strategy {strategy_type}."
+                "Re-run the retrieval scripts after changing test questions."
+            )
+
+        retrieval_result = retrieval_by_question_id[question_id]
         all_questions_evaluations_result.append(
             evaluate_question(retrieval_result, question)
         )
 
-    metrics_list = [
-        question_evaluation_result["metrics"]
+    positive_question_evaluations = [
+        question_evaluation_result
         for question_evaluation_result in all_questions_evaluations_result
+        if is_positive_retrieval_question(question_evaluation_result)
+    ]
+
+    positive_metrics_list = [
+        question_evaluation_result["metrics"]
+        for question_evaluation_result in positive_question_evaluations
     ]
 
     eval_result_by_strategy: QuestionsEvaluation = {
         "strategy": strategy_type,
-        "summary": calculate_summary_metrics(metrics_list),
+        "questionCount": len(all_questions_evaluations_result),
+        "positiveQuestionCount": len(positive_question_evaluations),
+        "negativeQuestionCount": len(all_questions_evaluations_result)
+        - len(positive_question_evaluations),
+        "summary": calculate_summary_metrics(positive_metrics_list),
         "questions": all_questions_evaluations_result,
+        "byCategory": group_summaries(positive_question_evaluations, "category"),
+        "byDifficulty": group_summaries(positive_question_evaluations, "difficulty"),
+        "bySlice": group_summaries(positive_question_evaluations, "slices"),
     }
     return eval_result_by_strategy
 

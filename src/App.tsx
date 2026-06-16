@@ -1,9 +1,8 @@
 import { StrategySummaryGrid } from "./components/StrategySummaryGrid";
-import evalResults from "../data/eval-results.json";
-import testQuestions from "../data/test-questions.json";
-import failureAnalysis from "../data/failure-analysis.json";
+import { evalResults, failureAnalysisList, testQuestions } from "./generated/evaluation-data";
 import { QuestionsResults } from "./components/QuestionsResults";
 import { DashboardHeader } from "./components/RetrievalDashboardHeader";
+import { DiagnosticBreakdown } from "./components/DiagnosticBreakdown";
 
 function App() {
   return (
@@ -11,10 +10,11 @@ function App() {
       <div className="mx-auto max-w-6xl space-y-8">
         <DashboardHeader evalResults={evalResults} />
         <StrategySummaryGrid evalResults={evalResults} />
+        <DiagnosticBreakdown evalResults={evalResults} />
         <QuestionsResults
           evalResults={evalResults}
           testQuestions={testQuestions}
-          failureAnalysisList={failureAnalysis}
+          failureAnalysisList={failureAnalysisList}
         />
       </div>
     </main>
