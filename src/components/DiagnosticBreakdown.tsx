@@ -27,7 +27,7 @@ const diagnosticModeOptions: DiagnosticModeOption[] = [
     value: "bySlice",
     label: "By slice",
     description:
-      "Slices represent retrieval challenge types. A question can belong to multiple slices, so counts do not add up to the total.",
+      "Slices represent retrieval challenge types. A question can belong to multiple slices so counts do not add up to the total.",
   },
   {
     value: "byCategory",
@@ -112,21 +112,20 @@ export const DiagnosticBreakdown = ({ evalResults }: { evalResults: StrategyEval
     diagnosticModeOptions[0];
 
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white shadow-sm">
-      <div className="border-b border-slate-200 px-5 py-4">
+    <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <div className="border-b border-slate-200 bg-white px-5 py-4">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
-            <h2 className="text-lg font-semibold text-slate-900">Diagnostic breakdown</h2>
+            <h2 className="text-lg font-semibold text-slate-950">Diagnostic breakdown</h2>
             <p className="mt-1 max-w-2xl text-sm leading-6 text-slate-600">
-              Inspect where retrieval strategies perform well or fail across different evaluation
-              groups.
+              Compare the best-performing strategy for each evaluation group
             </p>
           </div>
 
           <label className="flex flex-col gap-1 text-sm font-medium text-slate-700">
             View
             <select
-              className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm"
+              className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-950 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100"
               value={selectedMode}
               onChange={(event) => {
                 if (isDiagnosticMode(event.target.value)) {
@@ -142,7 +141,9 @@ export const DiagnosticBreakdown = ({ evalResults }: { evalResults: StrategyEval
             </select>
           </label>
         </div>
-        <p className="mt-4 text-sm text-slate-600">{selectedModeOption.description}</p>
+        <p className="mt-4 max-w-3xl text-sm leading-6 text-slate-600">
+          {selectedModeOption.description}
+        </p>
       </div>
 
       <div className="overflow-x-auto">
@@ -164,20 +165,20 @@ export const DiagnosticBreakdown = ({ evalResults }: { evalResults: StrategyEval
 
               return (
                 <tr key={row.group}>
-                  <td className="px-5 py-4 font-medium text-slate-900">
+                  <td className="px-5 py-3 font-medium text-slate-900">
                     {formatGroupLabel(row.group)}
                   </td>
-                  <td className="px-5 py-4 text-slate-700">{bestStrategy.label}</td>
-                  <td className="px-5 py-4 text-right font-mono text-slate-900">
+                  <td className="px-5 py-3 text-slate-700">{bestStrategy.label}</td>
+                  <td className="px-5 py-3 text-right font-mono text-slate-900">
                     {row.questionCount}
                   </td>
-                  <td className="px-5 py-4 text-right font-mono text-slate-900">
+                  <td className="px-5 py-3 text-right font-mono text-slate-900">
                     {formatMetric(row.hitAt1)}
                   </td>
-                  <td className="px-5 py-4 text-right font-mono text-slate-900">
+                  <td className="px-5 py-3 text-right font-mono text-slate-900">
                     {formatMetric(row.recallAt5)}
                   </td>
-                  <td className="px-5 py-4 text-right font-mono text-slate-900">
+                  <td className="px-5 py-3 text-right font-mono text-slate-900">
                     {formatMetric(row.mrr)}
                   </td>
                 </tr>
