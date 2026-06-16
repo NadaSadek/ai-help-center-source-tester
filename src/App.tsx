@@ -1,8 +1,7 @@
 import { StrategySummaryGrid } from "./components/StrategySummaryGrid";
-import failureAnalysis from "../data/failure-analysis.json";
+import { evalResults, failureAnalysisList, testQuestions } from "./generated/evaluation-data";
 import { QuestionsResults } from "./components/QuestionsResults";
 import { DashboardHeader } from "./components/RetrievalDashboardHeader";
-import { evalResults, testQuestions } from "./generated/evaluation-data";
 import { DiagnosticBreakdown } from "./components/DiagnosticBreakdown";
 
 function App() {
@@ -15,12 +14,7 @@ function App() {
         <QuestionsResults
           evalResults={evalResults}
           testQuestions={testQuestions}
-          failureAnalysisList={failureAnalysis}
-        />
-        <QuestionsResults
-          evalResults={evalResults}
-          testQuestions={testQuestions}
-          failureAnalysisList={failureAnalysis}
+          failureAnalysisList={failureAnalysisList}
         />
       </div>
     </main>

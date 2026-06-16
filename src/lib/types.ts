@@ -1,7 +1,6 @@
 import type {
   MetricsSummary,
   QuestionEvaluation,
-  StrategyEvaluation,
   QuestionCategory,
   QuestionDifficulty,
   QuestionSlice,
@@ -10,7 +9,6 @@ import type {
 
 export type Summary = MetricsSummary;
 export type Question = QuestionEvaluation;
-export type EvalResult = StrategyEvaluation;
 
 export type TestQuestion = {
   id: string;

@@ -1,7 +1,7 @@
 import { formatMetric } from "../lib/formatMetric";
-import type { EvalResult } from "../lib/types";
+import type { StrategyEvaluation } from "../types/evaluation";
 
-type QuestionResult = EvalResult["questions"][number];
+type QuestionResult = StrategyEvaluation["questions"][number];
 const ResultBadge = ({ isCorrect }: { isCorrect: boolean }) => (
   <span
     className={

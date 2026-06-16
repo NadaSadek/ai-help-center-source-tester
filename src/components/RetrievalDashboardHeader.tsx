@@ -1,24 +1,8 @@
-import { formatMetric } from "../lib/formatMetric";
-import type { EvalResult } from "../lib/types";
+import type { StrategyEvaluation } from "../types/evaluation";
 
-const strategyDisplayNames: Record<string, string> = {
-  tfidf: "TF-IDF",
-  "embedding-minilm": "MiniLM",
-  "embedding-mpnet": "MPNet",
-  "hybrid-tfidf50-mpnet50": "Hybrid 50/50",
-};
-
-export const DashboardHeader = ({ evalResults }: { evalResults: EvalResult[] }) => {
+export const DashboardHeader = ({ evalResults }: { evalResults: StrategyEvaluation[] }) => {
   const questionCount = evalResults[0].questions.length;
   const strategyCount = evalResults.length;
-
-  const bestMrrStrategy = evalResults.reduce((best, current) =>
-    current.summary.mrr > best.summary.mrr ? current : best,
-  );
-
-  const bestRecallAt5Strategy = evalResults.reduce((best, current) =>
-    current.summary.meanRecallAt5 > best.summary.meanRecallAt5 ? current : best,
-  );
 
   return (
     <header className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
@@ -51,44 +35,6 @@ export const DashboardHeader = ({ evalResults }: { evalResults: EvalResult[] }) 
             </div>
           </dl>
         </div>
-
-        <aside className="rounded-2xl border border-indigo-100 bg-indigo-50/40 p-5">
-          <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
-            Current finding
-          </p>
-
-          <p className="mt-3 text-base font-medium leading-7 text-slate-800">
-            MPNet is the strongest early-rank baseline while the 50/50 hybrid improves top-5
-            coverage but weakens early ranking.
-          </p>
-
-          <div className="mt-4 grid gap-3 text-sm sm:grid-cols-2">
-            <div className="rounded-xl bg-white px-3 py-2">
-              <p className="text-slate-500">Best MRR</p>
-              <div className="mt-2 flex items-baseline justify-between gap-3">
-                <span className="text-slate-800">
-                  {strategyDisplayNames[bestMrrStrategy.strategy] ?? bestMrrStrategy.strategy}
-                </span>
-                <span className="font-mono text-sm text-slate-800">
-                  {formatMetric(bestMrrStrategy.summary.mrr)}
-                </span>
-              </div>
-            </div>
-
-            <div className="rounded-xl bg-white px-3 py-2">
-              <p className="text-slate-500">Best Recall@5</p>
-              <div className="mt-2 flex items-baseline justify-between gap-3">
-                <span className="text-slate-800">
-                  {strategyDisplayNames[bestRecallAt5Strategy.strategy] ??
-                    bestRecallAt5Strategy.strategy}
-                </span>
-                <span className="font-mono text-sm text-slate-800">
-                  {formatMetric(bestRecallAt5Strategy.summary.meanRecallAt5)}
-                </span>
-              </div>
-            </div>
-          </div>
-        </aside>
       </div>
     </header>
   );

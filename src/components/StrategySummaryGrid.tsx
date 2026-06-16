@@ -1,8 +1,8 @@
 import { formatMetric } from "../lib/formatMetric";
-import type { EvalResult } from "../lib/types";
+import type { StrategyEvaluation } from "../types/evaluation";
 import { strategyLabels } from "../lib/strategyLabels";
 
-export const StrategySummaryGrid = ({ evalResults }: { evalResults: EvalResult[] }) => {
+export const StrategySummaryGrid = ({ evalResults }: { evalResults: StrategyEvaluation[] }) => {
   const sortedResults = [...evalResults].sort((a, b) => b.summary.mrr - a.summary.mrr);
   const bestResult = sortedResults[0];
 

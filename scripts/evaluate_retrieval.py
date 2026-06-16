@@ -149,7 +149,7 @@ def evaluate_strategy(
         if question_id not in retrieval_by_question_id:
             raise ValueError(
                 f"Missing retrieval result for question {question_id} "
-                "in strategy {strategy_type}."
+                f"in strategy {strategy_type}."
                 "Re-run the retrieval scripts after changing test questions."
             )
 
