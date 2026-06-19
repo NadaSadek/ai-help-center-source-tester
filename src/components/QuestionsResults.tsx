@@ -44,12 +44,12 @@ export const QuestionsResults = ({
   return (
     <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
       <div className="border-b border-slate-200 px-5 py-4">
-        <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
+        <h2 className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
           Question-level inspection
-        </p>
-        <h2 className="mt-2 text-lg font-semibold text-slate-950">
-          Inspect expected vs retrieved sources
         </h2>
+        <p className="mt-2 text-lg font-semibold text-slate-950">
+          Inspect expected vs retrieved sources
+        </p>
       </div>
 
       <div className="divide-y divide-slate-100">
@@ -78,7 +78,7 @@ export const QuestionsResults = ({
                           </span>
                         )}
                       </div>
-                      <h3 className="text-lg font-semibold leading-7 text-slate-900">{question}</h3>
+                      <p className="text-lg font-semibold leading-7 text-slate-900">{question}</p>
                       <div className="flex flex-wrap items-center gap-2 text-sm">
                         <span className="font-medium text-slate-500">Expected:</span>
                         {expectedDocIds.map((docId) => (

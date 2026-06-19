@@ -22,9 +22,9 @@ export const StrategySummaryGrid = ({ evalResults }: { evalResults: StrategyEval
             <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
               Best overall strategy
             </p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-950">
+            <p className="mt-2 text-2xl font-semibold tracking-tight text-slate-950">
               {bestStrategy.label}
-            </h2>
+            </p>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
               {bestStrategy.description}. Ranked by MRR across positive retrieval questions.
             </p>
@@ -63,6 +63,7 @@ export const StrategySummaryGrid = ({ evalResults }: { evalResults: StrategyEval
 
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-slate-200 text-sm">
+            <caption className="sr-only">Strategy comparison by Hit@1, Recall@5 and MRR</caption>
             <thead className="bg-slate-50">
               <tr>
                 <th className="px-5 py-3 text-left font-semibold text-slate-600">Strategy</th>

@@ -122,9 +122,18 @@ export const DiagnosticBreakdown = ({ evalResults }: { evalResults: StrategyEval
             </p>
           </div>
 
-          <label className="flex flex-col gap-1 text-sm font-medium text-slate-700">
-            View
+          <div className="flex flex-col gap-1">
+            <label
+              htmlFor="diagnostic-breakdown-view"
+              className="text-sm font-medium text-slate-700"
+            >
+              View
+            </label>
+
             <select
+              id="diagnostic-breakdown-view"
+              name="diagnosticBreakdownView"
+              aria-describedby="diagnostic-breakdown-description"
               className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-950 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100"
               value={selectedMode}
               onChange={(event) => {
@@ -139,15 +148,19 @@ export const DiagnosticBreakdown = ({ evalResults }: { evalResults: StrategyEval
                 </option>
               ))}
             </select>
-          </label>
+          </div>
         </div>
-        <p className="mt-4 max-w-3xl text-sm leading-6 text-slate-600">
+        <p
+          id="diagnostic-breakdown-description"
+          className="mt-4 max-w-3xl text-sm leading-6 text-slate-600"
+        >
           {selectedModeOption.description}
         </p>
       </div>
 
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-slate-200 text-sm">
+          <caption className="sr-only">Best retrieval strategy for each diagnostic group</caption>
           <thead className="bg-slate-50">
             <tr>
               <th className="px-5 py-3 text-left font-semibold text-slate-600">Group</th>
