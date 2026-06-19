@@ -32,21 +32,21 @@ export const DashboardHeader = ({ evalResults }: { evalResults: StrategyEvaluati
 
         <dl className="grid gap-3 text-sm sm:grid-cols-4 lg:min-w-130">
           <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
-            <dt className="text-xs font-medium uppercase tracking-wide text-slate-500">
+            <dt className="text-xs font-medium uppercase tracking-wide text-slate-700">
               Questions
             </dt>
             <dd className="mt-1 font-mono text-lg font-semibold text-slate-950">{questionCount}</dd>
           </div>
 
           <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
-            <dt className="text-xs font-medium uppercase tracking-wide text-slate-500">Positive</dt>
+            <dt className="text-xs font-medium uppercase tracking-wide text-slate-700">Positive</dt>
             <dd className="mt-1 font-mono text-lg font-semibold text-slate-950">
               {positiveQuestionCount}
             </dd>
           </div>
 
           <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
-            <dt className="text-xs font-medium uppercase tracking-wide text-slate-500">
+            <dt className="text-xs font-medium uppercase tracking-wide text-slate-700">
               Unsupported
             </dt>
             <dd className="mt-1 font-mono text-lg font-semibold text-slate-950">
@@ -55,7 +55,7 @@ export const DashboardHeader = ({ evalResults }: { evalResults: StrategyEvaluati
           </div>
 
           <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
-            <dt className="text-xs font-medium uppercase tracking-wide text-slate-500">
+            <dt className="text-xs font-medium uppercase tracking-wide text-slate-700">
               Strategies
             </dt>
             <dd className="mt-1 font-mono text-lg font-semibold text-slate-950">{strategyCount}</dd>

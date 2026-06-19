@@ -10,7 +10,7 @@ export const QuestionFailureAnalysis = ({
   }
   return (
     <section className="mb-5 rounded-xl border border-slate-200 bg-slate-50 p-4">
-      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+      <p className="text-xs font-semibold uppercase tracking-wide text-slate-700">
         Failure Analysis note
       </p>
       <p className="mt-2 font-medium text-slate-800">

@@ -62,7 +62,7 @@ export const QuestionsResults = ({
                   <div className="flex items-start justify-between gap-4">
                     <div className="space-y-3">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="rounded-full bg-slate-100 px-2.5 py-1 font-mono text-xs text-slate-500">
+                        <span className="rounded-full bg-slate-100 px-2.5 py-1 font-mono text-xs text-slate-700">
                           {id}
                         </span>
                         <span className="rounded-full bg-indigo-100 px-2.5 py-1 text-xs font-medium text-indigo-900">
@@ -80,7 +80,7 @@ export const QuestionsResults = ({
                       </div>
                       <p className="text-lg font-semibold leading-7 text-slate-900">{question}</p>
                       <div className="flex flex-wrap items-center gap-2 text-sm">
-                        <span className="font-medium text-slate-500">Expected:</span>
+                        <span className="font-medium text-slate-700">Expected:</span>
                         {expectedDocIds.map((docId) => (
                           <span
                             key={docId}
@@ -92,11 +92,11 @@ export const QuestionsResults = ({
                       </div>
                     </div>
 
-                    <div className="flex size-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 transition-colors group-hover:border-indigo-200 group-hover:text-indigo-600 group-open:bg-slate-100">
+                    <div className="flex size-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition-colors group-hover:border-indigo-200 group-hover:text-indigo-600 group-open:bg-slate-100">
                       <svg
                         aria-hidden="true"
                         viewBox="0 0 20 20"
-                        className="size-5 transition-transform group-open:rotate-180"
+                        className="size-5 transition-transform group-open:rotate-270"
                       >
                         <path
                           fill="currentColor"
