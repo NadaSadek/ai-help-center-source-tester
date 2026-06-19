@@ -65,15 +65,15 @@ export const QuestionsResults = ({
                         <span className="rounded-full bg-slate-100 px-2.5 py-1 font-mono text-xs text-slate-500">
                           {id}
                         </span>
-                        <span className="rounded-full bg-indigo-100 px-2.5 py-1 text-xs font-medium text-indigo-900">
+                        <span className="rounded-full bg-indigo-100 px-2.5 py-1 text-xs font-medium text-indigo-700 ring-1 ring-inset ring-indigo-100">
                           {formatLabel(category)}
                         </span>
 
-                        <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
+                        <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600 ring-1 ring-inset ring-slate-200">
                           {formatLabel(difficulty)}
                         </span>
                         {failureAnalysis && (
-                          <span className="rounded-full bg-amber-100 px-2.5 py-1 text-xs font-medium text-amber-800">
+                          <span className="rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-800 ring-1 ring-inset ring-amber-200">
                             failure note
                           </span>
                         )}
@@ -108,7 +108,7 @@ export const QuestionsResults = ({
                 </summary>
 
                 <div className="px-5 pb-5">
-                  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div className="rounded-2xl border border-slate-200 bg-slate-100 p-4">
                     <QuestionFailureAnalysis failureAnalysis={failureAnalysis} />
                     <div className="grid gap-4 lg:grid-cols-2">
                       {strategies.map(({ strategy, result }) => {
