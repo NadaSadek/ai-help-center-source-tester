@@ -1,46 +1,83 @@
 # AI Help Center Source Tester
 
-A retrieval evaluation project for testing whether a help-center assistant finds the right source documents before generating an answer.
+A retrieval evaluation workbench for testing whether a help-center assistant finds the right source documents before answer generation.
 
-The goal is to test source retrieval quality across a controlled fake SaaS help center and compare different retrieval strategies using measurable ranking metrics.
+The project compares multiple retrieval strategies against a controlled fake SaaS help center. It measures whether each strategy retrieves the expected source documents, where it fails and which type of questions are harder to retrieve correctly.
 
 Live demo: https://support-rag-source-eval.netlify.app/
 
-![AI Help Center Source Tester dashboard overview](./docs/screenshots/top_dashboard_overview.png)
+![AI Help Center Source Tester dashboard overview](./docs/screenshots/top_dashboard_overview_v2.png)
 
-_Overview of the retrieval evaluation dashboard comparing TF-IDF, embeddings and hybrid retrieval._
+*Overview of the retrieval evaluation dashboard comparing keyword, embedding and hybrid retrieval strategies.*
+
+## Why
+
+Help-center AI assistants can produce confident answers while being grounded in the wrong or incomplete source documents. Looking only at the final answer can hide the retrieval problem.
+
+This project focuses on the retrieval step before answer generation.
+
+The goal is to answer questions like:
+
+* Did the retrieval system find the expected source article?
+* Did the correct source appear at rank 1 or further down the list?
+* Which strategy works best for exact keyword questions, semantic paraphrases or multi-intent support questions?
+* Which categories and question types are more likely to fail?
 
 ## What this project tests
 
-This project tests the retrieval step when we have the following:
+The evaluation uses:
 
-- fake help-center documentation
-- realistic customer/support questions
-- expected source documents for each question
+* synthetic SaaS help-center documentation
+* realistic support/customer questions
+* expected source documents for each question
+* retrieval outputs from several strategies
+* ranking metrics and diagnostic breakdowns
 
-It compares whether different retrieval strategies return the expected source documents at high ranks.
+The dashboard shows:
+
+* best overall retrieval strategy
+* strategy comparison by Hit@1, Recall@5 and MRR
+* diagnostic breakdown by category, slice and difficulty
+* question-level inspection of expected vs retrieved sources
 
 ## Fake product context
 
-The dataset uses a fake SaaS product called **ExampleOps**. The help-center docs are AI-generated and manually structured for retrieval evaluation.
+The dataset uses a fake SaaS product called **ExampleOps**. The help-center docs are synthetic but structured like realistic SaaS support documentation.
 
-The current help-center docs cover:
+The docs cover:
 
-- billing and invoices
-- cancellation and refund behavior
-- failed payments
-- workspace access
-- entitlement sync
-- plan limits and upgrades
-- dashboard exports
-- export and billing permissions
+* billing and invoices
+* cancellation and refunds
+* failed payments
+* workspace access
+* entitlement sync
+* plan limits and upgrades
+* dashboard exports
+* export and billing permissions
+
+See [`docs/dataset-notes.md`](docs/dataset-notes.md) for more detail on the dataset design.
+
+## Evaluation dataset
+
+The current dataset contains:
+
+| Type                                       | Count |
+| ------------------------------------------ | ----: |
+| Total test questions                       |    40 |
+| Positive retrieval questions               |    36 |
+| Unsupported / no-confident-match questions |     4 |
+
+Positive retrieval questions have expected source documents and are included in the ranking metrics.
+
+Unsupported questions are included in the dataset to represent cases where the assistant should not confidently retrieve a source but they are not included in the ranking metrics yet.
 
 ## Retrieval strategies
 
-The project currently compares four retrieval strategies:
+The project currently compares five retrieval strategies:
 
 | Strategy                 | Description                                                              |
 | ------------------------ | ------------------------------------------------------------------------ |
+| `bm25`                   | Lexical baseline using BM25 ranking                                      |
 | `tfidf`                  | Keyword-based retrieval using TF-IDF and cosine similarity               |
 | `embedding-minilm`       | Local semantic retrieval using `sentence-transformers/all-MiniLM-L6-v2`  |
 | `embedding-mpnet`        | Local semantic retrieval using `sentence-transformers/all-mpnet-base-v2` |
@@ -59,127 +96,109 @@ Each strategy is evaluated using ranking metrics:
 | `Recall@5` | How many expected source docs appear in the top 5         |
 | `MRR`      | Mean reciprocal rank of the first correct source          |
 
-- Hit metrics show whether retrieval found at least one useful source
-- Recall metrics show whether retrieval covered all expected sources
+Hit metrics show whether retrieval found at least one useful source.
+
+Recall metrics show whether retrieval covered all expected sources.
+
+MRR rewards strategies that rank the first correct source higher.
 
 ## Current results
 
-Current evaluation over 16 test questions:
+Current evaluation over 36 positive retrieval questions:
 
-| Strategy                 | Mean Hit@1 | Mean Hit@3 | Mean Hit@5 | Mean Recall@3 | Mean Recall@5 |   MRR |
-| ------------------------ | ---------: | ---------: | ---------: | ------------: | ------------: | ----: |
-| `tfidf`                  |      0.875 |      1.000 |      1.000 |         0.781 |         0.927 | 0.927 |
-| `embedding-minilm`       |      0.813 |      1.000 |      1.000 |         0.875 |         0.948 | 0.896 |
-| `embedding-mpnet`        |      1.000 |      1.000 |      1.000 |         0.917 |         0.948 | 1.000 |
-| `hybrid-tfidf50-mpnet50` |      0.938 |      1.000 |      1.000 |         0.844 |         1.000 | 0.958 |
+| Strategy                 | Hit@1 | Recall@5 |   MRR |
+| ------------------------ | ----: | -------: | ----: |
+| `hybrid-tfidf50-mpnet50` | 0.944 |    0.935 | 0.968 |
+| `embedding-mpnet`        | 0.917 |    0.921 | 0.958 |
+| `tfidf`                  | 0.917 |    0.889 | 0.949 |
+| `embedding-minilm`       | 0.833 |    0.880 | 0.900 |
+| `bm25`                   | 0.833 |    0.801 | 0.904 |
+
+The hybrid strategy performs best overall by MRR in the current dataset.
+
+The diagnostic breakdown shows that different strategies perform better on different groups of questions. For example, exact keyword questions behave differently from vague or multi-intent questions.
 
 ## Main findings
 
-### 1. TF-IDF is weak on multi-intent questions
+### 1. Hybrid retrieval performs best overall
 
-TF-IDF performs well when the question contains exact terms, such as invoice, payment, refund or export.
+The 50/50 TF-IDF + MPNet hybrid has the strongest overall result in the current dataset. It combines lexical matching with semantic retrieval which helps when questions contain both exact product terms and paraphrased user language.
 
-It struggles when the user question mixes multiple intents such as:
+### 2. MPNet is the strongest single semantic baseline
 
-> The invoice says paid but my team still can't access the workspace.
+`all-mpnet-base-v2` performs close to the hybrid strategy and is stronger than the smaller MiniLM embedding model on this dataset.
 
-This combines invoice/payment wording with workspace access and entitlement sync intent. TF-IDF over-ranks literal matches like invoice and team before the deeper access-related sources.
+This makes it a useful semantic baseline when comparing whether a hybrid strategy is actually improving retrieval or only adding noise.
 
-### 2. MiniLM improves some semantic cases but is not consistently better
+### 3. Keyword methods are still important for certain use cases
 
-`all-MiniLM-L6-v2` improves semantic coverage in some cases but it can also over-rank semantically related but incomplete documents.
+BM25 and TF-IDF perform well on questions with exact document language, product terms or clear keyword overlap.
 
-For example, when a question mentions an old billing admin leaving the company, MiniLM over-ranks workspace/admin role content before the billing permissions source.
+They are weaker when the question is vague, indirect or combines multiple support intents.
 
-### 3. MPNet is the strongest current retrieval baseline
+### 4. Overall scores hide where retrieval fails
 
-`all-mpnet-base-v2` performs best overall on this dataset. It improves top-ranked source quality and semantic source coverage compared with both TF-IDF and MiniLM.
+The dashboard groups results by:
 
-However, it still misses some supporting sources in multi-source questions which is why Recall@k remains important.
+* category
+* slice
+* difficulty
 
-### 4. 50/50 hybrid retrieval impacts early ranking
+This makes it easier to inspect where retrieval is strong or weak instead of relying only on a single aggregate score.
 
-The 50/50 TF-IDF + MPNet hybrid improves full top-5 coverage but it hurts early ranking compared with pure MPNet.
+## Repository overview
 
-In this dataset, the 50/50 hybrid is not better overall. The lexical signal can pull the ranking back toward misleading exact terms even when MPNet alone ranks the more relevant source earlier.
+The project has two main parts:
 
-## Project structure
-
-```txt
-data/
-  docs/
-    billing/
-    workspace/
-    plans/
-    exports/
-  test-questions.json
-  chunks.json
-  keyword-results.json
-  embedding-results-minilm.json
-  embedding-results-mpnet.json
-  hybrid-results-tfidf50-mpnet50.json
-  eval-results.json
-  failure-analysis.json
-
-scripts/
-  chunk_docs.py
-  run_keyword_retrieval.py
-  run_embedding_retrieval.py
-  run_hybrid_retrieval.py
-  evaluate_retrieval.py
-```
+- `scripts/` contains the retrieval and evaluation pipeline.
+- `src/` contains the React dashboard for inspecting the results.
+- `data/` contains the help-center docs, test questions and generated evaluation outputs.
+- `docs/` contains dataset notes and screenshots.
 
 ## Source files
 
 Inputs:
 
-| File                       | Purpose                                       |
-| -------------------------- | --------------------------------------------- |
-| `data/docs/`               | Fake help-center documentation                |
-| `data/test-questions.json` | Test questions with expected source documents |
+| File                         | Purpose                                                               |
+| ---------------------------- | --------------------------------------------------------------------- |
+| `data/docs/`                 | Fake help-center documentation                                        |
+| `data/test-questions.json`   | Test questions with expected source documents and evaluation metadata |
+| `data/failure-analysis.json` | Notes for selected retrieval failures                                 |
 
 Script-generated outputs:
 
-| File                                       | Purpose                                  |
-| ------------------------------------------ | ---------------------------------------- |
-| `data/chunks.json`                         | Chunks generated from help-center docs   |
-| `data/keyword-results.json`                | TF-IDF retrieval output                  |
-| `data/embedding-results-minilm.json`       | MiniLM embedding retrieval output        |
-| `data/embedding-results-mpnet.json`        | MPNet embedding retrieval output         |
-| `data/hybrid-results-tfidf50-mpnet50.json` | 50/50 hybrid retrieval output            |
-| `data/eval-results.json`                   | Evaluation results across all strategies |
+| File                                       | Purpose                                             |
+| ------------------------------------------ | --------------------------------------------------- |
+| `data/chunks.json`                         | Chunks generated from help-center docs              |
+| `data/bm25-results.json`                   | BM25 retrieval output                               |
+| `data/keyword-results.json`                | TF-IDF retrieval output                             |
+| `data/embedding-results-minilm.json`       | MiniLM embedding retrieval output                   |
+| `data/embedding-results-mpnet.json`        | MPNet embedding retrieval output                    |
+| `data/hybrid-results-tfidf50-mpnet50.json` | Hybrid retrieval output                             |
+| `data/eval-results.json`                   | Evaluation results across all strategies            |
+| `src/generated/evaluation-data.ts`         | Generated typed data used by the frontend dashboard |
 
-I put the analysis of retrieval failure cases in [data/failure-analysis.json](data/failure-analysis.json)
+## Running the evaluation pipeline
 
-## Running the project
-
-Install dependencies:
+Install Python dependencies:
 
 ```bash
 uv sync
 ```
 
-Generate chunks:
+Run the full evaluation pipeline:
 
 ```bash
-uv run python scripts/chunk_docs.py
+uv run python scripts/run_eval_pipeline.py
 ```
 
-Run retrieval strategies:
+Generate the typed frontend data:
 
 ```bash
-uv run python scripts/run_keyword_retrieval.py
-uv run python scripts/run_embedding_retrieval.py
-uv run python scripts/run_hybrid_retrieval.py
+uv run python scripts/generate_frontend_evaluation_data.py
 ```
 
-Evaluate retrieval quality:
-
-```bash
-uv run python scripts/evaluate_retrieval.py
-```
-
-Run formatting and linting:
+Run Python formatting and linting:
 
 ```bash
 uv run ruff check .
@@ -192,9 +211,11 @@ Install frontend dependencies:
 
 ```bash
 npm install
+```
 
 Run the local dev server:
 
+```bash
 npm run dev
 ```
 
@@ -211,8 +232,12 @@ npm run lint
 npm run format:check
 ```
 
-Preview:
+Preview the production build:
 
 ```bash
 npm run preview
 ```
+
+## Notes
+
+The current dataset is synthetic but the failure modes are based on realistic help-center and support-assistant problems: stale source ranking, incomplete source coverage, exact-keyword overmatching and semantic matches that are plausible but not sufficient.
