@@ -6,8 +6,8 @@ const ResultBadge = ({ isCorrect }: { isCorrect: boolean }) => (
   <span
     className={
       isCorrect
-        ? "rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-700"
-        : "rounded-full bg-rose-50 px-2 py-0.5 text-xs font-medium text-rose-700"
+        ? "rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-700 ring-1 ring-inset ring-emerald-200"
+        : "rounded-full bg-rose-50 px-2 py-0.5 text-xs font-medium text-rose-700 ring-1 ring-inset ring-rose-200"
     }
   >
     {isCorrect ? "expected" : "not expected"}
