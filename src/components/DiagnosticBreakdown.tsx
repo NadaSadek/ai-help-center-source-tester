@@ -124,6 +124,7 @@ export const DiagnosticBreakdown = ({ evalResults }: { evalResults: StrategyEval
 
           <div className="flex flex-col gap-1">
             <label
+              id="diagnostic-breakdown-view-label"
               htmlFor="diagnostic-breakdown-view"
               className="text-sm font-medium text-slate-700"
             >
@@ -133,6 +134,7 @@ export const DiagnosticBreakdown = ({ evalResults }: { evalResults: StrategyEval
             <select
               id="diagnostic-breakdown-view"
               name="diagnosticBreakdownView"
+              aria-labelledby="diagnostic-breakdown-view-label"
               aria-describedby="diagnostic-breakdown-description"
               className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-950 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100"
               value={selectedMode}

@@ -32,19 +32,19 @@ export const StrategySummaryGrid = ({ evalResults }: { evalResults: StrategyEval
 
           <dl className="grid grid-cols-3 gap-3 md:min-w-90">
             <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-right">
-              <dt className="text-xs font-medium text-slate-500">Hit@1</dt>
+              <dt className="text-xs font-medium text-slate-700">Hit@1</dt>
               <dd className="mt-1 font-mono text-lg font-semibold text-slate-950">
                 {formatMetric(bestResult.summary.meanHitAt1)}
               </dd>
             </div>
             <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-right">
-              <dt className="text-xs font-medium text-slate-500">Recall@5</dt>
+              <dt className="text-xs font-medium text-slate-700">Recall@5</dt>
               <dd className="mt-1 font-mono text-lg font-semibold text-slate-950">
                 {formatMetric(bestResult.summary.meanRecallAt5)}
               </dd>
             </div>
             <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-right">
-              <dt className="text-xs font-medium text-slate-500">MRR</dt>
+              <dt className="text-xs font-medium text-slate-700">MRR</dt>
               <dd className="mt-1 font-mono text-lg font-semibold text-slate-950">
                 {formatMetric(bestResult.summary.mrr)}
               </dd>
@@ -81,7 +81,7 @@ export const StrategySummaryGrid = ({ evalResults }: { evalResults: StrategyEval
                   <tr key={strategy}>
                     <td className="px-5 py-4">
                       <div className="font-medium text-slate-950">{strategyLabel.label}</div>
-                      <div className="mt-1 text-xs text-slate-500">{strategyLabel.description}</div>
+                      <div className="mt-1 text-xs text-slate-700">{strategyLabel.description}</div>
                     </td>
                     <td className="px-5 py-4 text-right font-mono font-medium text-slate-900">
                       {formatMetric(summary.meanHitAt1)}
